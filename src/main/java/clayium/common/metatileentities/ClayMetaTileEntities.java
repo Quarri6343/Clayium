@@ -5,10 +5,12 @@ import clayium.api.ClayValues;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
+import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
 
 public class ClayMetaTileEntities {
 
 //    public static GTESimpleMachineMetaTileEntity[] EXTREME_MIXER = new GTESimpleMachineMetaTileEntity[1]; //ZPM Only
+    public static ClayWorkTable CLAY_WORKTABLE;
 
 //    public static MetaTileEntitySawmill SAWMILL;
 
@@ -37,16 +39,20 @@ public class ClayMetaTileEntities {
 
         //blocks :13001~
 
-        //EXTREME_MIXER 13001~13009
+        //MANUAL AGE SECTION
+        CLAY_WORKTABLE = registerMetaTileEntity(13001, new ClayWorkTable(clayId("clay_worktable"), false));
+
+        //MACHINE SECTION
 //        EXTREME_MIXER[0]=registerMetaTileEntity(11007,
-//                new GTESimpleMachineMetaTileEntity(gteId(String.format("%s.%s", "extreme_mixer", GTValues.VN[7].toLowerCase())), GTERecipeMaps.EXTREME_MIXER_RECIPES, GTETextures.EXTREME_MIXER_OVERLAY, 7, true, GTUtility.hvCappedTankSizeFunction));
+//        new GTESimpleMachineMetaTileEntity(gteId(String.format("%s.%s", "extreme_mixer", GTValues.VN[7].toLowerCase())), GTERecipeMaps.EXTREME_MIXER_RECIPES, GTETextures.EXTREME_MIXER_OVERLAY, 7, true, GTUtility.hvCappedTankSizeFunction));
+
 
         //multiblocks :13000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));
     }
 
     @Nonnull
-    private static ResourceLocation gteId(String name) {
+    private static ResourceLocation clayId(String name) {
         return new ResourceLocation(ClayValues.MODID, name);
     }
 }
