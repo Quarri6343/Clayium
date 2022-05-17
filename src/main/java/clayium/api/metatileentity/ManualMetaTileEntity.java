@@ -35,16 +35,14 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     protected static final int STEAM_CAPACITY = 16000;
 
-    protected final boolean isHighPressure;
     protected final ICubeRenderer renderer;
     protected RecipeLogicManual workableHandler;
     protected FluidTank steamFluidTank;
 
-    public ManualMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, boolean isHighPressure) {
+    public ManualMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer) {
         super(metaTileEntityId);
         this.workableHandler = new RecipeLogicManual(this,
-                recipeMap, isHighPressure, steamFluidTank, 1.0);
-        this.isHighPressure = isHighPressure;
+                recipeMap, steamFluidTank, 1.0);
         this.renderer = renderer;
     }
 
@@ -55,18 +53,10 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     @SideOnly(Side.CLIENT)
     protected SimpleSidedCubeRenderer getBaseRenderer() {
-        if (isHighPressure) {
-            if (isBrickedCasing()) {
-                return Textures.STEAM_BRICKED_CASING_STEEL;
-            } else {
-                return Textures.STEAM_CASING_STEEL;
-            }
+        if (isBrickedCasing()) {
+            return Textures.STEAM_BRICKED_CASING_BRONZE;
         } else {
-            if (isBrickedCasing()) {
-                return Textures.STEAM_BRICKED_CASING_BRONZE;
-            } else {
-                return Textures.STEAM_CASING_BRONZE;
-            }
+            return Textures.STEAM_CASING_BRONZE;
         }
     }
 
@@ -113,11 +103,11 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     }
 
     public ModularUI.Builder createUITemplate(EntityPlayer player) {
-        return ModularUI.builder(GuiTextures.BACKGROUND_STEAM.get(isHighPressure), 176, 166)
+        return ModularUI.builder(GuiTextures.BACKGROUND_STEAM.get(false), 176, 166)
                 .label(6, 6, getMetaFullName()).shouldColor(false)
-                .widget(new ImageWidget(79, 42, 18, 18, GuiTextures.INDICATOR_NO_STEAM.get(isHighPressure))
+                .widget(new ImageWidget(79, 42, 18, 18, GuiTextures.INDICATOR_NO_STEAM.get(false))
                         .setPredicate(() -> workableHandler.isHasNotEnoughEnergy()))
-                .bindPlayerInventory(player.inventory, GuiTextures.SLOT_STEAM.get(isHighPressure), 0);
+                .bindPlayerInventory(player.inventory, GuiTextures.SLOT_STEAM.get(false), 0);
     }
 
     @Override

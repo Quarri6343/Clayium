@@ -33,18 +33,16 @@ import javax.annotation.Nonnull;
 public class RecipeLogicManual extends ClayAbstractRecipeLogic implements IVentable {
 
     private final IFluidTank steamFluidTank;
-    private final boolean isHighPressure;
     private final double conversionRate; //energy units per millibucket
 
     private boolean needsVenting;
     private boolean ventingStuck;
     private EnumFacing ventingSide;
 
-    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, boolean isHighPressure, IFluidTank steamFluidTank, double conversionRate) {
+    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, IFluidTank steamFluidTank, double conversionRate) {
         super(tileEntity, recipeMap);
         this.steamFluidTank = steamFluidTank;
         this.conversionRate = conversionRate;
-        this.isHighPressure = isHighPressure;
     }
 
     @Override
@@ -146,7 +144,7 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic implements IVenta
         metaTileEntity.getWorld()
                 .getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(ventingBlockPos), EntitySelectors.CAN_AI_TARGET)
                 .forEach(entity -> {
-                    entity.attackEntityFrom(DamageSources.getHeatDamage(), this.isHighPressure ? 12.0f : 6.0f);
+                    entity.attackEntityFrom(DamageSources.getHeatDamage(), 6.0f);
                     if (entity instanceof EntityPlayerMP) {
                         GTTriggers.STEAM_VENT_DEATH.trigger((EntityPlayerMP) entity);
                     }
@@ -188,18 +186,6 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic implements IVenta
         super.completeRecipe();
         setNeedsVenting(true);
         tryDoVenting();
-    }
-
-    @Override
-    protected int[] calculateOverclock(@Nonnull Recipe recipe) {
-
-        //EUt, Duration
-        int[] result = new int[2];
-
-        result[0] = isHighPressure ? recipe.getEUt() * 2 : recipe.getEUt();
-        result[1] = isHighPressure ? recipe.getDuration() : recipe.getDuration() * 2;
-
-        return result;
     }
 
     @Override

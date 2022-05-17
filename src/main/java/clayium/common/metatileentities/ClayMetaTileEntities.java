@@ -40,7 +40,7 @@ public class ClayMetaTileEntities {
         //blocks :13001~
 
         //MANUAL AGE SECTION
-        CLAY_WORKTABLE = registerMetaTileEntity(13001, new ClayWorkTable(clayId("clay_worktable"), false));
+        CLAY_WORKTABLE = registerMetaTileEntity(13001, new ClayWorkTable(clayId("clay_worktable")));
 
         //MACHINE SECTION
 //        EXTREME_MIXER[0]=registerMetaTileEntity(11007,

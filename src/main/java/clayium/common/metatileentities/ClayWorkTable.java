@@ -17,13 +17,13 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 
 public class ClayWorkTable extends ManualMetaTileEntity {
 
-    public ClayWorkTable(ResourceLocation metaTileEntityId, boolean isHighPressure) {
-        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, Textures.ALLOY_SMELTER_OVERLAY, isHighPressure);
+    public ClayWorkTable(ResourceLocation metaTileEntityId) {
+        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, Textures.ALLOY_SMELTER_OVERLAY);
     }
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new ClayWorkTable(metaTileEntityId, isHighPressure);
+        return new ClayWorkTable(metaTileEntityId);
     }
 
     @Override
@@ -44,10 +44,10 @@ public class ClayWorkTable extends ManualMetaTileEntity {
     @Override
     public ModularUI createUI(EntityPlayer player) {
         return createUITemplate(player)
-                .slot(this.importItems, 0, 10, 25, GuiTextures.SLOT_STEAM.get(isHighPressure))
+                .slot(this.importItems, 0, 10, 25, GuiTextures.SLOT_STEAM.get(false))
                 .progressBar(workableHandler::getProgressPercent, 39, 26, 100, 16,
-                        GuiTextures.PROGRESS_BAR_ARROW_STEAM.get(isHighPressure), ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
-                .slot(this.exportItems, 0, 147, 25, true, false, GuiTextures.SLOT_STEAM.get(isHighPressure))
+                        GuiTextures.PROGRESS_BAR_ARROW_STEAM.get(false), ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
+                .slot(this.exportItems, 0, 147, 25, true, false, GuiTextures.SLOT_STEAM.get(false))
                 .build(getHolder(), player);
     }
 }
