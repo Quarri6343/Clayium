@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "clayium",
+  "name": "Clayium",
+  "description": "an Unofficial continuation of Clayium",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["CleanroomMC"],
-  "credits": "Authors of this project",
+  "authorList": ["Quarri6343"],
+  "credits": "Original Author : deb_rk",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
