@@ -1,6 +1,7 @@
 package clayium.client;
 
 import clayium.common.CommonProxy;
+import clayium.common.blocks.ClayMetaBlocks;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -13,11 +14,11 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent e) {
         super.preInit(e);
-//        GTETextures.preInit();
+        ClayTextures.preInit();
     }
 
-//    @SubscribeEvent
-//    public static void registerModels(ModelRegistryEvent event) {
-//        GTEMetaBlocks.registerItemModels();
-//    }
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event) {
+        ClayMetaBlocks.registerItemModels();
+    }
 }

@@ -1,5 +1,5 @@
 package clayium;
-import clayium.api.ClayiumValues;
+import clayium.api.ClayValues;
 import clayium.common.CommonProxy;
 import gregtech.api.GTValues;
 import net.minecraftforge.fml.common.Mod;
@@ -9,13 +9,13 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = ClayiumValues.MODID,
+@Mod(modid = ClayValues.MODID,
         name = "Clayium",
         acceptedMinecraftVersions = "[1.12,1.13)",
         dependencies = GTValues.MOD_VERSION_DEP)
 public class ClayiumMod {
 
-    @SidedProxy(modId = ClayiumValues.MODID, clientSide = "clayium.client.ClientProxy", serverSide = "clayium.common.CommonProxy")
+    @SidedProxy(modId = ClayValues.MODID, clientSide = "clayium.client.ClientProxy", serverSide = "clayium.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance

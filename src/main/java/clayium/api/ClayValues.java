@@ -1,19 +1,10 @@
 package clayium.api;
 
 
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.oredict.OreDictionary;
-
-import java.time.LocalDate;
-import java.util.Random;
-import java.util.function.Supplier;
-
-import static net.minecraft.util.text.TextFormatting.*;
-
 /**
  * Made for static imports, this Class is just a Helper.
  */
-public class ClayiumValues {
+public class ClayValues {
 
     /**
      * The short names for the tiers, used for registration primarily

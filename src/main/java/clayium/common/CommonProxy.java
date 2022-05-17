@@ -1,5 +1,10 @@
 package clayium.common;
 
+import clayium.api.ClayValues;
+import clayium.api.unification.material.ClayMaterials;
+import clayium.common.items.ClayMetaItems;
+import clayium.common.metatileentities.ClayMetaTileEntities;
+import clayium.loaders.recipe.ClayRecipeLoader;
 import gregtech.api.GregTechAPI;
 
 import net.minecraft.block.Block;
@@ -16,12 +21,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.function.Function;
 
-@Mod.EventBusSubscriber(modid = "gtexpert")
+@Mod.EventBusSubscriber(modid = ClayValues.MODID)
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
-//        GTEMetaItems.init();
-//        GTEMetaTileEntities.init();
+        ClayMetaItems.init();
+        ClayMetaTileEntities.init();
     }
 
     public void init(FMLInitializationEvent e) {
@@ -50,7 +55,7 @@ public class CommonProxy {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void registerMaterials(GregTechAPI.MaterialEvent event) {
-//        GTEMaterials.init();
+        ClayMaterials.init();
     }
 
     @SubscribeEvent()
@@ -58,6 +63,6 @@ public class CommonProxy {
         // Main recipe registration
         // This is called AFTER GregTech registers recipes, so
         // anything here is safe to call removals in
-//        GTERecipeLoader.init();
+        ClayRecipeLoader.init();
     }
 }
