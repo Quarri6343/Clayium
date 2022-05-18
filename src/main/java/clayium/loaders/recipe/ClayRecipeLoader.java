@@ -14,9 +14,9 @@ public class ClayRecipeLoader {
 //                "PhP", "PFP", "PwP", 'P',new UnificationEntry(plate, Galvalume),'F',new UnificationEntry(frameGt, Galvalume));
 
         //PLACEHOLDER
-        ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().EUt(16)
+        ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().EUt(10)
                 .input(OrePrefix.dust, Clay, 1)
                 .output(OrePrefix.block, Clay, 1)
-                .duration(50).buildAndRegister();
+                .duration(30).buildAndRegister();
     }
 }

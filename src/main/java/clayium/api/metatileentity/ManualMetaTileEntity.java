@@ -3,6 +3,8 @@ package clayium.api.metatileentity;
 import clayium.api.capability.IClayEnergyContainer;
 import clayium.api.capability.impl.ClayEnergyContainerHandler;
 import clayium.api.capability.impl.RecipeLogicManual;
+import clayium.api.gui.ClayGuiTextures;
+import clayium.client.ClayTextures;
 import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.ColourMultiplier;
@@ -59,7 +61,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     @SideOnly(Side.CLIENT)
     protected SimpleSidedCubeRenderer getBaseRenderer() {
-        return Textures.STEAM_BRICKED_CASING_BRONZE;
+        return ClayTextures.CLAY_MACHINE_HULL_0;
     }
 
     @Override
@@ -99,11 +101,8 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     }
 
     public ModularUI.Builder createUITemplate(EntityPlayer player) {
-        return ModularUI.builder(GuiTextures.BACKGROUND_STEAM.get(false), 176, 166)
-                .label(6, 6, getMetaFullName()).shouldColor(false)
-                .widget(new ImageWidget(79, 42, 18, 18, GuiTextures.INDICATOR_NO_STEAM.get(false))
-                        .setPredicate(() -> workableHandler.isHasNotEnoughEnergy()))
-                .bindPlayerInventory(player.inventory, GuiTextures.SLOT_STEAM.get(false), 0);
+        return ModularUI.builder(GuiTextures.BACKGROUND, 176, 166)
+                .bindPlayerInventory(player.inventory, GuiTextures.SLOT, 0);
     }
 
     @Override

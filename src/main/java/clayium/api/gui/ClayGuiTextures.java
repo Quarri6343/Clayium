@@ -1,13 +1,14 @@
 package clayium.api.gui;
 
+import gregtech.api.gui.resources.TextureArea;
+
 public class ClayGuiTextures {
-//    //GTEXPERT CORE
-//    public static final TextureArea GTEXPERT_CORE_LOGO = TextureArea.fullImage("textures/gui/icon/gtexpert_core_logo.png");
+    //Buttons
+//    public static final TextureArea CLAY_SMASHED = TextureArea.areaOfImage("textures/gui/button.png", 1, 1,0,48,16,16);
+
+    //Background
+//    public static final TextureArea BACKGROUND_CLAY_WORKTABLE = TextureArea.fullImage("textures/gui/clayworktable.png");
 //
-//    //PROGRESS BARS
-//    public static final TextureArea PROGRESS_BAR_GREENHOUSE = TextureArea.fullImage("textures/gui/progress_bar/progress_bar_greenhouse.png");
-//    public static final TextureArea PROGRESS_BAR_VOID = TextureArea.fullImage("textures/gui/progress_bar/progress_bar_void.png");
-//
-//    //SLOT OVERLAYS
+    //SLOT OVERLAYS
 //    public static final TextureArea SEED_OVERLAY = TextureArea.fullImage("textures/gui/overlay/seed_overlay.png");
 }

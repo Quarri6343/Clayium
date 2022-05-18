@@ -1,7 +1,9 @@
 package clayium.common.metatileentities;
 
+import clayium.api.gui.ClayGuiTextures;
 import clayium.api.metatileentity.ManualMetaTileEntity;
 import clayium.api.recipes.ClayRecipeMaps;
+import clayium.client.ClayTextures;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
@@ -23,7 +25,7 @@ import java.util.List;
 public class ClayWorkTable extends ManualMetaTileEntity {
 
     public ClayWorkTable(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, Textures.ALLOY_SMELTER_OVERLAY, 1);
+        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, ClayTextures.CLAY_WORKTABLE_OVERLAY, 1);
     }
 
     @Override
@@ -45,17 +47,19 @@ public class ClayWorkTable extends ManualMetaTileEntity {
     @Override
     public ModularUI createUI(EntityPlayer player) {
         return createUITemplate(player)
-                .slot(this.importItems, 0, 10, 25, GuiTextures.SLOT_STEAM.get(false))
+                .slot(this.importItems, 0, 20, 24, GuiTextures.SLOT)
                 .progressBar(workableHandler::getProgressPercent, 39, 26, 100, 16,
-                        GuiTextures.PROGRESS_BAR_ARROW_STEAM.get(false), ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
+                        GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
                 .widget(new AdvancedTextWidget(100, 45, this::AddDisplayText, 0xFFFFFF))
-                .widget(new ClickButtonWidget(40, 45, 20, 20, "CE", this::AddEnergy)
-                        .setTooltipText("gregtech.gui.item_auto_output.tooltip"))
-                .slot(this.exportItems, 0, 147, 25, true, false, GuiTextures.SLOT_STEAM.get(false))
+                .widget(new ClickButtonWidget(40, 45, 20, 20, "", this::AddEnergy)
+                        .setButtonTexture(GuiTextures.BUTTON_ITEM_OUTPUT)
+                        .setShouldClientCallback(true))
+                .slot(this.exportItems, 0, 144, 24, true, false, GuiTextures.SLOT)
                 .build(getHolder(), player);
     }
 
     protected void AddDisplayText(List<ITextComponent> textList) {
+        textList.add(new TextComponentString("Clay Energy:"));
         textList.add(new TextComponentString(Long.toString(this.energyContainer.getEnergyStored())));
     }
 

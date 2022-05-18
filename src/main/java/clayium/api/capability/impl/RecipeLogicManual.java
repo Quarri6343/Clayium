@@ -107,7 +107,7 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic {
 
     @Override
     protected long getMaxTier() {
-        return tier;
+        return (long) Math.max(32,Math.pow(tier,2) * 32);
     }
 
     @Override
