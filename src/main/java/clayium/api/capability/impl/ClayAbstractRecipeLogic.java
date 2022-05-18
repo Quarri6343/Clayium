@@ -5,16 +5,13 @@ import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.capability.IWorkable;
-import gregtech.api.capability.impl.AbstractRecipeLogic;
 import gregtech.api.metatileentity.MTETrait;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.multiblock.ParallelLogicType;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.recipeproperties.RecipePropertyStorage;
 import gregtech.api.util.GTTransferUtils;
 import gregtech.api.util.GTUtility;
-import gregtech.common.ConfigHolder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -70,7 +67,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
 
     protected abstract boolean drawEnergy(int recipeCEt, boolean simulate);
 
-    protected abstract long getMaxVoltage();
+    protected abstract long getMaxTier();
 
     protected IItemHandlerModifiable getInputInventory() {
         return metaTileEntity.getImportItems();
@@ -205,14 +202,6 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
             //only set hasNotEnoughEnergy if this recipe is consuming recipe
             //generators always have enough energy
             this.hasNotEnoughEnergy = true;
-            //if current progress value is greater than 2, decrement it by 2
-            if (progressTime >= 2) {
-                if (ConfigHolder.machines.recipeProgressLowEnergy) {
-                    this.progressTime = 1;
-                } else {
-                    this.progressTime = Math.max(1, progressTime - 2);
-                }
-            }
         }
     }
 
@@ -233,7 +222,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
     }
 
     protected void trySearchNewRecipe() {
-        long maxVoltage = getMaxVoltage();
+        long maxTier = getMaxTier();
         Recipe currentRecipe;
         IItemHandlerModifiable importInventory = getInputInventory();
         IMultipleTankHandler importFluids = getInputTank();
@@ -243,7 +232,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
             currentRecipe = this.previousRecipe;
             // If there is no active recipe, then we need to find one.
         else {
-            currentRecipe = findRecipe(maxVoltage, importInventory, importFluids);
+            currentRecipe = findRecipe(maxTier, importInventory, importFluids);
         }
         // If a recipe was found, then inputs were valid. Cache found recipe.
         if (currentRecipe != null) {
@@ -373,24 +362,24 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
     }
 
     protected boolean hasEnoughPower(@Nonnull int[] resultOverclock) {
-        // Format of resultOverclock: EU/t, duration
-        int totalEUt = resultOverclock[0] * resultOverclock[1];
+        // Format of resultOverclock: CE/t, duration
+        int totalCEt = resultOverclock[0] * resultOverclock[1];
 
         //RIP Ternary
         // Power Consumption case
-        if (totalEUt >= 0) {
+        if (totalCEt >= 0) {
             int capacity;
             // If the total consumed power is greater than half the internal capacity
-            if (totalEUt > getEnergyCapacity() / 2) {
+            if (totalCEt > getEnergyCapacity() / 2) {
                 // Only draw 1A of power from the internal buffer to allow for recharging of the internal buffer from
                 // external sources
                 capacity = resultOverclock[0];
             } else {
                 // If the total consumed power is less than half the capacity, just drain the whole thing
-                capacity = totalEUt;
+                capacity = totalCEt;
             }
 
-            // Return true if we have energy energy stored to progress the recipe, either 1A or the whole amount
+            // Return true if we have energy stored to progress the recipe, either 1A or the whole amount
             return getEnergyStored() >= capacity;
         }
         // Power Generation case
@@ -400,29 +389,6 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
             // Return true if we can fit at least 1A of energy into the energy output
             return getEnergyStored() - (long) power <= getEnergyCapacity();
         }
-    }
-
-    /**
-     * applies standard logic for overclocking, where each overclock modifies energy and duration
-     *
-     * @param recipeEUt         the EU/t of the recipe to overclock
-     * @param maximumVoltage    the maximum voltage the recipe is allowed to be run at
-     * @param recipeDuration    the duration of the recipe to overclock
-     * @param durationDivisor   the value to divide the duration by for each overclock
-     * @param voltageMultiplier the value to multiply the voltage by for each overclock
-     * @param maxOverclocks     the maximum amount of overclocks allowed
-     * @return an int array of {OverclockedEUt, OverclockedDuration}
-     */
-    public static int[] standardOverclockingLogic(int recipeEUt, long maximumVoltage, int recipeDuration, double durationDivisor, double voltageMultiplier, int maxOverclocks) {
-        int overclockedEUt = recipeEUt;
-        double overclockedDuration = recipeDuration;
-
-        while (overclockedEUt * voltageMultiplier <= GTValues.V[GTUtility.getTierByVoltage(maximumVoltage)] && overclockedDuration / durationDivisor > 0 && maxOverclocks > 0) {
-            overclockedEUt *= voltageMultiplier;
-            overclockedDuration /= durationDivisor;
-            maxOverclocks--;
-        }
-        return new int[]{overclockedEUt, (int) Math.ceil(overclockedDuration)};
     }
 
     /**

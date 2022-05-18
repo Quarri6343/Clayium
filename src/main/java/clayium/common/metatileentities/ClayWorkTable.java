@@ -18,7 +18,7 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 public class ClayWorkTable extends ManualMetaTileEntity {
 
     public ClayWorkTable(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, Textures.ALLOY_SMELTER_OVERLAY);
+        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, Textures.ALLOY_SMELTER_OVERLAY, 1);
     }
 
     @Override

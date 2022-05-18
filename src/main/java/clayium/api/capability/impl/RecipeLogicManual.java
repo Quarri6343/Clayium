@@ -3,7 +3,6 @@ package clayium.api.capability.impl;
 import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.IVentable;
-import gregtech.api.capability.impl.AbstractRecipeLogic;
 import gregtech.api.damagesources.DamageSources;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipes.Recipe;
@@ -30,162 +29,76 @@ import net.minecraftforge.fluids.IFluidTank;
 
 import javax.annotation.Nonnull;
 
-public class RecipeLogicManual extends ClayAbstractRecipeLogic implements IVentable {
+public class RecipeLogicManual extends ClayAbstractRecipeLogic {
 
     private final IFluidTank steamFluidTank;
-    private final double conversionRate; //energy units per millibucket
+    private final double conversionRate; //energy units per steam
+    private final int tier;
 
-    private boolean needsVenting;
-    private boolean ventingStuck;
-    private EnumFacing ventingSide;
+    private EnumFacing outputSide;
 
-    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, IFluidTank steamFluidTank, double conversionRate) {
+    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, IFluidTank steamFluidTank, double conversionRate, int tier) {
         super(tileEntity, recipeMap);
         this.steamFluidTank = steamFluidTank;
         this.conversionRate = conversionRate;
-    }
-
-    @Override
-    public boolean isVentingStuck() {
-        return needsVenting && ventingStuck;
-    }
-
-    @Override
-    public boolean isNeedsVenting() {
-        return needsVenting;
+        this.tier = tier;
     }
 
     @Override
     public void onFrontFacingSet(EnumFacing newFrontFacing) {
-        if (ventingSide == null) {
-            setVentingSide(newFrontFacing.getOpposite());
+        if (outputSide == null) {
+            setOutputSide(newFrontFacing.getOpposite());
         }
     }
 
-    public EnumFacing getVentingSide() {
-        return ventingSide == null ? EnumFacing.SOUTH : ventingSide;
+    public EnumFacing getOutputSide() {
+        return outputSide == null ? EnumFacing.SOUTH : outputSide;
     }
 
-    public void setVentingStuck(boolean ventingStuck) {
-        this.ventingStuck = ventingStuck;
+    public void setOutputSide(EnumFacing outputSide) {
+        this.outputSide = outputSide;
         if (!metaTileEntity.getWorld().isRemote) {
             metaTileEntity.markDirty();
-            writeCustomData(GregtechDataCodes.VENTING_STUCK, buf -> buf.writeBoolean(ventingStuck));
-        }
-    }
-
-    @Override
-    public void setNeedsVenting(boolean needsVenting) {
-        this.needsVenting = needsVenting;
-        if (!needsVenting && ventingStuck)
-            setVentingStuck(false);
-        if (!metaTileEntity.getWorld().isRemote) {
-            metaTileEntity.markDirty();
-            writeCustomData(GregtechDataCodes.NEEDS_VENTING, buf -> buf.writeBoolean(needsVenting));
-        }
-    }
-
-    public void setVentingSide(EnumFacing ventingSide) {
-        this.ventingSide = ventingSide;
-        if (!metaTileEntity.getWorld().isRemote) {
-            metaTileEntity.markDirty();
-            writeCustomData(GregtechDataCodes.VENTING_SIDE, buf -> buf.writeByte(ventingSide.getIndex()));
+            writeCustomData(GregtechDataCodes.VENTING_SIDE, buf -> buf.writeByte(outputSide.getIndex()));
         }
     }
 
     @Override
     public void receiveCustomData(int dataId, PacketBuffer buf) {
         super.receiveCustomData(dataId, buf);
-        if (dataId == GregtechDataCodes.NEEDS_VENTING) {
-            this.needsVenting = buf.readBoolean();
-        } else if (dataId == GregtechDataCodes.VENTING_SIDE) {
-            this.ventingSide = EnumFacing.VALUES[buf.readByte()];
+        if (dataId == GregtechDataCodes.VENTING_SIDE) {
+            this.outputSide = EnumFacing.VALUES[buf.readByte()];
             getMetaTileEntity().scheduleRenderUpdate();
-        } else if (dataId == GregtechDataCodes.VENTING_STUCK) {
-            this.ventingStuck = buf.readBoolean();
         }
     }
 
     @Override
     public void writeInitialData(@Nonnull PacketBuffer buf) {
         super.writeInitialData(buf);
-        buf.writeByte(getVentingSide().getIndex());
-        buf.writeBoolean(needsVenting);
-        buf.writeBoolean(ventingStuck);
+        buf.writeByte(getOutputSide().getIndex());
     }
 
     @Override
     public void receiveInitialData(@Nonnull PacketBuffer buf) {
         super.receiveInitialData(buf);
-        this.ventingSide = EnumFacing.VALUES[buf.readByte()];
-        this.needsVenting = buf.readBoolean();
-        this.ventingStuck = buf.readBoolean();
-    }
-
-    @Override
-    public void tryDoVenting() {
-        BlockPos machinePos = metaTileEntity.getPos();
-        EnumFacing ventingSide = getVentingSide();
-        BlockPos ventingBlockPos = machinePos.offset(ventingSide);
-        IBlockState blockOnPos = metaTileEntity.getWorld().getBlockState(ventingBlockPos);
-        if (blockOnPos.getCollisionBoundingBox(metaTileEntity.getWorld(), ventingBlockPos) == Block.NULL_AABB) {
-            performVentingAnimation(ventingBlockPos, machinePos);
-        }
-        else if(blockOnPos.getBlock() == Blocks.SNOW_LAYER && blockOnPos.getValue(BlockSnow.LAYERS) == 1) {
-            performVentingAnimation(ventingBlockPos, machinePos);
-            metaTileEntity.getWorld().destroyBlock(ventingBlockPos, false);
-        }
-        else if (!ventingStuck) {
-            setVentingStuck(true);
-        }
-    }
-
-    private void performVentingAnimation(BlockPos ventingBlockPos, BlockPos machinePos) {
-        metaTileEntity.getWorld()
-                .getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(ventingBlockPos), EntitySelectors.CAN_AI_TARGET)
-                .forEach(entity -> {
-                    entity.attackEntityFrom(DamageSources.getHeatDamage(), 6.0f);
-                    if (entity instanceof EntityPlayerMP) {
-                        GTTriggers.STEAM_VENT_DEATH.trigger((EntityPlayerMP) entity);
-                    }
-                });
-        WorldServer world = (WorldServer) metaTileEntity.getWorld();
-        double posX = machinePos.getX() + 0.5 + ventingSide.getXOffset() * 0.6;
-        double posY = machinePos.getY() + 0.5 + ventingSide.getYOffset() * 0.6;
-        double posZ = machinePos.getZ() + 0.5 + ventingSide.getZOffset() * 0.6;
-
-        world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, posX, posY, posZ,
-                7 + world.rand.nextInt(3),
-                ventingSide.getXOffset() / 2.0,
-                ventingSide.getYOffset() / 2.0,
-                ventingSide.getZOffset() / 2.0, 0.1);
-        if (ConfigHolder.machines.machineSounds && !metaTileEntity.isMuffled()){
-            world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        }
-        setNeedsVenting(false);
-
+        this.outputSide = EnumFacing.VALUES[buf.readByte()];
     }
 
     @Override
     public void update() {
         if (getMetaTileEntity().getWorld().isRemote)
             return;
-        if (this.needsVenting && metaTileEntity.getOffsetTimer() % 10 == 0) {
-            tryDoVenting();
-        }
         super.update();
     }
 
     @Override
     protected boolean checkRecipe(Recipe recipe) {
-        return super.checkRecipe(recipe) && !this.needsVenting;
+        return super.checkRecipe(recipe);
     }
 
     @Override
     protected void completeRecipe() {
         super.completeRecipe();
-        setNeedsVenting(true);
-        tryDoVenting();
     }
 
     @Override
@@ -204,31 +117,27 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic implements IVenta
     }
 
     @Override
-    protected boolean drawEnergy(int recipeEUt, boolean simulate) {
-        int resultDraw = (int) Math.ceil(recipeEUt / conversionRate);
+    protected boolean drawEnergy(int recipeCEt, boolean simulate) {
+        int resultDraw = (int) Math.ceil(recipeCEt / conversionRate);
         return resultDraw >= 0 && steamFluidTank.getFluidAmount() >= resultDraw &&
                 steamFluidTank.drain(resultDraw, !simulate) != null;
     }
 
     @Override
-    protected long getMaxVoltage() {
-        return GTValues.V[GTValues.LV];
+    protected long getMaxTier() {
+        return tier;
     }
 
     @Override
     public NBTTagCompound serializeNBT() {
         NBTTagCompound compound = super.serializeNBT();
-        compound.setInteger("VentingSide", getVentingSide().getIndex());
-        compound.setBoolean("NeedsVenting", needsVenting);
-        compound.setBoolean("VentingStuck", ventingStuck);
+        compound.setInteger("VentingSide", getOutputSide().getIndex());
         return compound;
     }
 
     @Override
     public void deserializeNBT(@Nonnull NBTTagCompound compound) {
         super.deserializeNBT(compound);
-        this.ventingSide = EnumFacing.VALUES[compound.getInteger("VentingSide")];
-        this.needsVenting = compound.getBoolean("NeedsVenting");
-        this.ventingStuck = compound.getBoolean("VentingStuck");
+        this.outputSide = EnumFacing.VALUES[compound.getInteger("VentingSide")];
     }
 }

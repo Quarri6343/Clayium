@@ -8,7 +8,6 @@ import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregtech.api.capability.impl.FilteredFluidHandler;
 import gregtech.api.capability.impl.FluidTankList;
-import gregtech.api.capability.impl.RecipeLogicSteam;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.widgets.ImageWidget;
@@ -39,10 +38,10 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     protected RecipeLogicManual workableHandler;
     protected FluidTank steamFluidTank;
 
-    public ManualMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer) {
+    public ManualMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, int tier) {
         super(metaTileEntityId);
         this.workableHandler = new RecipeLogicManual(this,
-                recipeMap, steamFluidTank, 1.0);
+                recipeMap, steamFluidTank, 1.0, tier);
         this.renderer = renderer;
     }
 
@@ -68,10 +67,10 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     @Override
     public boolean onWrenchClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, CuboidRayTraceResult hitResult) {
         if (!playerIn.isSneaking()) {
-            EnumFacing currentVentingSide = workableHandler.getVentingSide();
+            EnumFacing currentVentingSide = workableHandler.getOutputSide();
             if (currentVentingSide == facing ||
                     getFrontFacing() == facing) return false;
-            workableHandler.setVentingSide(facing);
+            workableHandler.setOutputSide(facing);
             return true;
         }
         return super.onWrenchClick(playerIn, hand, facing, hitResult);
@@ -88,7 +87,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
         IVertexOperation[] colouredPipeline = ArrayUtils.add(pipeline, new ColourMultiplier(GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering())));
         getBaseRenderer().render(renderState, translation, colouredPipeline);
         renderer.renderOrientedState(renderState, translation, pipeline, getFrontFacing(), workableHandler.isActive(), workableHandler.isWorkingEnabled());
-        Textures.STEAM_VENT_OVERLAY.renderSided(workableHandler.getVentingSide(), renderState, translation, pipeline);
+        Textures.STEAM_VENT_OVERLAY.renderSided(workableHandler.getOutputSide(), renderState, translation, pipeline);
     }
 
     protected boolean isBrickedCasing() {
