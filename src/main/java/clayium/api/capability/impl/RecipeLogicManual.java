@@ -1,46 +1,26 @@
 package clayium.api.capability.impl;
 
-import gregtech.api.GTValues;
+import clayium.api.capability.IClayEnergyContainer;
 import gregtech.api.capability.GregtechDataCodes;
-import gregtech.api.capability.IVentable;
-import gregtech.api.damagesources.DamageSources;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
-import gregtech.common.ConfigHolder;
-import gregtech.common.advancement.GTTriggers;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSnow;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.fluids.IFluidTank;
 
 import javax.annotation.Nonnull;
 
 public class RecipeLogicManual extends ClayAbstractRecipeLogic {
 
-    private final IFluidTank steamFluidTank;
-    private final double conversionRate; //energy units per steam
+    private final IClayEnergyContainer clayEnergyContainer;
     private final int tier;
 
     private EnumFacing outputSide;
 
-    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, IFluidTank steamFluidTank, double conversionRate, int tier) {
+    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, IClayEnergyContainer clayEnergyContainer, int tier) {
         super(tileEntity, recipeMap);
-        this.steamFluidTank = steamFluidTank;
-        this.conversionRate = conversionRate;
+        this.clayEnergyContainer = clayEnergyContainer;
         this.tier = tier;
     }
 
@@ -108,19 +88,21 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic {
 
     @Override
     protected long getEnergyStored() {
-        return (long) Math.ceil(steamFluidTank.getFluidAmount() * conversionRate);
+        return (long) clayEnergyContainer.getEnergyStored();
     }
 
     @Override
     protected long getEnergyCapacity() {
-        return (long) Math.floor(steamFluidTank.getCapacity() * conversionRate);
+        return (long) clayEnergyContainer.getEnergyCapacity();
     }
 
     @Override
     protected boolean drawEnergy(int recipeCEt, boolean simulate) {
-        int resultDraw = (int) Math.ceil(recipeCEt / conversionRate);
-        return resultDraw >= 0 && steamFluidTank.getFluidAmount() >= resultDraw &&
-                steamFluidTank.drain(resultDraw, !simulate) != null;
+        if(simulate)
+            return recipeCEt >= 0 && clayEnergyContainer.getEnergyStored() >= recipeCEt;
+        else
+            return recipeCEt >= 0 && clayEnergyContainer.getEnergyStored() >= recipeCEt &&
+                clayEnergyContainer.removeEnergy(recipeCEt) != 0;
     }
 
     @Override

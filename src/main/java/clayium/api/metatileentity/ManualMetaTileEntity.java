@@ -1,13 +1,17 @@
 package clayium.api.metatileentity;
 
+import clayium.api.capability.IClayEnergyContainer;
+import clayium.api.capability.impl.ClayEnergyContainerHandler;
 import clayium.api.capability.impl.RecipeLogicManual;
 import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.ColourMultiplier;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
+import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.capability.impl.FilteredFluidHandler;
 import gregtech.api.capability.impl.FluidTankList;
+import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.gui.widgets.ImageWidget;
@@ -24,24 +28,27 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.ItemStackHandler;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
+
 public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
-    protected static final int STEAM_CAPACITY = 16000;
+    protected static final int CE_CAPACITY = 1000;
 
     protected final ICubeRenderer renderer;
     protected RecipeLogicManual workableHandler;
-    protected FluidTank steamFluidTank;
+    protected final IClayEnergyContainer energyContainer;
 
     public ManualMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, int tier) {
         super(metaTileEntityId);
+        this.energyContainer = new ClayEnergyContainerHandler(this, CE_CAPACITY, 1000, 1000, 1000, 1000, tier);
         this.workableHandler = new RecipeLogicManual(this,
-                recipeMap, steamFluidTank, 1.0, tier);
+                recipeMap, energyContainer, tier);
         this.renderer = renderer;
     }
 
@@ -52,11 +59,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     @SideOnly(Side.CLIENT)
     protected SimpleSidedCubeRenderer getBaseRenderer() {
-        if (isBrickedCasing()) {
-            return Textures.STEAM_BRICKED_CASING_BRONZE;
-        } else {
-            return Textures.STEAM_CASING_BRONZE;
-        }
+        return Textures.STEAM_BRICKED_CASING_BRONZE;
     }
 
     @Override
@@ -67,8 +70,8 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     @Override
     public boolean onWrenchClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, CuboidRayTraceResult hitResult) {
         if (!playerIn.isSneaking()) {
-            EnumFacing currentVentingSide = workableHandler.getOutputSide();
-            if (currentVentingSide == facing ||
+            EnumFacing currentOutputSide = workableHandler.getOutputSide();
+            if (currentOutputSide == facing ||
                     getFrontFacing() == facing) return false;
             workableHandler.setOutputSide(facing);
             return true;
@@ -90,15 +93,9 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
         Textures.STEAM_VENT_OVERLAY.renderSided(workableHandler.getOutputSide(), renderState, translation, pipeline);
     }
 
-    protected boolean isBrickedCasing() {
-        return false;
-    }
-
     @Override
-    public FluidTankList createImportFluidHandler() {
-        this.steamFluidTank = new FilteredFluidHandler(STEAM_CAPACITY)
-                .setFillPredicate(ModHandler::isSteam);
-        return new FluidTankList(false, steamFluidTank);
+    protected IItemHandlerModifiable createImportItemHandler() {
+        return new NotifiableItemStackHandler(1, this, false);
     }
 
     public ModularUI.Builder createUITemplate(EntityPlayer player) {
