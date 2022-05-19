@@ -1,5 +1,6 @@
 package clayium.api.recipes;
 
+import clayium.api.recipes.builders.ClaySimpleRecipeBuilder;
 import crafttweaker.annotations.ZenRegister;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.widgets.ProgressWidget;
@@ -9,7 +10,7 @@ import gregtech.api.sound.GTSounds;
 import stanhebben.zenscript.annotations.ZenExpansion;
 import stanhebben.zenscript.annotations.ZenProperty;
 
-@ZenExpansion("mods.gregtech.recipe.RecipeMaps")
+@ZenExpansion("mods.clayium.recipe.ClayRecipeMaps")
 @ZenRegister
 public class ClayRecipeMaps {
 
@@ -20,7 +21,7 @@ public class ClayRecipeMaps {
 //            .setProgressBar(GuiTextures.PROGRESS_BAR_MIXER, ProgressWidget.MoveType.CIRCULAR)
 //            .setSound(GTSounds.MIXER);
     @ZenProperty
-    public static final RecipeMap<SimpleRecipeBuilder> CLAY_WORKTABLE_RECIPES = new RecipeMap<>("clay_worktable", 1, 1, 1, 1, 0, 0, 0, 0, new SimpleRecipeBuilder(), false)
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_WORKTABLE_RECIPES = new ClayRecipeMap<>("clay_worktable", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
         .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
         .setSound(GTSounds.FORGE_HAMMER);
 }

@@ -1,5 +1,7 @@
 package clayium.api.capability.impl;
 
+import clayium.api.recipes.ClayRecipe;
+import clayium.api.recipes.ClayRecipeMap;
 import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.capability.IMultipleTankHandler;
@@ -29,9 +31,9 @@ import java.util.List;
 
 public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorkable {
 
-    private final RecipeMap<?> recipeMap;
+    private final ClayRecipeMap<?> recipeMap;
 
-    protected Recipe previousRecipe;
+    protected ClayRecipe previousRecipe;
 
     protected boolean canRecipeProgress = true;
 
@@ -48,12 +50,12 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
     protected boolean isOutputsFull;
     protected boolean invalidInputsForRecipes;
 
-    public ClayAbstractRecipeLogic(MetaTileEntity tileEntity, RecipeMap<?> recipeMap) {
+    public ClayAbstractRecipeLogic(MetaTileEntity tileEntity, ClayRecipeMap<?> recipeMap) {
         super(tileEntity);
         this.recipeMap = recipeMap;
     }
 
-    public ClayAbstractRecipeLogic(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, boolean hasPerfectOC) {
+    public ClayAbstractRecipeLogic(MetaTileEntity tileEntity, ClayRecipeMap<?> recipeMap, boolean hasPerfectOC) {
         super(tileEntity);
         this.recipeMap = recipeMap;
     }
@@ -135,11 +137,11 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
      *
      * @return the current RecipeMap of the logic
      */
-    public RecipeMap<?> getRecipeMap() {
+    public ClayRecipeMap<?> getRecipeMap() {
         return this.recipeMap;
     }
 
-    public Recipe getPreviousRecipe() {
+    public ClayRecipe getPreviousRecipe() {
         return previousRecipe;
     }
 
@@ -222,7 +224,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
 
     protected void trySearchNewRecipe() {
         long maxTier = getMaxTier();
-        Recipe currentRecipe;
+        ClayRecipe currentRecipe;
         IItemHandlerModifiable importInventory = getInputInventory();
         IMultipleTankHandler importFluids = getInputTank();
 
@@ -261,7 +263,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
      * @param recipe the recipe to check
      * @return true if the recipe is allowed to be used, else false
      */
-    protected boolean checkRecipe(Recipe recipe) {
+    protected boolean checkRecipe(ClayRecipe recipe) {
         return true;
     }
 
@@ -277,7 +279,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
      * @param recipe the recipe to prepare
      * @return true if the recipe was successfully prepared, else false
      */
-    protected boolean prepareRecipe(Recipe recipe) {
+    protected boolean prepareRecipe(ClayRecipe recipe) {
 
         recipe = recipe.trimRecipeOutputs(recipe, getRecipeMap(), metaTileEntity.getItemOutputLimit(), metaTileEntity.getFluidOutputLimit());
 
@@ -303,16 +305,16 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
         return result;
     }
 
-    protected Recipe findRecipe(long maxVoltage, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
+    protected ClayRecipe findRecipe(long maxTier, IItemHandlerModifiable inputs, IMultipleTankHandler fluidInputs) {
 
         if(!isRecipeMapValid(getRecipeMap())) {
             return null;
         }
 
-        return getRecipeMap().findRecipe(maxVoltage, inputs, fluidInputs, getMinTankCapacity(getOutputTank()));
+        return getRecipeMap().findRecipe(maxTier, inputs, fluidInputs, getMinTankCapacity(getOutputTank()));
     }
 
-    public boolean isRecipeMapValid(RecipeMap<?> recipeMap) {
+    public boolean isRecipeMapValid(ClayRecipeMap<?> recipeMap) {
         return true;
     }
 
@@ -334,7 +336,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
      *                        a specific bus
      * @return - true if the recipe is successful, false if the recipe is not successful
      */
-    protected boolean setupAndConsumeRecipeInputs(Recipe recipe, IItemHandlerModifiable importInventory) {
+    protected boolean setupAndConsumeRecipeInputs(ClayRecipe recipe, IItemHandlerModifiable importInventory) {
         if (!hasEnoughPower(new int[]{recipe.getEUt(), recipe.getDuration()})){
             return false;
         }
@@ -384,7 +386,7 @@ public abstract class ClayAbstractRecipeLogic extends MTETrait implements IWorka
      *
      * @param recipe the recipe to run
      */
-    protected void setupRecipe(Recipe recipe) {
+    protected void setupRecipe(ClayRecipe recipe) {
         this.progressTime = 1;
         setMaxProgress(recipe.getDuration());
         this.recipeCEt = recipe.getEUt();

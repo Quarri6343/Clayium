@@ -2,6 +2,7 @@ package clayium.common.metatileentities;
 
 import clayium.api.gui.ClayGuiTextures;
 import clayium.api.metatileentity.ManualMetaTileEntity;
+import clayium.api.recipes.ClayRecipeMap;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
@@ -13,19 +14,26 @@ import gregtech.api.gui.widgets.ClickButtonWidget;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import gregtech.api.recipes.RecipeMap;
+import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.client.renderer.texture.Textures;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
+import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class ClayWorkTable extends ManualMetaTileEntity {
 
+    private static final int tier = 0;
+
     public ClayWorkTable(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, ClayTextures.CLAY_WORKTABLE_OVERLAY, 1);
+        super(metaTileEntityId, ClayRecipeMaps.CLAY_WORKTABLE_RECIPES, ClayTextures.CLAY_WORKTABLE_OVERLAY, tier);
     }
 
     @Override

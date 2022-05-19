@@ -3,39 +3,37 @@ package clayium.api.metatileentity;
 import clayium.api.capability.IClayEnergyContainer;
 import clayium.api.capability.impl.ClayEnergyContainerHandler;
 import clayium.api.capability.impl.RecipeLogicManual;
-import clayium.api.gui.ClayGuiTextures;
+import clayium.api.gui.ClayModularUI;
+import clayium.api.recipes.ClayRecipeMap;
 import clayium.client.ClayTextures;
 import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.ColourMultiplier;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregtech.api.capability.impl.EnergyContainerHandler;
-import gregtech.api.capability.impl.FilteredFluidHandler;
-import gregtech.api.capability.impl.FluidTankList;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.widgets.ImageWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.recipes.ModHandler;
-import gregtech.api.recipes.RecipeMap;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.ItemStackHandler;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 
 public abstract class ManualMetaTileEntity extends MetaTileEntity {
@@ -45,13 +43,15 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     protected final ICubeRenderer renderer;
     protected RecipeLogicManual workableHandler;
     protected final IClayEnergyContainer energyContainer;
+    private final int tier;
 
-    public ManualMetaTileEntity(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, ICubeRenderer renderer, int tier) {
+    public ManualMetaTileEntity(ResourceLocation metaTileEntityId, ClayRecipeMap<?> recipeMap, ICubeRenderer renderer, int tier) {
         super(metaTileEntityId);
         this.energyContainer = new ClayEnergyContainerHandler(this, CE_CAPACITY, 1000, 1000, 1000, 1000, tier);
         this.workableHandler = new RecipeLogicManual(this,
                 recipeMap, energyContainer, tier);
         this.renderer = renderer;
+        this.tier = tier;
     }
 
     @Override
@@ -100,13 +100,19 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
         return new NotifiableItemStackHandler(1, this, false);
     }
 
-    public ModularUI.Builder createUITemplate(EntityPlayer player) {
-        return ModularUI.builder(GuiTextures.BACKGROUND, 176, 166)
+    public ClayModularUI.Builder createUITemplate(EntityPlayer player) {
+        return ClayModularUI.builder(GuiTextures.BACKGROUND, 176, 166)
                 .bindPlayerInventory(player.inventory, GuiTextures.SLOT, 0);
     }
 
     @Override
     public SoundEvent getSound() {
         return workableHandler.getRecipeMap().getSound();
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
+        tooltip.add("Tier " + tier);
+        super.addInformation(stack, player, tooltip, advanced);
     }
 }

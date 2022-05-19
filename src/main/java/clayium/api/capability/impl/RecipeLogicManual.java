@@ -1,6 +1,8 @@
 package clayium.api.capability.impl;
 
 import clayium.api.capability.IClayEnergyContainer;
+import clayium.api.recipes.ClayRecipe;
+import clayium.api.recipes.ClayRecipeMap;
 import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipes.Recipe;
@@ -18,7 +20,7 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic {
 
     private EnumFacing outputSide;
 
-    public RecipeLogicManual(MetaTileEntity tileEntity, RecipeMap<?> recipeMap, IClayEnergyContainer clayEnergyContainer, int tier) {
+    public RecipeLogicManual(MetaTileEntity tileEntity, ClayRecipeMap<?> recipeMap, IClayEnergyContainer clayEnergyContainer, int tier) {
         super(tileEntity, recipeMap);
         this.clayEnergyContainer = clayEnergyContainer;
         this.tier = tier;
@@ -72,7 +74,7 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic {
     }
 
     @Override
-    protected boolean checkRecipe(Recipe recipe) {
+    protected boolean checkRecipe(ClayRecipe recipe) {
         return super.checkRecipe(recipe);
     }
 
@@ -107,7 +109,7 @@ public class RecipeLogicManual extends ClayAbstractRecipeLogic {
 
     @Override
     protected long getMaxTier() {
-        return (long) Math.max(32,Math.pow(tier,2) * 32);
+        return tier;
     }
 
     @Override

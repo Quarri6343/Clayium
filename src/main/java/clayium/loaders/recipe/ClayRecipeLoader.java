@@ -17,6 +17,10 @@ public class ClayRecipeLoader {
         ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().EUt(10)
                 .input(OrePrefix.dust, Clay, 1)
                 .output(OrePrefix.block, Clay, 1)
-                .duration(30).buildAndRegister();
+                .duration(30).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().EUt(10)
+                .input(OrePrefix.block, Clay, 9)
+                .output(OrePrefix.block, Clay, 1)
+                .duration(30).tier(1).buildAndRegister();
     }
 }
