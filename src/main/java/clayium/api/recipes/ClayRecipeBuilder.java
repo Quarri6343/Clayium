@@ -5,7 +5,6 @@ import gregtech.api.GTValues;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipes.CountableIngredient;
-import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Material;
@@ -419,7 +418,7 @@ public class ClayRecipeBuilder<R extends ClayRecipeBuilder<R>> {
      *
      * @param recipe           The Recipe to be multiplied
      * @param multiplier       Amount to multiply the recipe by
-     * @param multiplyDuration Whether duration should be multiplied instead of EUt
+     * @param multiplyDuration Whether duration should be multiplied instead of CEt
      * @return the builder holding the multiplied recipe
      */
 
@@ -446,7 +445,7 @@ public class ClayRecipeBuilder<R extends ClayRecipeBuilder<R>> {
 
         this.fluidOutputs(outputFluids);
 
-        this.EUt(multiplyDuration ? recipe.getEUt() : this.EUt + recipe.getEUt() * multiplier);
+        this.CEt(multiplyDuration ? recipe.getEUt() : this.EUt + recipe.getEUt() * multiplier);
         this.duration(multiplyDuration ? this.duration + recipe.getDuration() * multiplier : recipe.getDuration());
         this.parallel += multiplier;
 
@@ -510,8 +509,8 @@ public class ClayRecipeBuilder<R extends ClayRecipeBuilder<R>> {
         return (R) this;
     }
 
-    public R EUt(int EUt) {
-        this.EUt = EUt;
+    public R CEt(int CEt) {
+        this.EUt = CEt;
         return (R) this;
     }
 
@@ -652,7 +651,7 @@ public class ClayRecipeBuilder<R extends ClayRecipeBuilder<R>> {
                 .append("fluidInputs", fluidInputs)
                 .append("fluidOutputs", fluidOutputs)
                 .append("duration", duration)
-                .append("EUt", EUt)
+                .append("CEt", EUt)
                 .append("Tier", tier)
                 .append("hidden", hidden)
                 .append("recipeStatus", recipeStatus)

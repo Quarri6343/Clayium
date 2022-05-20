@@ -1,8 +1,6 @@
 package clayium.common.metatileentities;
 
-import clayium.api.gui.ClayGuiTextures;
 import clayium.api.metatileentity.ManualMetaTileEntity;
-import clayium.api.recipes.ClayRecipeMap;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
@@ -14,18 +12,11 @@ import gregtech.api.gui.widgets.ClickButtonWidget;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.builders.SimpleRecipeBuilder;
-import gregtech.api.recipes.ingredients.IntCircuitIngredient;
-import gregtech.client.renderer.texture.Textures;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
-import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class ClayWorkTable extends ManualMetaTileEntity {
@@ -59,7 +50,7 @@ public class ClayWorkTable extends ManualMetaTileEntity {
                 .progressBar(workableHandler::getProgressPercent, 39, 26, 100, 16,
                         GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
                 .widget(new AdvancedTextWidget(100, 45, this::AddDisplayText, 0xFFFFFF))
-                .widget(new ClickButtonWidget(40, 45, 20, 20, "", this::AddEnergy)
+                .widget(new ClickButtonWidget(40, 45, 20, 20, "", this::OnClick)
                         .setButtonTexture(GuiTextures.BUTTON_ITEM_OUTPUT)
                         .setShouldClientCallback(true))
                 .slot(this.exportItems, 0, 144, 24, true, false, GuiTextures.SLOT)
@@ -71,7 +62,7 @@ public class ClayWorkTable extends ManualMetaTileEntity {
         textList.add(new TextComponentString(Long.toString(this.energyContainer.getEnergyStored())));
     }
 
-    public void AddEnergy(Widget.ClickData data){
+    public void OnClick(Widget.ClickData data){
         this.energyContainer.addEnergy(10);
     }
 }

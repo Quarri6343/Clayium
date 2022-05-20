@@ -6,21 +6,16 @@ import gregtech.api.capability.FeCompat;
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.IElectricItem;
 import gregtech.api.capability.IEnergyContainer;
-import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.metatileentity.MTETrait;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.util.GTUtility;
 import gregtech.common.ConfigHolder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandlerModifiable;
-
-import java.util.function.Predicate;
 
 public class ClayEnergyContainerHandler extends MTETrait implements IClayEnergyContainer {
 
@@ -28,46 +23,17 @@ public class ClayEnergyContainerHandler extends MTETrait implements IClayEnergyC
     protected long energyStored;
     protected final int tier;
 
-    private final long maxInputVoltage;
-    private final long maxInputAmperage;
-
-    private final long maxOutputVoltage;
-    private final long maxOutputAmperage;
-
     protected long lastEnergyInputPerSec = 0;
     protected long lastEnergyOutputPerSec = 0;
     protected long energyInputPerSec = 0;
     protected long energyOutputPerSec = 0;
 
-    private Predicate<EnumFacing> sideInputCondition;
-    private Predicate<EnumFacing> sideOutputCondition;
-
     protected long amps = 0;
 
-    public ClayEnergyContainerHandler(MetaTileEntity tileEntity, long maxCapacity, long maxInputVoltage, long maxInputAmperage, long maxOutputVoltage, long maxOutputAmperage, int tier) {
+    public ClayEnergyContainerHandler(MetaTileEntity tileEntity, long maxCapacity, int tier) {
         super(tileEntity);
         this.maxCapacity = maxCapacity;
-        this.maxInputVoltage = maxInputVoltage;
-        this.maxInputAmperage = maxInputAmperage;
-        this.maxOutputVoltage = maxOutputVoltage;
-        this.maxOutputAmperage = maxOutputAmperage;
         this.tier = tier;
-    }
-
-    public void setSideInputCondition(Predicate<EnumFacing> sideInputCondition) {
-        this.sideInputCondition = sideInputCondition;
-    }
-
-    public void setSideOutputCondition(Predicate<EnumFacing> sideOutputCondition) {
-        this.sideOutputCondition = sideOutputCondition;
-    }
-
-    public static ClayEnergyContainerHandler emitterContainer(MetaTileEntity tileEntity, long maxCapacity, long maxOutputVoltage, long maxOutputAmperage, int tier) {
-        return new ClayEnergyContainerHandler(tileEntity, maxCapacity, 0L, 0L, maxOutputVoltage, maxOutputAmperage, tier);
-    }
-
-    public static ClayEnergyContainerHandler receiverContainer(MetaTileEntity tileEntity, long maxCapacity, long maxInputVoltage, long maxInputAmperage, int tier) {
-        return new ClayEnergyContainerHandler(tileEntity, maxCapacity, maxInputVoltage, maxInputAmperage, 0L, 0L, tier);
     }
 
     @Override
@@ -179,11 +145,10 @@ public class ClayEnergyContainerHandler extends MTETrait implements IClayEnergyC
     }
 
     private boolean handleForgeEnergyItem(IEnergyStorage energyStorage) {
-        int machineTier = tier;
         double chargePercent = getEnergyStored() / (getEnergyCapacity() * 1.0);
 
         if (chargePercent > 0.5) {
-            long chargedBy = FeCompat.insertEu(energyStorage, GTValues.V[machineTier]);
+            long chargedBy = FeCompat.insertEu(energyStorage, GTValues.V[tier]);
             removeEnergy(chargedBy);
             return chargedBy > 0;
         }
@@ -210,7 +175,7 @@ public class ClayEnergyContainerHandler extends MTETrait implements IClayEnergyC
 
     @Override
     public boolean inputsEnergy(EnumFacing side) {
-        return (sideInputCondition == null || sideInputCondition.test(side));
+        return false;
     }
 
     @Override

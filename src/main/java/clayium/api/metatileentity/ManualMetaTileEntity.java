@@ -6,7 +6,6 @@ import clayium.api.capability.impl.RecipeLogicManual;
 import clayium.api.gui.ClayModularUI;
 import clayium.api.recipes.ClayRecipeMap;
 import clayium.client.ClayTextures;
-import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.ColourMultiplier;
 import codechicken.lib.render.pipeline.IVertexOperation;
@@ -16,13 +15,10 @@ import gregtech.api.gui.GuiTextures;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
-import gregtech.client.renderer.texture.Textures;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -47,7 +43,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     public ManualMetaTileEntity(ResourceLocation metaTileEntityId, ClayRecipeMap<?> recipeMap, ICubeRenderer renderer, int tier) {
         super(metaTileEntityId);
-        this.energyContainer = new ClayEnergyContainerHandler(this, CE_CAPACITY, 1000, 1000, 1000, 1000, tier);
+        this.energyContainer = new ClayEnergyContainerHandler(this, CE_CAPACITY, tier);
         this.workableHandler = new RecipeLogicManual(this,
                 recipeMap, energyContainer, tier);
         this.renderer = renderer;
@@ -70,18 +66,6 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     }
 
     @Override
-    public boolean onWrenchClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, CuboidRayTraceResult hitResult) {
-        if (!playerIn.isSneaking()) {
-            EnumFacing currentOutputSide = workableHandler.getOutputSide();
-            if (currentOutputSide == facing ||
-                    getFrontFacing() == facing) return false;
-            workableHandler.setOutputSide(facing);
-            return true;
-        }
-        return super.onWrenchClick(playerIn, hand, facing, hitResult);
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public Pair<TextureAtlasSprite, Integer> getParticleTexture() {
         return Pair.of(getBaseRenderer().getParticleSprite(), getPaintingColorForRendering());
@@ -92,7 +76,6 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
         IVertexOperation[] colouredPipeline = ArrayUtils.add(pipeline, new ColourMultiplier(GTUtility.convertRGBtoOpaqueRGBA_CL(getPaintingColorForRendering())));
         getBaseRenderer().render(renderState, translation, colouredPipeline);
         renderer.renderOrientedState(renderState, translation, pipeline, getFrontFacing(), workableHandler.isActive(), workableHandler.isWorkingEnabled());
-        Textures.STEAM_VENT_OVERLAY.renderSided(workableHandler.getOutputSide(), renderState, translation, pipeline);
     }
 
     @Override
