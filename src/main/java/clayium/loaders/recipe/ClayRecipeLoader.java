@@ -1,19 +1,33 @@
 package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
+import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.UnificationEntry;
+import net.minecraft.init.Items;
 
 import static gregtech.api.unification.material.Materials.*;
+import static clayium.common.items.ClayMetaItems.*;
 
 public class ClayRecipeLoader {
 
     public static void init() {
 
-        //Greenhouse Casing
-//        ModHandler.addShapedRecipe("gte_metal_casing:0", GTEMetaBlocks.GTE_BLOCK_METAL_CASING.getItemVariant(GTEBlockMetalCasing.MetalCasingType.GREENHOUSE,2) ,
-//                "PhP", "PFP", "PwP", 'P',new UnificationEntry(plate, Galvalume),'F',new UnificationEntry(frameGt, Galvalume));
+        //CLAYTASK
+        ModHandler.addShapedRecipe("claytask_cutcircle", CLAYTASK_CUTCIRCLE.getStackForm(),
+                " P ", " C ", "   ", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
+        ModHandler.addShapedRecipe("claytask_cutsquare", CLAYTASK_CUTSQUARE.getStackForm(),
+                "  P", " C ", "   ", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
+        ModHandler.addShapedRecipe("claytask_pat", CLAYTASK_PAT.getStackForm(),
+                "   ", " CP", "   ", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
+        ModHandler.addShapedRecipe("claytask_press", CLAYTASK_PRESS.getStackForm(),
+                "   ", " C ", "  P", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
+        ModHandler.addShapedRecipe("claytask_roll", CLAYTASK_ROLL.getStackForm(),
+                "   ", " C ", " P ", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
+        ModHandler.addShapedRecipe("claytask_slice", CLAYTASK_SLICE.getStackForm(),
+                "   ", " C ", "P  ", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
 
-        //PLACEHOLDER
+        //CLAY_WORKTABLE
         ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().CEt(10)
                 .input(OrePrefix.dust, Clay, 1)
                 .output(OrePrefix.block, Clay, 1)
