@@ -1,13 +1,20 @@
 package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
+import clayium.common.blocks.BlockCompressedClay;
+
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 
 import static gregtech.api.unification.material.Materials.*;
 import static clayium.common.items.ClayMetaItems.*;
+import static clayium.common.blocks.ClayMetaBlocks.*;
+import static clayium.common.blocks.ClayMetaBlocks.*;
+import static clayium.common.metatileentities.ClayMetaTileEntities.*;
 
 public class ClayRecipeLoader {
 
@@ -27,7 +34,20 @@ public class ClayRecipeLoader {
         ModHandler.addShapedRecipe("claytask_slice", CLAYTASK_SLICE.getStackForm(),
                 "   ", " C ", "P  ", 'C', Items.CLAY_BALL, 'P', Items.PAPER);
 
+        //DENSE_CLAY
+        ModHandler.addShapedRecipe("dense_clay", COMPRESSED_CRAY.getItemVariant(BlockCompressedClay.BlockType.DENSE),
+                "CCC", "CCC", "CCC", 'C', Blocks.CLAY);
+        ModHandler.addShapedRecipe("compressed_clay", COMPRESSED_CRAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED),
+                "CCC", "CCC", "CCC", 'C', COMPRESSED_CRAY.getItemVariant(BlockCompressedClay.BlockType.DENSE));
+
         //CLAY_WORKTABLE
+        ModHandler.addShapedRecipe("clay_worktable", CLAY_WORKTABLE.getStackForm(),
+                "CC ", "CC ", "   ", 'C', COMPRESSED_CRAY.getItemVariant(BlockCompressedClay.BlockType.DENSE));
+        //CLAY_CRAFTING_BOARD
+//        ModHandler.addShapedRecipe("clay_crafting_board", CLAY_CRAFTING_BOARD.getStackForm(),
+//                "CCC", "   ", "   ", 'C', COMPRESSED_CRAY.getItemVariant(BlockCompressedClay.BlockType.DENSE));
+
+        //CLAY_WORKTABLE_USAGE
         ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().CEt(10)
                 .input(OrePrefix.dust, Clay, 1)
                 .output(OrePrefix.block, Clay, 1)

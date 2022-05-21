@@ -50,7 +50,7 @@ public class ClayWorkTable extends ManualMetaTileEntity {
                 .slot(this.importItems, 0, 20, 24, GuiTextures.SLOT)
                 .slot(this.importItems, 1, 39, 24, GuiTextures.SLOT)
                 .slot(this.importItems, 2, 28, 43, GuiTextures.SLOT)
-                .progressBar(workableHandler::getProgressPercent, 58, 26, 95, 16,
+                .progressBar(workableHandler::getProgressPercent, 58, 26, 85, 16,
                         GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
                 .widget(new AdvancedTextWidget(100, 45, this::AddDisplayText, 0xFFFFFF))
                 .widget(new ClickButtonWidget(76, 45, 20, 20, "", this::OnClick)

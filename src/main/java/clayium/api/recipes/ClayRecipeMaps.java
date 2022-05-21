@@ -10,8 +10,8 @@ import gregtech.api.sound.GTSounds;
 import stanhebben.zenscript.annotations.ZenExpansion;
 import stanhebben.zenscript.annotations.ZenProperty;
 
-@ZenExpansion("mods.clayium.recipe.ClayRecipeMaps")
-@ZenRegister
+//@ZenExpansion("mods.clayium.recipe.ClayRecipeMaps")
+//@ZenRegister
 public class ClayRecipeMaps {
 
 //    @ZenProperty
