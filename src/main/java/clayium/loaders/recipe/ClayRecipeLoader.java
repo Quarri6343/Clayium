@@ -6,11 +6,12 @@ import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CRAY;
 import static clayium.common.items.ClayMetaItems.*;
 import static clayium.common.metatileentities.ClayMetaTileEntities.*;
-import static gregtech.api.unification.material.Materials.Clay;
+import static gregtech.api.unification.material.Materials.*;
 
 public class ClayRecipeLoader {
 
@@ -42,15 +43,23 @@ public class ClayRecipeLoader {
         //CLAY_CRAFTING_BOARD_OVERLAY
         ModHandler.addShapedRecipe("clay_crafting_board", CLAY_CRAFTING_BOARD.getStackForm(),
                 "CCC", "   ", "   ", 'C', COMPRESSED_CRAY.getItemVariant(BlockCompressedClay.BlockType.DENSE));
+        //CLAY_SHOVEL
+        ModHandler.addShapedRecipe("clay_crafting_board", CLAY_SHOVEL.getStackForm(Clay),
+                " P ", " S ", " S ", 'P', CLAY_PLATE, 'S', CLAY_STICK);
+        //LARGE_CLAY_BALL
+        ModHandler.addShapelessRecipe("clay_ball_large", CLAY_BALL_LARGE.getStackForm(),
+                Items.CLAY_BALL,Items.CLAY_BALL,Items.CLAY_BALL,Items.CLAY_BALL,Items.CLAY_BALL,Items.CLAY_BALL,Items.CLAY_BALL,Items.CLAY_BALL);
 
         //CLAY_WORKTABLE_USAGE
         ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().CEt(10)
-                .input(OrePrefix.dust, Clay, 1)
-                .output(OrePrefix.block, Clay, 1)
-                .duration(30).tier(0).buildAndRegister();
+                .input(Items.CLAY_BALL)
+                .notConsumable(CLAYTASK_PAT)
+                .output(CLAY_STICK)
+                .duration(4).tier(0).buildAndRegister();
+        //placeholder
         ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().CEt(10)
-                .input(OrePrefix.block, Clay, 9)
-                .output(OrePrefix.block, Clay, 1)
-                .duration(30).tier(1).buildAndRegister();
+                .input(CLAY_BALL_LARGE)
+                .output(CLAY_PLATE)
+                .duration(10).tier(1).buildAndRegister();
     }
 }
