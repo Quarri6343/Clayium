@@ -2,6 +2,7 @@ package clayium.common.metatileentities;
 
 
 import clayium.api.ClayValues;
+import clayium.common.metatileentities.storage.MetaTileEntityClayCraftingBoard;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
@@ -11,6 +12,7 @@ public class ClayMetaTileEntities {
 
 //    public static GTESimpleMachineMetaTileEntity[] EXTREME_MIXER = new GTESimpleMachineMetaTileEntity[1]; //ZPM Only
     public static ClayWorkTable CLAY_WORKTABLE;
+    public static MetaTileEntityClayCraftingBoard CLAY_CRAFTING_BOARD;
 
 //    public static MetaTileEntitySawmill SAWMILL;
 
@@ -41,13 +43,14 @@ public class ClayMetaTileEntities {
 
         //MANUAL AGE SECTION
         CLAY_WORKTABLE = registerMetaTileEntity(13001, new ClayWorkTable(clayId("clay_worktable")));
+        CLAY_CRAFTING_BOARD = registerMetaTileEntity(13002, new MetaTileEntityClayCraftingBoard(clayId("clay_crafting_board")));
 
         //MACHINE SECTION
 //        EXTREME_MIXER[0]=registerMetaTileEntity(11007,
 //        new GTESimpleMachineMetaTileEntity(gteId(String.format("%s.%s", "extreme_mixer", GTValues.VN[7].toLowerCase())), GTERecipeMaps.EXTREME_MIXER_RECIPES, GTETextures.EXTREME_MIXER_OVERLAY, 7, true, GTUtility.hvCappedTankSizeFunction));
 
 
-        //multiblocks :13000~
+        //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));
     }
 
