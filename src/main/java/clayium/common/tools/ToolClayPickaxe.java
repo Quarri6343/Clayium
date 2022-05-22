@@ -1,12 +1,15 @@
 package clayium.common.tools;
 
+import clayium.common.blocks.ClayMetaBlocks;
 import gregtech.common.tools.ToolBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -51,15 +54,8 @@ public class ToolClayPickaxe extends ToolBase {
                 block.getMaterial() == Material.ROCK ||
                 block.getMaterial() == Material.IRON ||
                 block.getMaterial() == Material.ANVIL ||
-                block.getMaterial() == Material.GLASS;
-    }
-
-    @Override
-    public void onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase entity) {
-        super.onBlockDestroyed(stack, world, state, pos, entity);
-        if (!entity.isSneaking() && entity instanceof EntityPlayer) {
-//            ToolUtility.applyTimberAxe(stack, world, pos, (EntityPlayer) entity);
-        }
+                block.getMaterial() == Material.GLASS ||
+                block.getBlock() == ClayMetaBlocks.CLAY_ORE;
     }
 
     @Override

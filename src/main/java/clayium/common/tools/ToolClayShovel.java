@@ -1,5 +1,6 @@
 package clayium.common.tools;
 
+import clayium.common.blocks.ClayMetaBlocks;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.common.items.behaviors.ShovelBehavior;
 import gregtech.common.tools.DamageValues;
@@ -10,7 +11,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -61,15 +64,8 @@ public class ToolClayShovel extends ToolBase {
                 block.getMaterial() == Material.GRASS ||
                 block.getMaterial() == Material.GROUND ||
                 block.getMaterial() == Material.SNOW ||
-                block.getMaterial() == Material.CLAY;
-    }
-
-    @Override
-    public void onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase entity) {
-        super.onBlockDestroyed(stack, world, state, pos, entity);
-        if (!entity.isSneaking() && entity instanceof EntityPlayer) {
-//            ToolUtility.applyTimberAxe(stack, world, pos, (EntityPlayer) entity);
-        }
+                block.getMaterial() == Material.CLAY ||
+                block.getBlock() == ClayMetaBlocks.CLAY_ORE;
     }
 
     @Override
