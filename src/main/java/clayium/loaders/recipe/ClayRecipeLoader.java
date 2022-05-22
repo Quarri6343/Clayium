@@ -1,13 +1,17 @@
 package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
+import clayium.common.blocks.BlockClayOre;
 import clayium.common.blocks.BlockCompressedClay;
+import clayium.common.blocks.ClayMetaBlocks;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
+import static clayium.common.blocks.ClayMetaBlocks.CLAY_ORE;
 import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CRAY;
 import static clayium.common.items.ClayMetaItems.*;
 import static clayium.common.metatileentities.ClayMetaTileEntities.*;
@@ -61,5 +65,19 @@ public class ClayRecipeLoader {
                 .input(CLAY_BALL_LARGE)
                 .output(CLAY_PLATE)
                 .duration(10).tier(1).buildAndRegister();
+
+        //CLAY_MINER_USAGE
+        ClayRecipeMaps.CLAY_MINER_RECIPES.recipeBuilder().CEt(10)
+                .input(Items.COAL)
+                .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.NORMAL),8000,0)
+                .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.DENSE),4000,0)
+                .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.LARGE_DENSE),2000,0)
+                .duration(10).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_MINER_RECIPES.recipeBuilder().CEt(10)
+                .input(OrePrefix.gem, Charcoal)
+                .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.NORMAL),8000,0)
+                .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.DENSE),4000,0)
+                .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.LARGE_DENSE),2000,0)
+                .duration(10).tier(0).buildAndRegister();
     }
 }

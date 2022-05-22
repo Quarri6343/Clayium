@@ -24,4 +24,9 @@ public class ClayRecipeMaps {
     public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_WORKTABLE_RECIPES = new ClayRecipeMap<>("clay_worktable", 1, 3, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
         .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
         .setSound(GTSounds.FORGE_HAMMER);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_MINER_RECIPES = new ClayRecipeMap<>("clay_miner", 1, 1, 1, 4, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.MINER);
 }

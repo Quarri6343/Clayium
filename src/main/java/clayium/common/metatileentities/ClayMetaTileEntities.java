@@ -13,6 +13,7 @@ public class ClayMetaTileEntities {
 //    public static GTESimpleMachineMetaTileEntity[] EXTREME_MIXER = new GTESimpleMachineMetaTileEntity[1]; //ZPM Only
     public static ClayWorkTable CLAY_WORKTABLE;
     public static MetaTileEntityClayCraftingBoard CLAY_CRAFTING_BOARD;
+    public static ClayManualMiner CLAY_MANUAL_MINER;
 
 //    public static MetaTileEntitySawmill SAWMILL;
 
@@ -44,6 +45,7 @@ public class ClayMetaTileEntities {
         //MANUAL AGE SECTION
         CLAY_WORKTABLE = registerMetaTileEntity(13001, new ClayWorkTable(clayId("clay_worktable")));
         CLAY_CRAFTING_BOARD = registerMetaTileEntity(13002, new MetaTileEntityClayCraftingBoard(clayId("clay_crafting_board")));
+        CLAY_MANUAL_MINER = registerMetaTileEntity(13003, new ClayManualMiner(clayId("clay_manual_miner")));
 
         //MACHINE SECTION
 //        EXTREME_MIXER[0]=registerMetaTileEntity(11007,
