@@ -52,7 +52,7 @@ public class ToolClayShovel extends ToolBase {
 
     @Override
     public float getDigSpeedMultiplier(ItemStack stack) {
-        return 1.44F;
+        return 0.44F;
     }
 
     @Override

@@ -30,7 +30,7 @@ import java.util.Random;
 public class BlockClayOre extends VariantBlock<BlockClayOre.BlockType> {
 
     public BlockClayOre() {
-        super(Material.IRON);
+        super(Material.ROCK);
         setTranslationKey("clay_ore");
         setHardness(5.0f);
         setResistance(10.0f);

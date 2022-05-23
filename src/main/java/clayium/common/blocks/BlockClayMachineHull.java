@@ -1,7 +1,6 @@
 package clayium.common.blocks;
 
 import gregtech.api.block.VariantBlock;
-import gregtech.common.blocks.BlockStoneSmooth;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,40 +16,41 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockCompressedClay extends VariantBlock<BlockCompressedClay.BlockType> {
+public class BlockClayMachineHull extends VariantBlock<BlockClayMachineHull.BlockType> {
 
-    public BlockCompressedClay() {
+    public BlockClayMachineHull() {
         super(Material.ROCK);
-        setTranslationKey("compressed_clay");
+        setTranslationKey("clay_machine_hull");
         setHardness(5.0f);
         setResistance(10.0f);
         setSoundType(SoundType.STONE);
-        setHarvestLevel("shovel", 1);
-        setDefaultState(getState(BlockType.DENSE));
+        setHarvestLevel("pickaxe", 1);
+        setDefaultState(getState(BlockType.RAW_CLAY));
     }
 
     @Override
     public void addInformation(@Nonnull ItemStack stack, @Nullable World player, List<String> tooltip, @Nonnull ITooltipFlag advanced) {}
 
-    public BlockCompressedClay.BlockType getVariant(IBlockState blockState) {
+    public BlockClayMachineHull.BlockType getVariant(IBlockState blockState) {
         return blockState.getValue(VARIANT);
     }
 
     public enum BlockType implements IStringSerializable {
 
-        DENSE("dense"),
-        COMPRESSED("compressed"),
-        INDUSTRIAL("industrial"),
-        ADVANCED_INDUTRIAL("advanced_industrial"),
-        ENERGETIC("energetic"),
-        COMPRESSED_ENERGETIC("compressed_energetic"),
-        DOUBLE_COMPRESSED_ENERGETIC("double_compressed_energetic"),
-        TRIPLE_COMPRESSED_ENERGETIC("triple_compressed_energetic"),
-        QUADRUPLE_COMPRESSED_ENERGETIC("quadruple_compressed_energetic"),
-        QUINTUPLE_COMPRESSED_ENERGETIC("quintuple_compressed_energetic"),
-        SEXTUPLE_COMPRESSED_ENERGETIC("sextuple_compressed_energetic"),
-        SEPTUPLE_COMPRESSED_ENERGETIC("septuple_compressed_energetic"),
-        OCTUPLE_COMPRESSED_ENERGETIC("octuple_compressed_energetic");
+        RAW_CLAY("raw_clay"),
+        CLAY("clay"),
+        DENSE_CLAY("dense_clay"),
+        SIMPLE("simple"),
+        BASIC("basic"),
+        ADVANCED("advanced"),
+        PRECISION("precision"),
+        CLAY_STEEL("clay_steel"),
+        CLAYIUM("clayium"),
+        ULTIMATE("ultimate"),
+        ANTIMATTER("antimatter"),
+        PURE_ANTIMATTER("pure_antimatter"),
+        OEC("oec"),
+        OPA("opa");
 
         private final String name;
 

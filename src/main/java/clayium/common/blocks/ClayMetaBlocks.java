@@ -1,7 +1,5 @@
 package clayium.common.blocks;
 
-import gregtech.common.blocks.BlockAsphalt;
-import gregtech.common.blocks.BlockStoneSmooth;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -16,6 +14,7 @@ public class ClayMetaBlocks {
 
     public static BlockCompressedClay COMPRESSED_CRAY;
     public static BlockClayOre CLAY_ORE;
+    public static BlockClayMachineHull CLAY_MACHINE_HULL;
 //    public static final BlockSawmillConveyor BLOCK_SAWMILL_CONVEYOR = new BlockSawmillConveyor();
 
     public static void Init(){
@@ -23,12 +22,15 @@ public class ClayMetaBlocks {
         COMPRESSED_CRAY.setRegistryName("compressed_clay");
         CLAY_ORE = new BlockClayOre();
         CLAY_ORE.setRegistryName("clay_ore");
+        CLAY_MACHINE_HULL = new BlockClayMachineHull();
+        CLAY_MACHINE_HULL.setRegistryName("clay_machine_hull");
     }
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
         registerItemModel(COMPRESSED_CRAY);
         registerItemModel(CLAY_ORE);
+        registerItemModel(CLAY_MACHINE_HULL);
 //        registerItemModel(BLOCK_SAWMILL_CONVEYOR);
     }
 

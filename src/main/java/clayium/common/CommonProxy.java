@@ -46,6 +46,7 @@ public class CommonProxy {
         IForgeRegistry<Block> registry = event.getRegistry();
         registry.register(COMPRESSED_CRAY);
         registry.register(CLAY_ORE);
+        registry.register(CLAY_MACHINE_HULL);
 //        event.getRegistry().register(BLOCK_SAWMILL_CONVEYOR);
     }
 
@@ -54,6 +55,7 @@ public class CommonProxy {
         IForgeRegistry<Item> registry = event.getRegistry();
         registry.register(createItemBlock(COMPRESSED_CRAY, VariantItemBlock::new));
         registry.register(createItemBlock(CLAY_ORE, VariantItemBlock::new));
+        registry.register(createItemBlock(CLAY_MACHINE_HULL, VariantItemBlock::new));
 //        event.getRegistry().register(createItemBlock(BLOCK_SAWMILL_CONVEYOR, ItemBlock::new));
     }
 
