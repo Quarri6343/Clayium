@@ -5,7 +5,7 @@ import clayium.api.unification.material.ClayMaterials;
 import clayium.common.blocks.ClayMetaBlocks;
 import clayium.common.items.ClayMetaItems;
 import clayium.common.metatileentities.ClayMetaTileEntities;
-import clayium.loaders.recipe.ClayRecipeLoader;
+import clayium.loaders.recipe.ClayRecipeManager;
 import gregtech.api.GregTechAPI;
 
 import gregtech.api.block.VariantItemBlock;
@@ -75,6 +75,6 @@ public class CommonProxy {
         // Main recipe registration
         // This is called AFTER GregTech registers recipes, so
         // anything here is safe to call removals in
-        ClayRecipeLoader.init();
+        ClayRecipeManager.init();
     }
 }

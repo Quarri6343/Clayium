@@ -21,7 +21,7 @@ import java.util.List;
 public class BlockCompressedClay extends VariantBlock<BlockCompressedClay.BlockType> {
 
     public BlockCompressedClay() {
-        super(Material.ROCK);
+        super(Material.IRON);
         setTranslationKey("compressed_clay");
         setHardness(5.0f);
         setResistance(10.0f);
