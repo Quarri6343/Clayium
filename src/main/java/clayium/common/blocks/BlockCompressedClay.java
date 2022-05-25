@@ -5,6 +5,7 @@ import gregtech.common.blocks.BlockStoneSmooth;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
@@ -30,7 +31,9 @@ public class BlockCompressedClay extends VariantBlock<BlockCompressedClay.BlockT
     }
 
     @Override
-    public void addInformation(@Nonnull ItemStack stack, @Nullable World player, List<String> tooltip, @Nonnull ITooltipFlag advanced) {}
+    public void addInformation(@Nonnull ItemStack stack, @Nullable World player, List<String> tooltip, @Nonnull ITooltipFlag advanced) {
+        tooltip.add(I18n.format("gui.Common.tier", getState(stack).ordinal()));
+    }
 
     public BlockCompressedClay.BlockType getVariant(IBlockState blockState) {
         return blockState.getValue(VARIANT);

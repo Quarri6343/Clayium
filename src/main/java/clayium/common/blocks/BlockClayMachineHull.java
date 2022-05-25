@@ -4,6 +4,7 @@ import gregtech.api.block.VariantBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
@@ -29,7 +30,15 @@ public class BlockClayMachineHull extends VariantBlock<BlockClayMachineHull.Bloc
     }
 
     @Override
-    public void addInformation(@Nonnull ItemStack stack, @Nullable World player, List<String> tooltip, @Nonnull ITooltipFlag advanced) {}
+    public void addInformation(@Nonnull ItemStack stack, @Nullable World player, List<String> tooltip, @Nonnull ITooltipFlag advanced) {
+        int ordinal =  getState(stack).ordinal();
+        if(ordinal == 0){
+            tooltip.add(I18n.format("gui.Common.tier", 1));
+        }
+        else{
+            tooltip.add(I18n.format("gui.Common.tier", ordinal));
+        }
+    }
 
     public BlockClayMachineHull.BlockType getVariant(IBlockState blockState) {
         return blockState.getValue(VARIANT);
