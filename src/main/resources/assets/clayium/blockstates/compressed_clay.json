@@ -1,0 +1,84 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "textures": {
+      "all": "gregtech:blocks/rendering_error"
+    }
+  },
+  "variants": {
+    "variant": {
+      "dense": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-0"
+        }
+      },
+      "compressed": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-1"
+        }
+      },
+      "industrial": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-2"
+        }
+      },
+      "advanced_industrial": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-3"
+        }
+      },
+      "energetic": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-4"
+        }
+      },
+      "compressed_energetic": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-5"
+        }
+      },
+      "double_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-6"
+        }
+      },
+      "triple_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-7"
+        }
+      },
+      "quadruple_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-8"
+        }
+      },
+      "quintuple_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-9"
+        }
+      },
+      "sextuple_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-10"
+        }
+      },
+      "septuple_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-11"
+        }
+      },
+      "octuple_compressed_energetic": {
+        "textures": {
+          "all": "gregtech:blocks/compressed_clay/compressedclay-12"
+        }
+      }
+    }
+  }
+}

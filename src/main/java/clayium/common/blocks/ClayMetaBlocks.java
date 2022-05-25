@@ -12,12 +12,25 @@ import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;
 
 public class ClayMetaBlocks {
 
-//    public static final GTEBlockMetalCasing GTE_BLOCK_METAL_CASING = new GTEBlockMetalCasing();
+    public static BlockCompressedClay COMPRESSED_CRAY;
+    public static BlockClayOre CLAY_ORE;
+    public static BlockClayMachineHull CLAY_MACHINE_HULL;
 //    public static final BlockSawmillConveyor BLOCK_SAWMILL_CONVEYOR = new BlockSawmillConveyor();
+
+    public static void Init(){
+        COMPRESSED_CRAY = new BlockCompressedClay();
+        COMPRESSED_CRAY.setRegistryName("compressed_clay");
+        CLAY_ORE = new BlockClayOre();
+        CLAY_ORE.setRegistryName("clay_ore");
+        CLAY_MACHINE_HULL = new BlockClayMachineHull();
+        CLAY_MACHINE_HULL.setRegistryName("clay_machine_hull");
+    }
 
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
-//        registerItemModel(GTE_BLOCK_METAL_CASING);
+        registerItemModel(COMPRESSED_CRAY);
+        registerItemModel(CLAY_ORE);
+        registerItemModel(CLAY_MACHINE_HULL);
 //        registerItemModel(BLOCK_SAWMILL_CONVEYOR);
     }
 

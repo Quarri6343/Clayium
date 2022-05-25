@@ -1,9 +1,14 @@
 package clayium.api.unification.material;
 
+import gregtech.api.unification.material.properties.PropertyKey;
+import gregtech.api.unification.material.properties.ToolProperty;
+
+import static gregtech.api.unification.material.Materials.*;
+
 public class ClayFirstDegreeMaterials {
 
     /**
-     * 24001 -24100
+     * 25001 -25100
      */
     public static void init() {
 
@@ -17,6 +22,11 @@ public class ClayFirstDegreeMaterials {
 //                .blastTemp(1700, GasTier.HIGHEST, 120, 120)
 //                .build();
 
-//        EnderPearl.setProperty(PropertyKey.FLUID, new FluidProperty());
+        ToolProperty clayToolProperty = new ToolProperty();
+        clayToolProperty.setToolSpeed(6.0f);
+        clayToolProperty.setToolDurability(128);
+        clayToolProperty.setToolEnchantability(10);
+        clayToolProperty.setShouldIgnoreCraftingTools(true);
+        Clay.setProperty(PropertyKey.TOOL, clayToolProperty);
     }
 }

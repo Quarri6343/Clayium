@@ -1,0 +1,90 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "textures": {
+      "all": "gregtech:blocks/rendering_error"
+    }
+  },
+  "variants": {
+    "variant": {
+      "raw_clay": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/rawclaymachinehull-0"
+        }
+      },
+      "clay": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-0/side"
+        }
+      },
+      "dense_clay": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-1/side"
+        }
+      },
+      "simple": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-2/side"
+        }
+      },
+      "basic": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-3/side"
+        }
+      },
+      "advanced": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-4/side"
+        }
+      },
+      "precision": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-5/side"
+        }
+      },
+      "clay_steel": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-6/side"
+        }
+      },
+      "clayium": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-7/side"
+        }
+      },
+      "ultimate": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-8/side"
+        }
+      },
+      "antimatter": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-9/side"
+        }
+      },
+      "pure_antimatter": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-10/side"
+        }
+      },
+      "oec": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-11/side"
+        }
+      },
+      "opa": {
+        "textures": {
+          "all": "gregtech:blocks/casings/machinehull-12/side"
+        }
+      }
+    }
+  }
+}

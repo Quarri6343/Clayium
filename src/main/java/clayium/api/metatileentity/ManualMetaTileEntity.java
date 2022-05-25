@@ -17,6 +17,7 @@ import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -95,7 +96,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add("Tier " + tier);
+        tooltip.add(I18n.format("gui.Common.tier", tier));
         super.addInformation(stack, player, tooltip, advanced);
     }
 }

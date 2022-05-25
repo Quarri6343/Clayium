@@ -1,5 +1,90 @@
 
-# Clayium Localization File for English
+# New Clayium Localization File for English
+
+#GUI
+gui.Common.tier=Tier %1$d
+
+#Recipe Maps
+recipemap.clay_worktable.name=Clay Work Table
+
+#Machines
+clayium.machine.clay_worktable.name=Clay Work Table
+clayium.machine.clay_worktable.tooltip=The first step to Clay Industry.
+clayium.machine.clay_crafting_board.name=Clay Crafting Board
+clayium.machine.clay_crafting_board.tooltip.1=A convenient version of vanilla Crafting Table.
+clayium.machine.clay_crafting_board.tooltip.2=__DETAIL__
+clayium.machine.clay_crafting_board.tooltip.3=You can access the content of a nearby chest while using it.
+clayium.machine.clay_manual_miner.name=Clay Manual Miner
+clayium.machine.clay_manual_miner.tooltip=Because GregTech disabled natural Clay Ore generation
+
+#MetaBlocks
+tile.clay_ore.normal.name=Clay Ore
+tile.clay_ore.dense.name=Dense Clay Ore
+tile.clay_ore.large_dense.name=Large Dense Clay Ore
+
+tile.compressed_clay.dense.name=Dense Clay
+tile.compressed_clay.compressed.name=Compressed Clay
+tile.compressed_clay.industrial.name=Industrial Clay
+tile.compressed_clay.advanced_industrial.name=Advanced Industrial Clay
+tile.compressed_clay.energetic.name=Energetic Clay
+tile.compressed_clay.compressed_energetic.name=Compressed Energetic Clay
+tile.compressed_clay.double_compressed_energetic.name=Double Compressed Energetic Clay
+tile.compressed_clay.triple_compressed_energetic.name=Triple Compressed Energetic Clay
+tile.compressed_clay.quadruple_compressed_energetic.name=Quadruple Compressed Energetic Clay
+tile.compressed_clay.quintuple_compressed_energetic.name=Quintuple Compressed Energetic Clay
+tile.compressed_clay.sextuple_compressed_energetic.name=Sextuple Compressed Energetic Clay
+tile.compressed_clay.septuple_compressed_energetic.name=Septuple Compressed Energetic Clay
+tile.compressed_clay.octuple_compressed_energetic.name=Octuple Compressed Energetic Clay
+
+tile.clay_machine_hull.raw_clay.name=Raw Clay Machine Hull
+tile.clay_machine_hull.clay.name=Clay Machine Hull
+tile.clay_machine_hull.dense_clay.name=Dense Clay Machine Hull
+tile.clay_machine_hull.simple.name=Simple Machine Hull
+tile.clay_machine_hull.basic.name=Basic Machine Hull
+tile.clay_machine_hull.advanced.name=Advanced Machine Hull
+tile.clay_machine_hull.precision.name=Precision Machine Hull
+tile.clay_machine_hull.clay_steel.name=Clay Steel Machine Hull
+tile.clay_machine_hull.clayium.name=Clayium Machine Hull
+tile.clay_machine_hull.ultimate.name=Ultimate Machine Hull
+tile.clay_machine_hull.antimatter.name=Antimatter Machine Hull
+tile.clay_machine_hull.pure_antimatter.name=Pure Antimatter Machine Hull
+tile.clay_machine_hull.oec.name=OEC Machine Hull
+tile.clay_machine_hull.opa.name=OPA Machine Hull
+
+#MetaItems
+metaitem.claytask.cutcircle.name=Cut Circle
+metaitem.claytask.cutsquare.name=Cut Square
+metaitem.claytask.pat.name=Pat
+metaitem.claytask.press.name=Press
+metaitem.claytask.roll.name=Roll
+metaitem.claytask.slice.name=Slice
+
+metaitem.clay.plate.name=Clay Plate
+metaitem.clay.stick.name=Clay Stick
+metaitem.clay.stick.short.name=Short Clay Stick
+metaitem.clay.ring.name=Clay Ring
+metaitem.clay.ring.small.name=Small Clay Ring
+metaitem.clay.gear.name=Clay Gear
+metaitem.clay.blade.name=Clay Blade
+metaitem.clay.needle.name=Clay Needle
+metaitem.clay.disc.name=Clay Disc
+metaitem.clay.disc.small.name=Small Clay Disc
+metaitem.clay.cylinder.name=Clay Cylinder
+metaitem.clay.pipe.name=Clay Pipe
+metaitem.clay.ball.large.name=Large Clay Ball
+metaitem.clay.plate.large.name=Large Clay Plate
+metaitem.clay.grinding.head.name=Clay Grinding Head
+metaitem.clay.bearing.name=Clay Bearing
+metaitem.clay.spindle.name=Clay Spindle
+metaitem.clay.cutting.head.name=Clay Cutting Head
+metaitem.clay.wheel.name=Clay Wheel
+
+metaitem.tool.clay.shovel.name=Clay Shovel
+metaitem.tool.clay.shovel.tooltip=Can dig Clay Ores and increase drops.
+metaitem.tool.clay.pickaxe.name=Clay Pickaxe
+metaitem.tool.clay.pickaxe.tooltip=Can harvest Clay Ores so fast and increase drops.
+
+# Original Clayium Localization File for English
 
 itemGroup.Clayium=Clayium
 itemGroup.ClayiumCapsule=Clayium Fluid Capsules
@@ -7,12 +92,9 @@ itemGroup.ClayiumCapsule=Clayium Fluid Capsules
 tooltip.HoldShiftForDetails=--§fHold §lShift§r For Details§7--
 
 gui.Common.energy=%1$sCE
-gui.Common.tier=Tier %1$d
 gui.Common.clayLaser=Laser : %1$s
 gui.Common.resonance=Resonance %1$s
 gui.Common.overclockFactor=Overclock x%1$s
-
-recipemap.clay_worktable.name=Clay Work Table
 
 recipe.BendingMachine=Clay Bending Machine
 recipe.WireDrawingMachine=Clay Wire Drawing Machine
@@ -65,50 +147,10 @@ recipe.SolarClayFabricator.description=Requires an unobstructed view of the sky.
 recipe.ClayTree=Clay Tree
 recipe.ClayTree.description=A Clay Tree is a good source of Lithium, but it isn't generated in the Overworld. A sapling of Clay Tree is obtained by irradiating a vanilla sapling, planted on the ground, with Clay Laser. The energy value of Clay Laser must be higher than 1000.
 
-tile.blockClayOre.0.name=Clay Ore
-tile.blockClayOre.1.name=Dense Clay Ore
-tile.blockClayOre.2.name=Large Dense Clay Ore
-
-tile.blockCompressedClay.0.name=Dense Clay
-tile.blockCompressedClay.1.name=Compressed Clay
-tile.blockCompressedClay.2.name=Industrial Clay
-tile.blockCompressedClay.3.name=Advanced Industrial Clay
-tile.blockCompressedClay.4.name=Energetic Clay
-tile.blockCompressedClay.5.name=Compressed Energetic Clay
-tile.blockCompressedClay.6.name=Double Compressed Energetic Clay
-tile.blockCompressedClay.7.name=Triple Compressed Energetic Clay
-tile.blockCompressedClay.8.name=Quadruple Compressed Energetic Clay
-tile.blockCompressedClay.9.name=Quintuple Compressed Energetic Clay
-tile.blockCompressedClay.10.name=Sextuple Compressed Energetic Clay
-tile.blockCompressedClay.11.name=Septuple Compressed Energetic Clay
-tile.blockCompressedClay.12.name=Octuple Compressed Energetic Clay
-
-tile.blockRawClayMachineHull.0.name=Raw Clay Machine Hull
-tile.blockMachineHull.0.name=Clay Machine Hull
-tile.blockMachineHull.1.name=Dense Clay Machine Hull
-tile.blockMachineHull.2.name=Simple Machine Hull
-tile.blockMachineHull.3.name=Basic Machine Hull
-tile.blockMachineHull.4.name=Advanced Machine Hull
-tile.blockMachineHull.5.name=Precision Machine Hull
-tile.blockMachineHull.6.name=Clay Steel Machine Hull
-tile.blockMachineHull.7.name=Clayium Machine Hull
-tile.blockMachineHull.8.name=Ultimate Machine Hull
-tile.blockMachineHull.9.name=Antimatter Machine Hull
-tile.blockMachineHull.10.name=Pure Antimatter Machine Hull
-tile.blockMachineHull.11.name=OEC Machine Hull
-tile.blockMachineHull.12.name=OPA Machine Hull
-
 #tile.blockOthersHull.0.name=AZ91D Alloy Hull
 #tile.blockOthersHull.1.name=ZK60A Alloy Hull
 tile.blockAZ91DHull.name=AZ91D Alloy Hull
 tile.blockZK60AHull.name=ZK60A Alloy Hull
-
-clayium.machine.clay_worktable.name=Clay Work Table
-clayium.machine.clay_worktable.tooltip=The first step to Clay Industry.
-tile.blockClayCraftingTable.name=Clay Crafting Board
-tile.blockClayCraftingTable.tooltip.line1=A convenient version of vanilla Crafting Table.
-tile.blockClayCraftingTable.tooltip.line2=__DETAIL__
-tile.blockClayCraftingTable.tooltip.line3=You can access the content of a nearby chest while using it.
 
 tile.blockElementalMillingMachine.name=Elemental Milling Machine
 tile.blockElementalMillingMachine.tooltip.line1=To obtain the first circuit.
@@ -805,11 +847,6 @@ item.itemCompressedClayShard.1.name=Compressed Clay Shard
 item.itemCompressedClayShard.2.name=Industrial Clay Shard
 item.itemCompressedClayShard.3.name=Advanced Industrial Clay Shard
 
-item.itemClayShovel.name=Clay Shovel
-item.itemClayShovel.tooltip.line1=Can dig Clay Ores and increase drops.
-item.itemClayPickaxe.name=Clay Pickaxe
-item.itemClayPickaxe.tooltip.line1=Can harvest Clay Ores so fast and increase drops.
-
 item.itemFilterDuplicator.copy.name=Item Filter Duplicator
 item.itemFilterWhitelist.name=White List Item Filter
 item.itemFilterWhitelist.copy.name=White List Item Filter (Copy)
@@ -929,26 +966,6 @@ item.item.CEE.name=Clay Energy Excitor
 item.item.LaserParts.name=Laser Parts
 item.item.AntimatterSeed.name=Antimatter Seed
 
-item.itemClayParts.Plate.name=Clay Plate
-item.itemClayParts.Stick.name=Clay Stick
-item.itemClayParts.ShortStick.name=Short Clay Stick
-item.itemClayParts.Ring.name=Clay Ring
-item.itemClayParts.SmallRing.name=Small Clay Ring
-item.itemClayParts.Gear.name=Clay Gear
-item.itemClayParts.Blade.name=Clay Blade
-item.itemClayParts.Needle.name=Clay Needle
-item.itemClayParts.Disc.name=Clay Disc
-item.itemClayParts.SmallDisc.name=Small Clay Disc
-item.itemClayParts.Cylinder.name=Clay Cylinder
-item.itemClayParts.Pipe.name=Clay Pipe
-item.itemClayParts.LargeBall.name=Large Clay Ball
-item.itemClayParts.LargePlate.name=Large Clay Plate
-item.itemClayParts.GrindingHead.name=Clay Grinding Head
-item.itemClayParts.Bearing.name=Clay Bearing
-item.itemClayParts.Spindle.name=Clay Spindle
-item.itemClayParts.CuttingHead.name=Clay Cutting Head
-item.itemClayParts.WaterWheel.name=Clay Wheel
-
 item.itemDenseClayParts.Plate.name=Dense Clay Plate
 item.itemDenseClayParts.Stick.name=Dense Clay Stick
 item.itemDenseClayParts.ShortStick.name=Short Dense Clay Stick
@@ -985,7 +1002,6 @@ item.itemDusts.ExcitedClay.name=Excited Clay Dust
 item.itemDusts.Salt.name=Salt
 item.itemDusts.Salt.tooltip.line1=Produced by Salt Extractor.
 item.itemDusts.CalcareousClay.name=Calcareous Clay Dust
-item.itemDusts.IndustrialClay.name=Industrial Clay Dust
 item.itemDusts.CalciumChloride.name=Calcium Chloride Dust
 item.itemDusts.SodiumCarbonate.name=Sodium Carbonate Dust
 item.itemDusts.Quartz.name=Quartz Dust
