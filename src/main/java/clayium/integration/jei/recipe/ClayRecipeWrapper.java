@@ -3,6 +3,7 @@ package clayium.integration.jei.recipe;
 import clayium.api.recipes.ClayRecipe;
 import clayium.api.recipes.ClayRecipeMap;
 import clayium.api.util.ClayCTRecipeHelper;
+import clayium.api.util.ClayUtility;
 import gregtech.api.GTValues;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.recipes.CountableIngredient;
@@ -12,9 +13,7 @@ import gregtech.api.recipes.recipeproperties.RecipeProperty;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.util.ClipboardUtil;
 import gregtech.api.util.GTUtility;
-import gregtech.client.renderer.texture.Textures;
 import gregtech.integration.jei.utils.AdvancedRecipeWrapper;
-import gregtech.integration.jei.utils.JEIHelpers;
 import gregtech.integration.jei.utils.JeiButton;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
@@ -134,7 +133,7 @@ public class ClayRecipeWrapper extends AdvancedRecipeWrapper {
         int yPosition = recipeHeight - getPropertyListHeight();
         if (!recipe.hasProperty(PrimitiveProperty.getInstance())) {
             minecraft.fontRenderer.drawString(I18n.format("gui.Common.tier", Math.abs(recipe.getTier())), 0, yPosition, 0x111111);
-            minecraft.fontRenderer.drawString(I18n.format("gui.Common.energy", String.format("%dCE/t x %dt = %d",(long) recipe.getEUt(), recipe.getDuration(), (long)recipe.getEUt() * (long)recipe.getDuration() )), 0, yPosition += LINE_HEIGHT, 0x111111);
+            minecraft.fontRenderer.drawString(I18n.format("gui.Common.energy", String.format("%sCE/t x %dt = %s", ClayUtility.getCEWithUnit(recipe.getCEt()), recipe.getDuration(), ClayUtility.getCEWithUnit(recipe.getCEt() * recipe.getDuration()))), 0, yPosition += LINE_HEIGHT, 0x111111);
         } else yPosition -= LINE_HEIGHT * 2;
         minecraft.fontRenderer.drawString(I18n.format("gregtech.recipe.duration", recipe.getDuration() / 20f), 0, yPosition += LINE_HEIGHT, 0x111111);
         for (Map.Entry<RecipeProperty<?>, Object> propertyEntry : recipe.getPropertyValues()) {

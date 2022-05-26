@@ -62,12 +62,4 @@ public class ClayManualMiner extends ManualMetaTileEntity {
                 .slot(exportItems, 3, 125, 43, true, false, GuiTextures.SLOT)
                 .build(getHolder(), player);
     }
-
-    protected void AddDisplayText(List<ITextComponent> textList) {
-        textList.add(new TextComponentString(this.energyContainer.getEnergyStored() + "CE"));
-    }
-
-    public void OnClick(Widget.ClickData data){
-        this.energyContainer.addEnergy(10);
-    }
 }

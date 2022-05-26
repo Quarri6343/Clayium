@@ -93,4 +93,8 @@ public class ClayRecipe extends Recipe {
             return (ClayRecipe)builder.build().getResult();
         }
     }
+
+    public long getCEt() {
+        return super.getEUt();
+    }
 }

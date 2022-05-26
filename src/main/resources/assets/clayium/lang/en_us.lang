@@ -3,6 +3,7 @@
 
 #GUI
 gui.Common.tier=Tier %1$d
+gui.Common.energy=%1$sCE
 
 #Recipe Maps
 recipemap.clay_worktable.name=Clay Work Table
@@ -91,7 +92,6 @@ itemGroup.ClayiumCapsule=Clayium Fluid Capsules
 
 tooltip.HoldShiftForDetails=--§fHold §lShift§r For Details§7--
 
-gui.Common.energy=%1$sCE
 gui.Common.clayLaser=Laser : %1$s
 gui.Common.resonance=Resonance %1$s
 gui.Common.overclockFactor=Overclock x%1$s

@@ -3,16 +3,17 @@ package clayium.common.metatileentities;
 import clayium.api.gui.ClayGuiTextures;
 import clayium.api.metatileentity.ManualMetaTileEntity;
 import clayium.api.recipes.ClayRecipeMaps;
+import clayium.api.util.ClayUtility;
 import clayium.client.ClayTextures;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.Widget;
 import gregtech.api.gui.widgets.AdvancedTextWidget;
 import gregtech.api.gui.widgets.ClickButtonWidget;
 import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.*;
@@ -58,13 +59,5 @@ public class ClayWorkTable extends ManualMetaTileEntity {
                         .setShouldClientCallback(true))
                 .slot(this.exportItems, 0, 107, 25, true, false, GuiTextures.SLOT)
                 .build(getHolder(), player);
-    }
-
-    protected void AddDisplayText(List<ITextComponent> textList) {
-        textList.add(new TextComponentString(this.energyContainer.getEnergyStored() + "CE"));
-    }
-
-    public void OnClick(Widget.ClickData data){
-        this.energyContainer.addEnergy(10);
     }
 }
