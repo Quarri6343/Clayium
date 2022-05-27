@@ -7,11 +7,12 @@ import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.sound.GTSounds;
+import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenExpansion;
 import stanhebben.zenscript.annotations.ZenProperty;
 
-//@ZenExpansion("mods.clayium.recipe.ClayRecipeMaps")
-//@ZenRegister
+@ZenClass("mods.clayium.recipe.ClayRecipeMaps")
+@ZenRegister
 public class ClayRecipeMaps {
 
 //    @ZenProperty

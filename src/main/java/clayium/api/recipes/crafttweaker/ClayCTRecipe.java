@@ -19,9 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@ZenClass("mods.clayium.recipe.ClayRecipe")
-//@ZenRegister
-@SuppressWarnings("unused")
+@ZenClass("mods.clayium.recipe.ClayRecipe")
+@ZenRegister
 public class ClayCTRecipe {
 
     private final ClayRecipeMap<?> recipeMap;
