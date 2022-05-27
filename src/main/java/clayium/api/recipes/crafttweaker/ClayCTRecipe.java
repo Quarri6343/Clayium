@@ -86,7 +86,7 @@ public class ClayCTRecipe {
     }
 
     @ZenGetter("CEt")
-    public int getEUt() {
+    public int getCEt() {
         return this.backingRecipe.getEUt();
     }
 

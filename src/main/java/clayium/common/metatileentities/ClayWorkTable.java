@@ -42,7 +42,7 @@ public class ClayWorkTable extends ManualMetaTileEntity {
 
     @Override
     protected IItemHandlerModifiable createExportItemHandler() {
-        return new NotifiableItemStackHandler(1, this, true);
+        return new NotifiableItemStackHandler(2, this, true);
     }
 
     @Override
@@ -58,6 +58,7 @@ public class ClayWorkTable extends ManualMetaTileEntity {
                         .setButtonTexture(ClayGuiTextures.BUTTON_GEAR)
                         .setShouldClientCallback(true))
                 .slot(this.exportItems, 0, 107, 25, true, false, GuiTextures.SLOT)
+                .slot(this.exportItems, 1, 126, 25, true, false, GuiTextures.SLOT)
                 .build(getHolder(), player);
     }
 }

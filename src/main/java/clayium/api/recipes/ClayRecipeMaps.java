@@ -21,7 +21,7 @@ public class ClayRecipeMaps {
 //            .setProgressBar(GuiTextures.PROGRESS_BAR_MIXER, ProgressWidget.MoveType.CIRCULAR)
 //            .setSound(GTSounds.MIXER);
     @ZenProperty
-    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_WORKTABLE_RECIPES = new ClayRecipeMap<>("clay_worktable", 1, 3, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_WORKTABLE_RECIPES = new ClayRecipeMap<>("clay_worktable", 1, 3, 1, 2, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
         .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
         .setSound(GTSounds.FORGE_HAMMER);
 
