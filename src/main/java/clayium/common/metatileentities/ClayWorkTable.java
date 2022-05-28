@@ -7,7 +7,6 @@ import clayium.client.ClayTextures;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.Widget;
 import gregtech.api.gui.widgets.AdvancedTextWidget;
 import gregtech.api.gui.widgets.ClickButtonWidget;
 import gregtech.api.gui.widgets.ProgressWidget;
@@ -15,10 +14,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.*;
 import net.minecraftforge.items.IItemHandlerModifiable;
-
-import java.util.List;
 
 public class ClayWorkTable extends ManualMetaTileEntity {
 
@@ -41,7 +37,7 @@ public class ClayWorkTable extends ManualMetaTileEntity {
 
     @Override
     protected IItemHandlerModifiable createExportItemHandler() {
-        return new NotifiableItemStackHandler(1, this, true);
+        return new NotifiableItemStackHandler(2, this, true);
     }
 
     @Override
@@ -53,18 +49,11 @@ public class ClayWorkTable extends ManualMetaTileEntity {
                 .progressBar(workableHandler::getProgressPercent, 78, 25, 20, 18,
                         GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL, workableHandler.getRecipeMap())
                 .widget(new AdvancedTextWidget(10, 70, this::AddDisplayText, 0xFFFFFF))
-                .widget(new ClickButtonWidget(78, 50, 16, 16, "", this::OnClick)
+                .widget(new ClickButtonWidget(78, 50, 16, 16, "", this::OnWorkButtonClick)
                         .setButtonTexture(ClayGuiTextures.BUTTON_GEAR)
                         .setShouldClientCallback(true))
                 .slot(this.exportItems, 0, 107, 25, true, false, GuiTextures.SLOT)
+                .slot(this.exportItems, 1, 126, 25, true, false, GuiTextures.SLOT)
                 .build(getHolder(), player);
-    }
-
-    protected void AddDisplayText(List<ITextComponent> textList) {
-        textList.add(new TextComponentString(this.energyContainer.getEnergyStored() + "CE"));
-    }
-
-    public void OnClick(Widget.ClickData data){
-        this.energyContainer.addEnergy(10);
     }
 }

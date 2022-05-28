@@ -2,6 +2,8 @@ package clayium.common.items;
 
 import clayium.api.items.metaitem.StandardClayMetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
+import gregtech.api.items.toolitem.WrenchItemStat;
+
 import static clayium.common.items.ClayMetaItems.*;
 
 public class ClayMetaItem1 extends StandardClayMetaItem {
@@ -39,5 +41,9 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         CLAY_SPINDLE = addItem(22, "clay.spindle").setTier(1);
         CLAY_CUTTING_HEAD = addItem(23, "clay.cutting.head").setTier(1);
         CLAY_WHEEL = addItem(24, "clay.wheel").setTier(1);
+
+        CLAY_ROLLING_PIN_RAW = addItem(25, "clay.rolling.pin.raw");
+        CLAY_SLICER_RAW = addItem(26, "clay.slicer.raw");
+        CLAY_SPATULA_RAW = addItem(27, "clay.spatula.raw");
     }
 }

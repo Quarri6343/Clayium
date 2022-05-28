@@ -5,7 +5,7 @@ import clayium.api.unification.material.ClayMaterials;
 import clayium.common.blocks.ClayMetaBlocks;
 import clayium.common.items.ClayMetaItems;
 import clayium.common.metatileentities.ClayMetaTileEntities;
-import clayium.loaders.recipe.ClayRecipeLoader;
+import clayium.loaders.recipe.ClayRecipeManager;
 import gregtech.api.GregTechAPI;
 
 import gregtech.api.block.VariantItemBlock;
@@ -44,7 +44,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
-        registry.register(COMPRESSED_CRAY);
+        registry.register(COMPRESSED_CLAY);
         registry.register(CLAY_ORE);
         registry.register(CLAY_MACHINE_HULL);
 //        event.getRegistry().register(BLOCK_SAWMILL_CONVEYOR);
@@ -53,7 +53,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
-        registry.register(createItemBlock(COMPRESSED_CRAY, VariantItemBlock::new));
+        registry.register(createItemBlock(COMPRESSED_CLAY, VariantItemBlock::new));
         registry.register(createItemBlock(CLAY_ORE, VariantItemBlock::new));
         registry.register(createItemBlock(CLAY_MACHINE_HULL, VariantItemBlock::new));
 //        event.getRegistry().register(createItemBlock(BLOCK_SAWMILL_CONVEYOR, ItemBlock::new));
@@ -75,6 +75,6 @@ public class CommonProxy {
         // Main recipe registration
         // This is called AFTER GregTech registers recipes, so
         // anything here is safe to call removals in
-        ClayRecipeLoader.init();
+        ClayRecipeManager.init();
     }
 }

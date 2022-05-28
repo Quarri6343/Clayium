@@ -4,6 +4,7 @@ import clayium.api.ClayValues;
 import clayium.api.capability.impl.ClayAbstractRecipeLogic;
 import clayium.api.recipes.ClayRecipe;
 import clayium.api.recipes.ClayRecipeMap;
+import clayium.common.metatileentities.ClayMetaTileEntities;
 import clayium.integration.jei.recipe.ClayRecipeMapCategory;
 import clayium.integration.jei.recipe.ClayRecipeWrapper;
 import gregtech.api.GTValues;
@@ -16,6 +17,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.SteamMetaTileEntity;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.machines.RecipeMapFurnace;
+import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.integration.jei.GTJeiPlugin;
 import gregtech.integration.jei.GTOreCategory;
 import gregtech.integration.jei.multiblock.MultiblockInfoCategory;
@@ -24,6 +26,7 @@ import gregtech.integration.jei.recipe.RecipeMapCategory;
 import gregtech.integration.jei.recipe.primitive.MaterialTreeCategory;
 import gregtech.integration.jei.recipe.primitive.OreByProductCategory;
 import mezz.jei.api.*;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import net.minecraft.util.ResourceLocation;
@@ -92,6 +95,12 @@ public class ClayJeiPlugin implements IModPlugin {
                     }
                 }
             }
+        }
+
+        for (MetaTileEntity machine : ClayMetaTileEntities.CLAY_COBBLESTONE_GENERATOR) {
+            if (machine == null) continue;
+            registry.addIngredientInfo(machine.getStackForm(), VanillaTypes.ITEM,
+                    "recipemap.clay_cobblestone_generator.jei_description");
         }
     }
 

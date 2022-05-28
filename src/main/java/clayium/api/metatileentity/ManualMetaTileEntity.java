@@ -5,6 +5,7 @@ import clayium.api.capability.impl.ClayEnergyContainerHandler;
 import clayium.api.capability.impl.RecipeLogicManual;
 import clayium.api.gui.ClayModularUI;
 import clayium.api.recipes.ClayRecipeMap;
+import clayium.api.util.ClayUtility;
 import clayium.client.ClayTextures;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.ColourMultiplier;
@@ -12,6 +13,7 @@ import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.gui.GuiTextures;
+import gregtech.api.gui.Widget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
@@ -22,6 +24,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,10 +36,12 @@ import org.apache.commons.lang3.tuple.Pair;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static clayium.api.ClayValues.microCE;
+
 
 public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
-    protected static final int CE_CAPACITY = 1000;
+    protected static final int CE_CAPACITY = 1000 * microCE;
 
     protected final ICubeRenderer renderer;
     protected RecipeLogicManual workableHandler;
@@ -58,7 +64,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     @SideOnly(Side.CLIENT)
     protected SimpleSidedCubeRenderer getBaseRenderer() {
-        return ClayTextures.CLAY_MACHINE_HULL_0;
+        return ClayTextures.TIER_CASINGS[0];
     }
 
     @Override
@@ -98,5 +104,18 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
         tooltip.add(I18n.format("gui.Common.tier", tier));
         super.addInformation(stack, player, tooltip, advanced);
+    }
+
+    public void OnWorkButtonClick(Widget.ClickData data){
+        this.energyContainer.addEnergy(50);
+    }
+
+    protected void AddDisplayText(List<ITextComponent> textList) {
+        textList.add(new TextComponentString(I18n.format("gui.Common.energy", ClayUtility.getCEWithUnit(this.energyContainer.getEnergyStored()))));
+    }
+
+    @Override
+    public String getHarvestTool() {
+        return "pickaxe";
     }
 }

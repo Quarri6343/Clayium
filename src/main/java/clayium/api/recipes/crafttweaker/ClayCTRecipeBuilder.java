@@ -2,6 +2,7 @@ package clayium.api.recipes.crafttweaker;
 
 import clayium.api.recipes.ClayRecipeBuilder;
 import crafttweaker.CraftTweakerAPI;
+import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.liquid.ILiquidStack;
@@ -10,14 +11,15 @@ import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-//@ZenClass("mods.clayium.recipe.ClayRecipeBuilder")
-//@ZenRegister
+@ZenClass("mods.clayium.recipe.ClayRecipeBuilder")
+@ZenRegister
 public class ClayCTRecipeBuilder {
 
     public final ClayRecipeBuilder<?> backingBuilder;

@@ -3,9 +3,21 @@
 
 #GUI
 gui.Common.tier=Tier %1$d
+gui.Common.energy=%1$sCE
 
 #Recipe Maps
 recipemap.clay_worktable.name=Clay Work Table
+recipemap.clay_miner.name=Clay Manual Miner
+
+recipemap.clay_bending_machine.name=Clay Bending Machine
+recipemap.clay_wire_drawing_machine.name=Clay Wire Drawing Machine
+recipemap.clay_pipe_drawing_machine.name=Clay Pipe Drawing Machine
+recipemap.clay_cutting_machine.name=Clay Cutting Machine
+recipemap.clay_lathe.name=Clay Lathe
+recipemap.clay_milling_machine.name=Clay Milling Machine
+recipemap.clay_cobblestone_generator.name=Cobblestone Generator
+# recipe.CobblestoneGenerator.efficiency=%1$4.2g Blocks/t
+recipemap.clay_cobblestone_generator.jei_description=As you know, a cobblestone generator is consist of water and lava. Clayium's Cobblestone Generator also needs them. If you place both of them next to the machine, it will work.
 
 #Machines
 clayium.machine.clay_worktable.name=Clay Work Table
@@ -16,6 +28,44 @@ clayium.machine.clay_crafting_board.tooltip.2=__DETAIL__
 clayium.machine.clay_crafting_board.tooltip.3=You can access the content of a nearby chest while using it.
 clayium.machine.clay_manual_miner.name=Clay Manual Miner
 clayium.machine.clay_manual_miner.tooltip=Because GregTech disabled natural Clay Ore generation
+
+clayium.machine.clay_bending_machine.1.name=Clay Bending Machine
+clayium.machine.clay_bending_machine.1.tooltip=The first machine.
+clayium.machine.clay_bending_machine.2.name=Dense Clay Bending Machine
+clayium.machine.clay_bending_machine.3.name=Simple Bending Machine
+clayium.machine.clay_bending_machine.4.name=Basic Bending Machine
+clayium.machine.clay_bending_machine.5.name=Advanced Bending Machine
+clayium.machine.clay_bending_machine.6.name=Precision Bending Machine
+clayium.machine.clay_bending_machine.7.name=Clay Steel Bending Machine
+clayium.machine.clay_bending_machine.8.name=Ultimate Bending Machine
+
+clayium.machine.clay_wire_drawing_machine.1.name=Clay Wire Drawing Machine
+clayium.machine.clay_wire_drawing_machine.2.name=Dense Clay Wire Drawing Machine
+clayium.machine.clay_wire_drawing_machine.3.name=Simple Wire Drawing Machine
+clayium.machine.clay_wire_drawing_machine.4.name=Basic Wire Drawing Machine
+
+clayium.machine.clay_pipe_drawing_machine.1.name=Clay Pipe Drawing Machine
+clayium.machine.clay_pipe_drawing_machine.2.name=Dense Clay Pipe Drawing Machine
+clayium.machine.clay_pipe_drawing_machine.3.name=Simple Pipe Drawing Machine
+clayium.machine.clay_pipe_drawing_machine.4.name=Basic Pipe Drawing Machine
+
+clayium.machine.clay_cutting_machine.1.name=Clay Cutting Machine
+clayium.machine.clay_cutting_machine.2.name=Dense Clay Cutting Machine
+clayium.machine.clay_cutting_machine.3.name=Simple Cutting Machine
+clayium.machine.clay_cutting_machine.4.name=Basic Cutting Machine
+
+clayium.machine.clay_lathe.1.name=Clay Lathe
+clayium.machine.clay_lathe.2.name=Dense Clay Lathe
+clayium.machine.clay_lathe.3.name=Simple Lathe
+clayium.machine.clay_lathe.4.name=Basic Lathe
+
+clayium.machine.clay_cobblestone_generator.1.name=Clay Cobblestone Generator
+clayium.machine.clay_cobblestone_generator.2.name=Dense Clay Cobblestone Generator
+clayium.machine.clay_cobblestone_generator.3.name=Simple Cobblestone Generator
+clayium.machine.clay_cobblestone_generator.4.name=Basic Cobblestone Generator
+clayium.machine.clay_cobblestone_generator.5.name=Advanced Cobblestone Generator
+clayium.machine.clay_cobblestone_generator.6.name=Precision Cobblestone Generator
+clayium.machine.clay_cobblestone_generator.7.name=Clay Steel Cobblestone Generator
 
 #MetaBlocks
 tile.clay_ore.normal.name=Clay Ore
@@ -79,10 +129,26 @@ metaitem.clay.spindle.name=Clay Spindle
 metaitem.clay.cutting.head.name=Clay Cutting Head
 metaitem.clay.wheel.name=Clay Wheel
 
+metaitem.clay.rolling.pin.raw.name=Raw Clay Rolling Pin
+# metaitem.clay.rolling.pin.raw.tooltip=Deletes filters applied to machines.
+metaitem.clay.slicer.raw.name=Raw Clay Slicer
+# metaitem.clay.rolling.pin.raw.tooltip=Deletes filters applied to machines.
+metaitem.clay.spatula.raw.name=Raw Clay Spatula
+# metaitem.clay.spatula.raw.tooltip=Deletes filters applied to machines.
+
 metaitem.tool.clay.shovel.name=Clay Shovel
 metaitem.tool.clay.shovel.tooltip=Can dig Clay Ores and increase drops.
 metaitem.tool.clay.pickaxe.name=Clay Pickaxe
 metaitem.tool.clay.pickaxe.tooltip=Can harvest Clay Ores so fast and increase drops.
+metaitem.tool.clay.rolling.pin.name=Clay Rolling Pin
+# metaitem.tool.clay.rolling.pin.tooltip=Machine Input Configurator
+metaitem.tool.clay.rolling.pin.tooltip=has Compatibility with GregTech Screwdriver
+metaitem.tool.clay.slicer.name=Clay Slicer
+# metaitem.tool.clay.slicer.tooltip=Machine Output Configurator
+metaitem.tool.clay.slicer.tooltip=has Compatibility with GregTech Wrench
+metaitem.tool.clay.spatula.name=Clay Spatula
+# metaitem.tool.clay.spatula.tooltip=Changes a machine's appearance to Pipe.
+metaitem.tool.clay.spatula.tooltip=has Compatibility with GregTech Wire Cutter
 
 # Original Clayium Localization File for English
 
@@ -91,17 +157,9 @@ itemGroup.ClayiumCapsule=Clayium Fluid Capsules
 
 tooltip.HoldShiftForDetails=--§fHold §lShift§r For Details§7--
 
-gui.Common.energy=%1$sCE
 gui.Common.clayLaser=Laser : %1$s
 gui.Common.resonance=Resonance %1$s
 gui.Common.overclockFactor=Overclock x%1$s
-
-recipe.BendingMachine=Clay Bending Machine
-recipe.WireDrawingMachine=Clay Wire Drawing Machine
-recipe.PipeDrawingMachine=Clay Pipe Drawing Machine
-recipe.CuttingMachine=Clay Cutting Machine
-recipe.Lathe=Clay Lathe
-recipe.MillingMachine=Clay Milling Machine
 
 recipe.Condenser=Clay Condenser
 recipe.Grinder=Clay Grinder
@@ -131,9 +189,6 @@ recipe.ECDecomposer=Energetic Clay Decomposer
 
 recipe.FluidTransferMachine=Fluid Transfer Machine
 
-recipe.CobblestoneGenerator=Cobblestone Generator
-recipe.CobblestoneGenerator.efficiency=%1$4.2g Blocks/t
-recipe.CobblestoneGenerator.description=As you know, a cobblestone generator is consist of water and lava. Clayium's Cobblestone Generator also needs them. If you place both of them next to the machine, it will work.
 recipe.SaltExtractor=Salt Extractor
 recipe.SaltExtractor.efficiency=%1$4.2g Items/t
 recipe.SaltExtractor.energyConsumption=%1$s CE/t
@@ -157,44 +212,6 @@ tile.blockElementalMillingMachine.tooltip.line1=To obtain the first circuit.
 tile.blockEnergeticClayCondenser.name=Energetic Clay Condenser Mk I
 tile.blockEnergeticClayCondenser.tooltip.line1=To obtain the first Energetic Clay.
 tile.blockEnergeticClayCondenserMK2.name=Energetic Clay Condenser Mk II
-
-tile.blockClayBendingMachine.name=Clay Bending Machine
-tile.blockClayBendingMachine.tooltip.line1=The first machine.
-tile.blockDenseClayBendingMachine.name=Dense Clay Bending Machine
-tile.blockSimpleBendingMachine.name=Simple Bending Machine
-tile.blockBasicBendingMachine.name=Basic Bending Machine
-tile.blockAdvancedBendingMachine.name=Advanced Bending Machine
-tile.blockPrecisionBendingMachine.name=Precision Bending Machine
-tile.blockClaySteelBendingMachine.name=Clay Steel Bending Machine
-tile.blockUltimateBendingMachine.name=Ultimate Bending Machine
-
-tile.blockClayWireDrawingMachine.name=Clay Wire Drawing Machine
-tile.blockDenseClayWireDrawingMachine.name=Dense Clay Wire Drawing Machine
-tile.blockSimpleWireDrawingMachine.name=Simple Wire Drawing Machine
-tile.blockBasicWireDrawingMachine.name=Basic Wire Drawing Machine
-
-tile.blockClayPipeDrawingMachine.name=Clay Pipe Drawing Machine
-tile.blockDenseClayPipeDrawingMachine.name=Dense Clay Pipe Drawing Machine
-tile.blockSimplePipeDrawingMachine.name=Simple Pipe Drawing Machine
-tile.blockBasicPipeDrawingMachine.name=Basic Pipe Drawing Machine
-
-tile.blockClayCuttingMachine.name=Clay Cutting Machine
-tile.blockDenseClayCuttingMachine.name=Dense Clay Cutting Machine
-tile.blockSimpleCuttingMachine.name=Simple Cutting Machine
-tile.blockBasicCuttingMachine.name=Basic Cutting Machine
-
-tile.blockClayLathe.name=Clay Lathe
-tile.blockDenseClayLathe.name=Dense Clay Lathe
-tile.blockSimpleLathe.name=Simple Lathe
-tile.blockBasicLathe.name=Basic Lathe
-
-tile.blockClayCobblestoneGenerator.name=Clay Cobblestone Generator
-tile.blockDenseClayCobblestoneGenerator.name=Dense Clay Cobblestone Generator
-tile.blockSimpleCobblestoneGenerator.name=Simple Cobblestone Generator
-tile.blockBasicCobblestoneGenerator.name=Basic Cobblestone Generator
-tile.blockAdvancedCobblestoneGenerator.name=Advanced Cobblestone Generator
-tile.blockPrecisionCobblestoneGenerator.name=Precision Cobblestone Generator
-tile.blockClaySteelCobblestoneGenerator.name=Clay Steel Cobblestone Generator
 
 tile.blockDenseClayCondenser.name=Dense Clay Condenser
 tile.blockSimpleCondenser.name=Simple Condenser
@@ -816,18 +833,6 @@ tile.blockSilicone.green.name=Green Silicone Block
 tile.blockSilicone.red.name=Red Silicone Block
 tile.blockSilicone.black.name=Black Silicone Block
 
-item.itemRawClayCraftingTools.RollingPin.name=Raw Clay Rolling Pin
-item.itemRawClayCraftingTools.RollingPin.tooltip.line1=Deletes filters applied to machines.
-item.itemRawClayCraftingTools.Slicer.name=Raw Clay Slicer
-item.itemRawClayCraftingTools.Slicer.tooltip.line1=Deletes filters applied to machines.
-item.itemRawClayCraftingTools.Spatula.name=Raw Clay Spatula
-item.itemRawClayCraftingTools.Spatula.tooltip.line1=Deletes filters applied to machines.
-item.itemClayRollingPin.name=Clay Rolling Pin
-item.itemClayRollingPin.tooltip.line1=Machine Input Configurator
-item.itemClaySlicer.name=Clay Slicer
-item.itemClaySlicer.tooltip.line1=Machine Output Configurator
-item.itemClaySpatula.name=Clay Spatula
-item.itemClaySpatula.tooltip.line1=Changes a machine's appearance to Pipe.
 item.itemClayWrench.name=Clay Wrench
 item.itemClayWrench.tooltip.line1=Rotates machines.
 item.itemClayPipingTools.IO.name=Clay IO Configurator

@@ -43,8 +43,8 @@ import java.util.function.Consumer;
 import java.util.function.DoubleSupplier;
 import java.util.stream.Collectors;
 
-//@ZenClass("mods.clayium.recipe.ClayRecipeMap")
-//@ZenRegister
+@ZenClass("mods.clayium.recipe.ClayRecipeMap")
+@ZenRegister
 public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
 
     private static final Map<String, ClayRecipeMap<?>> RECIPE_MAP_REGISTRY = new HashMap<>();

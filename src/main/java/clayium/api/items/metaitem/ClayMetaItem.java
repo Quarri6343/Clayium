@@ -78,6 +78,11 @@ public class ClayMetaItem<T extends ClayMetaItem<?>.ClayMetaValueItem> extends M
             return (ClayMetaItem.ClayMetaValueItem) super.setRarity(rarity);
         }
 
+        @Override
+        public ClayMetaItem<T>.ClayMetaValueItem setMaxStackSize(int maxStackSize) {
+            return (ClayMetaItem.ClayMetaValueItem) super.setMaxStackSize(maxStackSize);
+        }
+
         public int getTier() {
             return tier;
         }
