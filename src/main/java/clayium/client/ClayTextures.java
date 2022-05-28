@@ -15,11 +15,15 @@ public class ClayTextures {
     public static final SimpleSidedCubeRenderer DENSE_CLAY = new SimpleSidedCubeRenderer("casings/dense_clay");
 
     //OVERLAYS
+    public static final SimpleOverlayRenderer ITEM_OUTPUT_OVERLAY;
+    public static final SimpleOverlayRenderer ITEM_AUTO_OUTPUT_OVERLAY;
     public static final OrientedOverlayRenderer CLAY_WORKTABLE_OVERLAY = new OrientedOverlayRenderer("clay_worktable", TOP, BOTTOM, SIDE, FRONT, BACK);
     public static final OrientedOverlayRenderer CLAY_CRAFTING_BOARD_OVERLAY = new OrientedOverlayRenderer("clay_crafting_board", TOP);
     public static final OrientedOverlayRenderer BENDING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/bending_machine", FRONT);
-    public static final SimpleOverlayRenderer ITEM_OUTPUT_OVERLAY;
-    public static final SimpleOverlayRenderer ITEM_AUTO_OUTPUT_OVERLAY;
+    public static final OrientedOverlayRenderer WIRE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/wire_drawing_machine", FRONT);
+    public static final OrientedOverlayRenderer PIPE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/pipe_drawing_machine", FRONT);
+    public static final OrientedOverlayRenderer CUTTING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/cutting_machine", FRONT);
+    public static final OrientedOverlayRenderer LATHE_OVERLAY = new OrientedOverlayRenderer("machines/lathe", FRONT);
 
     public static void preInit() {
 
