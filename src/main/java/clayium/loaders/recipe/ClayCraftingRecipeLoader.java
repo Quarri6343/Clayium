@@ -23,17 +23,17 @@ public class ClayCraftingRecipeLoader {
     private static  void registerMachineCraftingRecipes(){
         ModHandler.addShapedRecipe("clay_manual_miner", CLAY_MANUAL_MINER.getStackForm(),
                 "SGS", "GHG", "SGS", 'H', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.RAW_CLAY), 'S', CLAY_STICK, 'G', CLAY_GEAR);
-        ModHandler.addShapedRecipe("clay_bending_machine", BENDING_MACHINE[0].getStackForm(),
+        ModHandler.addShapedRecipe("clay_bending_machine", CLAY_BENDING_MACHINE[0].getStackForm(),
                 "SCG", "PMP", "SCG", 'S', CLAY_SPINDLE, 'C', CLAY_CYLINDER, 'G', CLAY_GEAR, 'P', CLAY_PLATE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.CLAY));
-        ModHandler.addShapedRecipe("clay_wire_drawing_machine", WIRE_DRAWING_MACHINE[0].getStackForm(),
+        ModHandler.addShapedRecipe("clay_wire_drawing_machine", CLAY_WIRE_DRAWING_MACHINE[0].getStackForm(),
                 "GSG", "PMP", "GSG", 'G', CLAY_GEAR, 'S', CLAY_SPINDLE, 'P', CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.CLAY));
-        ModHandler.addShapedRecipe("clay_pipe_drawing_machine",PIPE_DRAWING_MACHINE[0].getStackForm(),
+        ModHandler.addShapedRecipe("clay_pipe_drawing_machine", CLAY_PIPE_DRAWING_MACHINE[0].getStackForm(),
                 "GSG", "CMP", "GSG", 'G', CLAY_GEAR, 'S', CLAY_SPINDLE, 'C', CLAY_CYLINDER, 'P', CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.CLAY));
-        ModHandler.addShapedRecipe("clay_cutting_machine", CUTTING_MACHINE[0].getStackForm(),
+        ModHandler.addShapedRecipe("clay_cutting_machine", CLAY_CUTTING_MACHINE[0].getStackForm(),
                 "PGP", "SMC", "PGP", 'P', CLAY_PLATE, 'G', CLAY_GEAR, 'S', CLAY_SPINDLE, 'C', CLAY_CUTTING_HEAD, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.CLAY));
-        ModHandler.addShapedRecipe("clay_lathe", LATHE[0].getStackForm(),
+        ModHandler.addShapedRecipe("clay_lathe", CLAY_LATHE[0].getStackForm(),
                 "PGP", "IMS", "PGP", 'P', CLAY_PLATE, 'G', CLAY_GEAR, 'I', CLAY_STICK, 'S', CLAY_SPINDLE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.CLAY));
-        ModHandler.addShapedRecipe("clay_cobblestone_generator", COBBLESTONE_GENERATOR[0].getStackForm(),
+        ModHandler.addShapedRecipe("clay_cobblestone_generator", CLAY_COBBLESTONE_GENERATOR[0].getStackForm(),
                 " G ", "PMP", " G ", 'G', CLAY_GEAR, 'P', CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.CLAY));
     }
 

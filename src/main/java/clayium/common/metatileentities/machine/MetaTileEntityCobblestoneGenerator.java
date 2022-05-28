@@ -6,17 +6,9 @@ import clayium.api.metatileentity.ClaySimpleMachineMetaTileEntity;
 import clayium.api.recipes.ClayRecipeMap;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
-import gregtech.api.capability.IEnergyContainer;
-import gregtech.api.capability.impl.RecipeLogicEnergy;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.RecipeMaps;
-import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.client.renderer.ICubeRenderer;
-import gregtech.client.renderer.texture.Textures;
-import gregtech.common.metatileentities.electric.MetaTileEntityRockBreaker;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -35,12 +27,12 @@ public class MetaTileEntityCobblestoneGenerator extends ClaySimpleMachineMetaTil
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityCobblestoneGenerator(metaTileEntityId, ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, getTier());
+        return new MetaTileEntityCobblestoneGenerator(metaTileEntityId, ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, getTier());
     }
 
     @Override
     protected ClayRecipeLogicEnergy createWorkable(ClayRecipeMap<?> recipeMap) {
-        return new MetaTileEntityCobblestoneGenerator.CobblestoneGeneratorRecipeLogic(this, ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES, () -> energyContainer, getTier());
+        return new MetaTileEntityCobblestoneGenerator.CobblestoneGeneratorRecipeLogic(this, ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, () -> energyContainer, getTier());
     }
 
     @Override
