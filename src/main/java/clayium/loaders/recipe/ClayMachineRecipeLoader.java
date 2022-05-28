@@ -2,8 +2,6 @@ package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.common.blocks.BlockClayOre;
-import clayium.common.blocks.BlockCompressedClay;
-import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.ore.OrePrefix;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -11,14 +9,8 @@ import net.minecraft.item.ItemStack;
 
 import static clayium.api.ClayValues.microCE;
 import static clayium.common.blocks.ClayMetaBlocks.CLAY_ORE;
-import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CRAY;
 import static clayium.common.items.ClayMetaItems.*;
-import static gregtech.api.GTValues.ULV;
-import static gregtech.api.GTValues.VA;
 import static gregtech.api.unification.material.Materials.*;
-import static gregtech.api.unification.material.Materials.GraniteBlack;
-import static gregtech.api.unification.ore.OrePrefix.dust;
-import static gregtech.api.unification.ore.OrePrefix.stone;
 
 public class ClayMachineRecipeLoader {
 
