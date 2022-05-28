@@ -40,16 +40,16 @@ public final class ClayMetaItems {
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_ROLLING_PIN_RAW;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SLICER_RAW;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SPATULA_RAW;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_ROLLING_PIN;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SLICER;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SPATULA;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_WRENCH;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_PIPING_TOOL_IO;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_PIPING_TOOL_PIPING;
-    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_PIPING_TOOL_MEMORY;
 
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_SHOVEL;
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_PICKAXE;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_ROLLING_PIN;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_SLICER;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_SPATULA;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_WRENCH;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_PIPING_TOOL_IO;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_PIPING_TOOL_PIPING;
+    public static ToolMetaItem<?>.MetaToolValueItem CLAY_PIPING_TOOL_MEMORY;
 //
 //    public static ArmorMetaItem<?>.ArmorMetaValueItem PISTON_BOOTS;
 

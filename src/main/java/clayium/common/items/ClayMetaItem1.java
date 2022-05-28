@@ -45,12 +45,5 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         CLAY_ROLLING_PIN_RAW = addItem(25, "clay.rolling.pin.raw");
         CLAY_SLICER_RAW = addItem(26, "clay.slicer.raw");
         CLAY_SPATULA_RAW = addItem(27, "clay.spatula.raw");
-        CLAY_ROLLING_PIN = addItem(28, "clay.rolling.pin").setMaxStackSize(1);
-        CLAY_SLICER = addItem(29, "clay.slicer").setMaxStackSize(1);
-        CLAY_SPATULA = addItem(30, "clay.spatula").setMaxStackSize(1);
-        //CLAY_WRENCH
-        //CLAY_PIPING_TOOL_IO
-        //CLAY_PIPING_TOOL_PIPING
-        //CLAY_PIPING_TOOL_MEMORY
     }
 }
