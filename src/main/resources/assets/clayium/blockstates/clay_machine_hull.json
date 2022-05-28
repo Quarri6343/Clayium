@@ -11,78 +11,78 @@
       "raw_clay": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/rawclaymachinehull-0"
+          "all": "gregtech:blocks/casings/rawclaymachinehull_0/side"
         }
       },
       "clay": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-0/side"
+          "all": "gregtech:blocks/casings/machinehull_1/side"
         }
       },
       "dense_clay": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-1/side"
+          "all": "gregtech:blocks/casings/machinehull_2/side"
         }
       },
       "simple": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-2/side"
+          "all": "gregtech:blocks/casings/machinehull_3/side"
         }
       },
       "basic": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-3/side"
+          "all": "gregtech:blocks/casings/machinehull_4/side"
         }
       },
       "advanced": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-4/side"
+          "all": "gregtech:blocks/casings/machinehull_5/side"
         }
       },
       "precision": {
         "model": "minecraft:cube_all",
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-5/side"
+          "all": "gregtech:blocks/casings/machinehull_6/side"
         }
       },
       "clay_steel": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-6/side"
+          "all": "gregtech:blocks/casings/machinehull_7/side"
         }
       },
       "clayium": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-7/side"
+          "all": "gregtech:blocks/casings/machinehull_8/side"
         }
       },
       "ultimate": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-8/side"
+          "all": "gregtech:blocks/casings/machinehull_9/side"
         }
       },
       "antimatter": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-9/side"
+          "all": "gregtech:blocks/casings/machinehull_10/side"
         }
       },
       "pure_antimatter": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-10/side"
+          "all": "gregtech:blocks/casings/machinehull_11/side"
         }
       },
       "oec": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-11/side"
+          "all": "gregtech:blocks/casings/machinehull_12/side"
         }
       },
       "opa": {
         "textures": {
-          "all": "gregtech:blocks/casings/machinehull-12/side"
+          "all": "gregtech:blocks/casings/machinehull_13/side"
         }
       }
     }

@@ -2,7 +2,14 @@ package clayium.common.metatileentities;
 
 
 import clayium.api.ClayValues;
+import clayium.api.metatileentity.ClaySimpleMachineMetaTileEntity;
+import clayium.api.recipes.ClayRecipeMaps;
+import clayium.client.ClayTextures;
 import clayium.common.metatileentities.storage.MetaTileEntityClayCraftingBoard;
+import gregtech.api.GTValues;
+import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
+import gregtech.api.util.GTUtility;
+import gregtech.client.renderer.texture.Textures;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
@@ -14,6 +21,7 @@ public class ClayMetaTileEntities {
     public static ClayWorkTable CLAY_WORKTABLE;
     public static MetaTileEntityClayCraftingBoard CLAY_CRAFTING_BOARD;
     public static ClayManualMiner CLAY_MANUAL_MINER;
+    public static final ClaySimpleMachineMetaTileEntity[] BENDING_MACHINE = new ClaySimpleMachineMetaTileEntity[8];
 
 //    public static MetaTileEntitySawmill SAWMILL;
 
@@ -48,9 +56,8 @@ public class ClayMetaTileEntities {
         CLAY_MANUAL_MINER = registerMetaTileEntity(13003, new ClayManualMiner(clayId("clay_manual_miner")));
 
         //MACHINE SECTION
-//        EXTREME_MIXER[0]=registerMetaTileEntity(11007,
-//        new GTESimpleMachineMetaTileEntity(gteId(String.format("%s.%s", "extreme_mixer", GTValues.VN[7].toLowerCase())), GTERecipeMaps.EXTREME_MIXER_RECIPES, GTETextures.EXTREME_MIXER_OVERLAY, 7, true, GTUtility.hvCappedTankSizeFunction));
-
+        BENDING_MACHINE[0] = registerMetaTileEntity(13101,
+        new ClaySimpleMachineMetaTileEntity(clayId("bending_machine.1"), ClayRecipeMaps.CLAY_MINER_RECIPES, ClayTextures.BENDING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));

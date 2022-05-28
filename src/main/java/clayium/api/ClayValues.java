@@ -9,7 +9,7 @@ public class ClayValues {
     /**
      * The short names for the tiers, used for registration primarily
      */
-    public static final String[] TN = new String[]{"T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "T13"};
+    public static final String[] TN = new String[]{"T0", "T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12", "T13"};
     /**
      * Color values for the tiers
      */

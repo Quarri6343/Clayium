@@ -64,7 +64,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
 
     @SideOnly(Side.CLIENT)
     protected SimpleSidedCubeRenderer getBaseRenderer() {
-        return ClayTextures.CLAY_MACHINE_HULL_0;
+        return ClayTextures.TIER_CASINGS[0];
     }
 
     @Override
@@ -106,7 +106,7 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
         super.addInformation(stack, player, tooltip, advanced);
     }
 
-    public void OnClick(Widget.ClickData data){
+    public void OnWorkButtonClick(Widget.ClickData data){
         this.energyContainer.addEnergy(50);
     }
 
