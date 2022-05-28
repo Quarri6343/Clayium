@@ -5,11 +5,13 @@ import clayium.api.ClayValues;
 import clayium.api.metatileentity.ClaySimpleMachineMetaTileEntity;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
+import clayium.common.metatileentities.machine.MetaTileEntityCobblestoneGenerator;
 import clayium.common.metatileentities.storage.MetaTileEntityClayCraftingBoard;
 import gregtech.api.GTValues;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.texture.Textures;
+import gregtech.common.metatileentities.electric.MetaTileEntityRockBreaker;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nonnull;
@@ -77,7 +79,7 @@ public class ClayMetaTileEntities {
                 new ClaySimpleMachineMetaTileEntity(clayId("lathe.1"), ClayRecipeMaps.LATHE_RECIPES, ClayTextures.LATHE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         COBBLESTONE_GENERATOR[0] = registerMetaTileEntity(13061,
-                new ClaySimpleMachineMetaTileEntity(clayId("cobblestone_generator.1"), ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new MetaTileEntityCobblestoneGenerator(clayId("cobblestone_generator.1"), ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, 1));
 
         //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));

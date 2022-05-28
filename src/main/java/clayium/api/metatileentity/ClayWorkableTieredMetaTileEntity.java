@@ -70,7 +70,7 @@ public abstract class ClayWorkableTieredMetaTileEntity extends ClayTieredMetaTil
     }
 
     protected ClayRecipeLogicEnergy createWorkable(ClayRecipeMap<?> recipeMap) {
-        return new ClayRecipeLogicEnergy(this, recipeMap, () -> energyContainer);
+        return new ClayRecipeLogicEnergy(this, recipeMap, () -> energyContainer, getTier());
     }
 
     @Override

@@ -12,10 +12,12 @@ import java.util.function.Supplier;
 public class ClayRecipeLogicEnergy extends ClayAbstractRecipeLogic {
 
     protected final Supplier<IClayEnergyContainer> energyContainer;
+    private final int tier;
 
-    public ClayRecipeLogicEnergy(MetaTileEntity tileEntity, ClayRecipeMap<?> recipeMap, Supplier<IClayEnergyContainer> energyContainer) {
+    public ClayRecipeLogicEnergy(MetaTileEntity tileEntity, ClayRecipeMap<?> recipeMap, Supplier<IClayEnergyContainer> energyContainer, int tier) {
         super(tileEntity, recipeMap);
         this.energyContainer = energyContainer;
+        this.tier = tier;
     }
 
     @Override
@@ -44,6 +46,6 @@ public class ClayRecipeLogicEnergy extends ClayAbstractRecipeLogic {
 
     @Override
     protected long getMaxTier() {
-        return 0;
+        return tier;
     }
 }

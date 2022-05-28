@@ -32,6 +32,7 @@ public class ClayMachineRecipeLoader {
         registerWireDrawingRecipes();
         registerPipeDrawingRecipes();
         registerCuttingRecipes();
+        registerLatheRecipes();
         registerCobblestoneGeneratorRecipes();
     }
 
@@ -226,12 +227,61 @@ public class ClayMachineRecipeLoader {
                 .duration(3).tier(0).buildAndRegister();
     }
 
+    private static void registerLatheRecipes(){
+        ClayRecipeMaps.LATHE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(Items.CLAY_BALL)
+                .output(CLAY_STICK_SHORT)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.LATHE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_DISC_SMALL)
+                .output(CLAY_RING_SMALL)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.LATHE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_DISC)
+                .output(CLAY_RING)
+                .duration(2).tier(0).buildAndRegister();
+        ClayRecipeMaps.LATHE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_NEEDLE)
+                .output(CLAY_STICK,6)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.LATHE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_CYLINDER)
+                .output(CLAY_NEEDLE)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.LATHE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_BALL_LARGE)
+                .output(CLAY_CYLINDER)
+                .duration(4).tier(0).buildAndRegister();
+    }
+
     private static void registerCobblestoneGeneratorRecipes(){
-        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder()
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
                 .notConsumable(new ItemStack(Blocks.COBBLESTONE))
                 .outputs(new ItemStack(Blocks.COBBLESTONE))
-                .duration(60)
-                .CEt(10)
-                .buildAndRegister();
+                .duration(50).tier(1).buildAndRegister();
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE))
+                .duration(20).tier(2).buildAndRegister();
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE))
+                .duration(7).tier(3).buildAndRegister();
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE))
+                .duration(2).tier(4).buildAndRegister();
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE,2))
+                .duration(1).tier(5).buildAndRegister();
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE,10))
+                .duration(1).tier(6).buildAndRegister();
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE,64))
+                .duration(1).tier(7).buildAndRegister();
     }
 }
