@@ -4,6 +4,7 @@ import clayium.api.capability.impl.ClayRecipeLogicEnergy;
 import clayium.api.gui.ClayGuiTextures;
 import clayium.api.recipes.ClayRecipeMap;
 import clayium.api.util.ClayUtility;
+import clayium.client.ClayTextures;
 import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
@@ -141,14 +142,14 @@ public class ClaySimpleMachineMetaTileEntity extends ClayWorkableTieredMetaTileE
         if (outputFacingFluids != null && getExportFluids().getTanks() > 0) {
             Textures.PIPE_OUT_OVERLAY.renderSided(outputFacingFluids, renderState, translation, pipeline);
         }
-        if (outputFacingItems != null && getExportItems().getSlots() > 0) {
-            Textures.PIPE_OUT_OVERLAY.renderSided(outputFacingItems, renderState, translation, pipeline);
-        }
-        if (isAutoOutputItems() && outputFacingItems != null) {
-            Textures.ITEM_OUTPUT_OVERLAY.renderSided(outputFacingItems, renderState, translation, pipeline);
-        }
         if (isAutoOutputFluids() && outputFacingFluids != null) {
             Textures.FLUID_OUTPUT_OVERLAY.renderSided(outputFacingFluids, renderState, translation, pipeline);
+        }
+        if (isAutoOutputItems() && outputFacingItems != null) {
+            ClayTextures.ITEM_AUTO_OUTPUT_OVERLAY.renderSided(outputFacingItems, renderState, translation, pipeline);
+        }
+        else if (outputFacingItems != null) {
+            ClayTextures.ITEM_OUTPUT_OVERLAY.renderSided(outputFacingItems, renderState, translation, pipeline);
         }
     }
 

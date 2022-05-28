@@ -2,6 +2,8 @@ package clayium.common.items;
 
 import clayium.api.items.metaitem.StandardClayMetaItem;
 import gregtech.api.items.metaitem.StandardMetaItem;
+import gregtech.api.items.toolitem.WrenchItemStat;
+
 import static clayium.common.items.ClayMetaItems.*;
 
 public class ClayMetaItem1 extends StandardClayMetaItem {
@@ -50,7 +52,5 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         //CLAY_PIPING_TOOL_IO
         //CLAY_PIPING_TOOL_PIPING
         //CLAY_PIPING_TOOL_MEMORY
-
-
     }
 }

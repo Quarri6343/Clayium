@@ -18,6 +18,8 @@ public class ClayTextures {
     public static final OrientedOverlayRenderer CLAY_WORKTABLE_OVERLAY = new OrientedOverlayRenderer("clay_worktable", TOP, BOTTOM, SIDE, FRONT, BACK);
     public static final OrientedOverlayRenderer CLAY_CRAFTING_BOARD_OVERLAY = new OrientedOverlayRenderer("clay_crafting_board", TOP);
     public static final OrientedOverlayRenderer BENDING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/bending_machine", FRONT);
+    public static final SimpleOverlayRenderer ITEM_OUTPUT_OVERLAY;
+    public static final SimpleOverlayRenderer ITEM_AUTO_OUTPUT_OVERLAY;
 
     public static void preInit() {
 
@@ -28,5 +30,8 @@ public class ClayTextures {
         for (int i = 1; i < 2; i++) {
             TIER_CASINGS[i] = new SimpleSidedCubeRenderer("casings/machinehull_" + i);
         }
+
+        ITEM_OUTPUT_OVERLAY = new SimpleOverlayRenderer("overlay/overlay_item_output");
+        ITEM_AUTO_OUTPUT_OVERLAY = new SimpleOverlayRenderer("overlay/overlay_auto_item_output");
     }
 }

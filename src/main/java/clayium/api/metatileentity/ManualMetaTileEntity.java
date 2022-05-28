@@ -113,4 +113,9 @@ public abstract class ManualMetaTileEntity extends MetaTileEntity {
     protected void AddDisplayText(List<ITextComponent> textList) {
         textList.add(new TextComponentString(I18n.format("gui.Common.energy", ClayUtility.getCEWithUnit(this.energyContainer.getEnergyStored()))));
     }
+
+    @Override
+    public String getHarvestTool() {
+        return "pickaxe";
+    }
 }

@@ -73,4 +73,9 @@ public abstract class ClayTieredMetaTileEntity extends MetaTileEntity implements
     public int getTier() {
         return tier;
     }
+
+    @Override
+    public String getHarvestTool() {
+        return "pickaxe";
+    }
 }
