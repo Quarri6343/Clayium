@@ -2,18 +2,40 @@ package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.common.blocks.BlockClayOre;
+import clayium.common.blocks.BlockCompressedClay;
+import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.ore.OrePrefix;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 import static clayium.api.ClayValues.microCE;
 import static clayium.common.blocks.ClayMetaBlocks.CLAY_ORE;
+import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CRAY;
 import static clayium.common.items.ClayMetaItems.*;
-import static gregtech.api.unification.material.Materials.Charcoal;
+import static gregtech.api.GTValues.ULV;
+import static gregtech.api.GTValues.VA;
+import static gregtech.api.unification.material.Materials.*;
+import static gregtech.api.unification.material.Materials.GraniteBlack;
+import static gregtech.api.unification.ore.OrePrefix.dust;
+import static gregtech.api.unification.ore.OrePrefix.stone;
 
 public class ClayMachineRecipeLoader {
 
+    private ClayMachineRecipeLoader() {
+    }
+
     public static void Init(){
-        //CLAY_WORKTABLE_USAGE
+        registerClayWorkTableRecipes();
+        registerclayMinerRecipes();
+        registerBendingRecipes();
+        registerWireDrawingRecipes();
+        registerPipeDrawingRecipes();
+        registerCuttingRecipes();
+        registerCobblestoneGeneratorRecipes();
+    }
+
+    private static void registerClayWorkTableRecipes(){
         ClayRecipeMaps.CLAY_WORKTABLE_RECIPES.recipeBuilder().CEt(50 * microCE)
                 .input(Items.CLAY_BALL)
                 .notConsumable(CLAYTASK_PAT)
@@ -108,7 +130,9 @@ public class ClayMachineRecipeLoader {
                 .notConsumable(CLAY_SLICER)
                 .output(CLAY_DISC_SMALL,8)
                 .duration(7).tier(0).buildAndRegister();
+    }
 
+    private static void registerclayMinerRecipes(){
         //CLAY_MINER_USAGE
         ClayRecipeMaps.CLAY_MINER_RECIPES.recipeBuilder().CEt(50 * microCE)
                 .input(Items.COAL)
@@ -124,5 +148,90 @@ public class ClayMachineRecipeLoader {
                 .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.DENSE),4000,0)
                 .chancedOutput(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.LARGE_DENSE),20,0)
                 .duration(10).tier(0).buildAndRegister();
+    }
+
+    private static void registerBendingRecipes(){
+        ClayRecipeMaps.BENDING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(Blocks.CLAY)
+                .output(CLAY_PLATE)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.BENDING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_DISC)
+                .output(CLAY_SLICER_RAW)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.BENDING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_BALL_LARGE)
+                .output(CLAY_DISC)
+                .duration(2).tier(0).buildAndRegister();
+        ClayRecipeMaps.BENDING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(Items.CLAY_BALL)
+                .output(CLAY_DISC_SMALL)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.BENDING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_PLATE,4)
+                .output(CLAY_PLATE_LARGE)
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.BENDING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_CYLINDER)
+                .output(CLAY_BLADE,2)
+                .duration(4).tier(0).buildAndRegister();
+    }
+
+    private static void registerWireDrawingRecipes(){
+        ClayRecipeMaps.WIRE_DRAWING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(Items.CLAY_BALL)
+                .output(CLAY_STICK)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.WIRE_DRAWING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_DISC_SMALL)
+                .output(CLAY_STICK)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.WIRE_DRAWING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_PIPE)
+                .output(CLAY_STICK,4)
+                .duration(2).tier(0).buildAndRegister();
+        ClayRecipeMaps.WIRE_DRAWING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_CYLINDER)
+                .output(CLAY_STICK,8)
+                .duration(3).tier(0).buildAndRegister();
+    }
+
+    private static void registerPipeDrawingRecipes(){
+        ClayRecipeMaps.PIPE_DRAWING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_CYLINDER)
+                .output(CLAY_PIPE,2)
+                .duration(3).tier(0).buildAndRegister();
+    }
+
+    private static void registerCuttingRecipes(){
+        ClayRecipeMaps.CUTTING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_STICK)
+                .output(CLAY_STICK_SHORT,2)
+                .duration(1).tier(0).buildAndRegister();
+        ClayRecipeMaps.CUTTING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_CYLINDER)
+                .output(CLAY_DISC_SMALL,8)
+                .duration(2).tier(0).buildAndRegister();
+        ClayRecipeMaps.CUTTING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_BALL_LARGE)
+                .output(CLAY_DISC)
+                .duration(2).tier(0).buildAndRegister();
+        ClayRecipeMaps.CUTTING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_PLATE)
+                .output(CLAY_DISC_SMALL,4)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CUTTING_MACHINE_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_PLATE_LARGE)
+                .output(CLAY_DISC,2)
+                .duration(3).tier(0).buildAndRegister();
+    }
+
+    private static void registerCobblestoneGeneratorRecipes(){
+        ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES.recipeBuilder()
+                .notConsumable(new ItemStack(Blocks.COBBLESTONE))
+                .outputs(new ItemStack(Blocks.COBBLESTONE))
+                .duration(60)
+                .CEt(10)
+                .buildAndRegister();
     }
 }

@@ -30,4 +30,41 @@ public class ClayRecipeMaps {
     public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_MINER_RECIPES = new ClayRecipeMap<>("clay_miner", 1, 1, 1, 4, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSounds.MINER);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> BENDING_MACHINE_RECIPES = new ClayRecipeMap<>("bending_machine", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BENDER_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.MOTOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> WIRE_DRAWING_MACHINE_RECIPES = new ClayRecipeMap<>("wire_drawing_machine", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.WIREMILL_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_WIREMILL, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.MOTOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> PIPE_DRAWING_MACHINE_RECIPES = new ClayRecipeMap<>("pipe_drawing_machine", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.WIREMILL_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_WIREMILL, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.MOTOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CUTTING_MACHINE_RECIPES = new ClayRecipeMap<>("cutting_machine", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.SAWBLADE_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.CUTTER_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_SLICE, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.CUT);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> LATHE_RECIPES = new ClayRecipeMap<>("clay_lathe", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.PIPE_OVERLAY_1)
+            .setSlotOverlay(true, false, GuiTextures.PIPE_OVERLAY_2)
+            .setSpecialTexture(98, 24, 5, 18, GuiTextures.PROGRESS_BAR_LATHE_BASE)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_LATHE, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.CUT);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> COBBLESTONE_GENERATOR_RECIPES = new ClayRecipeMap<>("cobblestone_generator", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
 }

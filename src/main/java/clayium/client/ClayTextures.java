@@ -24,6 +24,7 @@ public class ClayTextures {
     public static final OrientedOverlayRenderer PIPE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/pipe_drawing_machine", FRONT);
     public static final OrientedOverlayRenderer CUTTING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/cutting_machine", FRONT);
     public static final OrientedOverlayRenderer LATHE_OVERLAY = new OrientedOverlayRenderer("machines/lathe", FRONT);
+    public static final OrientedOverlayRenderer COBBLESTONE_GENERATOR_OVERLAY = new OrientedOverlayRenderer("machines/cobblestone_generator", FRONT);
 
     public static void preInit() {
 

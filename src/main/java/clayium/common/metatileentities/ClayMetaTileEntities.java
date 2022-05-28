@@ -62,19 +62,22 @@ public class ClayMetaTileEntities {
 
         //MACHINE SECTION
         BENDING_MACHINE[0] = registerMetaTileEntity(13011,
-        new ClaySimpleMachineMetaTileEntity(clayId("bending_machine.1"), ClayRecipeMaps.CLAY_MINER_RECIPES, ClayTextures.BENDING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+        new ClaySimpleMachineMetaTileEntity(clayId("bending_machine.1"), ClayRecipeMaps.BENDING_MACHINE_RECIPES, ClayTextures.BENDING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         WIRE_DRAWING_MACHINE[0] = registerMetaTileEntity(13021,
-                new ClaySimpleMachineMetaTileEntity(clayId("wire_drawing_machine.1"), ClayRecipeMaps.CLAY_MINER_RECIPES, ClayTextures.WIRE_DRAWING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("wire_drawing_machine.1"), ClayRecipeMaps.WIRE_DRAWING_MACHINE_RECIPES, ClayTextures.WIRE_DRAWING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         PIPE_DRAWING_MACHINE[0] = registerMetaTileEntity(13031,
-                new ClaySimpleMachineMetaTileEntity(clayId("pipe_drawing_machine.1"), ClayRecipeMaps.CLAY_MINER_RECIPES, ClayTextures.PIPE_DRAWING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("pipe_drawing_machine.1"), ClayRecipeMaps.PIPE_DRAWING_MACHINE_RECIPES, ClayTextures.PIPE_DRAWING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         CUTTING_MACHINE[0] = registerMetaTileEntity(13041,
-                new ClaySimpleMachineMetaTileEntity(clayId("cutting_machine.1"), ClayRecipeMaps.CLAY_MINER_RECIPES, ClayTextures.CUTTING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("cutting_machine.1"), ClayRecipeMaps.CUTTING_MACHINE_RECIPES, ClayTextures.CUTTING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         LATHE[0] = registerMetaTileEntity(13051,
-                new ClaySimpleMachineMetaTileEntity(clayId("lathe.1"), ClayRecipeMaps.CLAY_MINER_RECIPES, ClayTextures.LATHE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("lathe.1"), ClayRecipeMaps.LATHE_RECIPES, ClayTextures.LATHE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+
+        COBBLESTONE_GENERATOR[0] = registerMetaTileEntity(13061,
+                new ClaySimpleMachineMetaTileEntity(clayId("cobblestone_generator.1"), ClayRecipeMaps.COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));
