@@ -48,18 +48,18 @@ public class BlockClayMachineHull extends VariantBlock<BlockClayMachineHull.Bloc
 
         RAW_CLAY("raw_clay"),
         CLAY("clay"),
-        DENSE_CLAY("dense_clay"),
-        SIMPLE("simple"),
-        BASIC("basic"),
-        ADVANCED("advanced"),
-        PRECISION("precision"),
-        CLAY_STEEL("clay_steel"),
-        CLAYIUM("clayium"),
-        ULTIMATE("ultimate"),
-        ANTIMATTER("antimatter"),
-        PURE_ANTIMATTER("pure_antimatter"),
-        OEC("oec"),
-        OPA("opa");
+        DENSE_CLAY("dense_clay");
+//        SIMPLE("simple"),
+//        BASIC("basic"),
+//        ADVANCED("advanced"),
+//        PRECISION("precision"),
+//        CLAY_STEEL("clay_steel"),
+//        CLAYIUM("clayium"),
+//        ULTIMATE("ultimate"),
+//        ANTIMATTER("antimatter"),
+//        PURE_ANTIMATTER("pure_antimatter"),
+//        OEC("oec"),
+//        OPA("opa");
 
         private final String name;
 
