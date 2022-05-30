@@ -36,10 +36,33 @@ public final class ClayMetaItems {
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SPINDLE;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_CUTTING_HEAD;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_WHEEL;
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_DUST;
 
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_ROLLING_PIN_RAW;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SLICER_RAW;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SPATULA_RAW;
+
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_CIRCUIT;
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_CIRCUIT_BOARD;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_PLATE;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_STICK;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_STICK_SHORT;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_RING;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_RING_SMALL;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_GEAR;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_BLADE;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_NEEDLE;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_DISC;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_DISC_SMALL;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_CYLINDER;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_PIPE;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_PLATE_LARGE;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_GRINDING_HEAD;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_BEARING;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_SPINDLE;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_CUTTING_HEAD;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_WHEEL;
+    public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_DUST;
 
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_SHOVEL;
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_PICKAXE;

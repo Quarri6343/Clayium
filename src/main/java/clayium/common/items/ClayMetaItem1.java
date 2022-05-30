@@ -41,9 +41,32 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         CLAY_SPINDLE = addItem(22, "clay.spindle").setTier(1);
         CLAY_CUTTING_HEAD = addItem(23, "clay.cutting.head").setTier(1);
         CLAY_WHEEL = addItem(24, "clay.wheel").setTier(1);
+        CLAY_DUST = addItem(25, "clay.dust").setTier(1);
 
-        CLAY_ROLLING_PIN_RAW = addItem(25, "clay.rolling.pin.raw");
-        CLAY_SLICER_RAW = addItem(26, "clay.slicer.raw");
-        CLAY_SPATULA_RAW = addItem(27, "clay.spatula.raw");
+        CLAY_ROLLING_PIN_RAW = addItem(26, "clay.rolling.pin.raw");
+        CLAY_SLICER_RAW = addItem(27, "clay.slicer.raw");
+        CLAY_SPATULA_RAW = addItem(28, "clay.spatula.raw");
+
+        CLAY_CIRCUIT = addItem(29, "clay.circuit").setTier(2);
+        CLAY_CIRCUIT_BOARD = addItem(30, "clay.circuit.board").setTier(2);
+        DENSE_CLAY_PLATE = addItem(31, "dense.clay.plate").setTier(2);
+        DENSE_CLAY_STICK = addItem(32, "dense.clay.stick").setTier(2);
+        DENSE_CLAY_STICK_SHORT = addItem(33, "dense.clay.stick.short").setTier(2);
+        DENSE_CLAY_RING = addItem(34, "dense.clay.ring").setTier(2);
+        DENSE_CLAY_RING_SMALL = addItem(35, "dense.clay.ring.small").setTier(2);
+        DENSE_CLAY_GEAR = addItem(36, "dense.clay.gear").setTier(2);
+        DENSE_CLAY_BLADE = addItem(37, "dense.clay.blade").setTier(2);
+        DENSE_CLAY_NEEDLE = addItem(38, "dense.clay.needle").setTier(2);
+        DENSE_CLAY_DISC = addItem(39, "dense.clay.disc").setTier(2);
+        DENSE_CLAY_DISC_SMALL = addItem(40, "dense.clay.disc.small").setTier(2);
+        DENSE_CLAY_CYLINDER = addItem(41, "dense.clay.cylinder").setTier(2);
+        DENSE_CLAY_PIPE = addItem(42, "dense.clay.pipe").setTier(2);
+        DENSE_CLAY_PLATE_LARGE = addItem(43, "dense.clay.plate.large").setTier(2);
+        DENSE_CLAY_GRINDING_HEAD = addItem(44, "dense.clay.grinding.head").setTier(2);
+        DENSE_CLAY_BEARING = addItem(45, "dense.clay.bearing").setTier(2);
+        DENSE_CLAY_SPINDLE = addItem(46, "dense.clay.spindle").setTier(2);
+        DENSE_CLAY_CUTTING_HEAD = addItem(47, "dense.clay.cutting.head").setTier(2);
+        DENSE_CLAY_WHEEL = addItem(48, "dense.clay.wheel").setTier(2);
+        DENSE_CLAY_DUST = addItem(49, "dense.clay.dust").setTier(2);
     }
 }
