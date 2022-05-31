@@ -79,6 +79,21 @@ public class ClayCraftingRecipeLoader {
                 "BBB", "BRB", "BBB", 'B', CLAY_BLADE, 'R', CLAY_RING);
         ModHandler.addShapedRecipe("clay_wheel", CLAY_WHEEL.getStackForm(),
                 "PPP", "PRP", "PPP", 'P', CLAY_PLATE, 'R', CLAY_RING);
+
+        ModHandler.addShapedRecipe("clay_circuit", CLAY_CIRCUIT.getStackForm(),
+                "SGS", "RCR", "SGS", 'S', DENSE_CLAY_STICK, 'G', DENSE_CLAY_GEAR, 'R', DENSE_CLAY_RING, 'C', CLAY_CIRCUIT_BOARD);
+        ModHandler.addShapedRecipe("dense_clay_gear", DENSE_CLAY_GEAR.getStackForm(),
+                "SSS", "SRS", "SSS", 'S', DENSE_CLAY_STICK_SHORT, 'R', DENSE_CLAY_RING_SMALL);
+        ModHandler.addShapedRecipe("dense_clay_grinding_head", DENSE_CLAY_GRINDING_HEAD.getStackForm(),
+                "NNN", "NRN", "NNN", 'N', DENSE_CLAY_NEEDLE, 'R', DENSE_CLAY_RING);
+        ModHandler.addShapedRecipe("dense_clay_bearing", DENSE_CLAY_BEARING.getStackForm(),
+                "CCC", "CRC", "CCC", 'C', Items.CLAY_BALL, 'R', DENSE_CLAY_RING);
+        ModHandler.addShapedRecipe("dense_clay_spindle", DENSE_CLAY_SPINDLE.getStackForm(),
+                "RPR", "SBI", "RPR", 'R', DENSE_CLAY_RING_SMALL, 'P', DENSE_CLAY_PLATE,'S', DENSE_CLAY_STICK,'B', DENSE_CLAY_BEARING,'I', DENSE_CLAY_RING);
+        ModHandler.addShapedRecipe("dense_clay_cutting_head", DENSE_CLAY_CUTTING_HEAD.getStackForm(),
+                "BBB", "BRB", "BBB", 'B', DENSE_CLAY_BLADE, 'R', DENSE_CLAY_RING);
+        ModHandler.addShapedRecipe("dense_clay_wheel", DENSE_CLAY_WHEEL.getStackForm(),
+                "PPP", "PRP", "PPP", 'P', DENSE_CLAY_PLATE, 'R', DENSE_CLAY_RING);
     }
 
     private static  void registerMiscCraftingRecipes(){

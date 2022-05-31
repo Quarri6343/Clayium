@@ -96,16 +96,16 @@ public class ClayMetaTileEntities {
                 new MetaTileEntityCobblestoneGenerator(clayId("clay_cobblestone_generator.2"), ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, 2));
 
         CLAY_MILLING_MACHINE[0] = registerMetaTileEntity(13071,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_milling_machine.1"), ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.MILLING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("clay_milling_machine.1"), ClayRecipeMaps.CLAY_MILLING_MACHINE_RECIPES, ClayTextures.MILLING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
 
         CLAY_GRINDER[0] = registerMetaTileEntity(13081,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_grinder.1"), ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.GRINDER_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("clay_grinder.1"), ClayRecipeMaps.CLAY_GRINDER_RECIPES, ClayTextures.GRINDER_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
 
         CLAY_CONDENSER[0] = registerMetaTileEntity(13091,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_condenser.1"), ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.CONDENSER_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("clay_condenser.1"), ClayRecipeMaps.CLAY_CONDENSER_RECIPES, ClayTextures.CONDENSER_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
 
         CLAY_DECOMPOSER[0] = registerMetaTileEntity(13101,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_decomposer.1"), ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.DECOMPOSER_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
+                new ClaySimpleMachineMetaTileEntity(clayId("clay_decomposer.1"), ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES, ClayTextures.DECOMPOSER_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
 
         //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));
