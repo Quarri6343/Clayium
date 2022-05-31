@@ -87,6 +87,17 @@ public class ClayCraftingRecipeLoader {
                 "CCC", "CCC", "CCC", 'C', Blocks.CLAY);
         ModHandler.addShapedRecipe("compressed_clay", COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED),
                 "CCC", "CCC", "CCC", 'C', COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.DENSE));
+        ModHandler.addShapedRecipe("industrial_clay", COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL),
+                "CCC", "CCC", "CCC", 'C', COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED));
+        ModHandler.addShapedRecipe("advanced_industrial_clay", COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL),
+                "CCC", "CCC", "CCC", 'C', COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL));
+
+        //RAW_CLAY_MACHINE_HULL
+        ModHandler.addShapedRecipe("raw_clay_machine_hull", CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.RAW_CLAY),
+                "PPP", "PGP", "PPP", 'G', CLAY_GEAR, 'P', CLAY_PLATE_LARGE);
+        //DENSE_CLAY_MACHINE_HULL
+        ModHandler.addShapedRecipe("dense_clay_machine_hull", CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.DENSE_CLAY),
+                "PPP", "PCP", "PPP", 'C', CLAY_CIRCUIT, 'P', DENSE_CLAY_PLATE_LARGE);
 
         //CLAY_WORKTABLE
         ModHandler.addShapedRecipe("clay_worktable", CLAY_WORKTABLE.getStackForm(),
@@ -97,14 +108,14 @@ public class ClayCraftingRecipeLoader {
         //CLAY_SHOVEL
         ModHandler.addShapedRecipe("clay_shovel", CLAY_SHOVEL.getStackForm(Clay),
                 " P ", " S ", " S ", 'P', CLAY_PLATE, 'S', CLAY_STICK);
-        //RAW_CLAY_MACHINE_HULL
-        ModHandler.addShapedRecipe("raw_clay_machine_hull", CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.RAW_CLAY),
-                "PPP", "PGP", "PPP", 'G', CLAY_GEAR, 'P', CLAY_PLATE_LARGE);
         //CLAY_ROLLING_PIN_RAW
         ModHandler.addShapedRecipe("clay_rolling_pin_raw", CLAY_ROLLING_PIN_RAW.getStackForm(),
                 "SCS", "   ", "   ", 'S', CLAY_STICK_SHORT, 'C', CLAY_CYLINDER);
         //CLAY_SPATULA_RAW
         ModHandler.addShapedRecipe("clay_spatula_raw", CLAY_SPATULA_RAW.getStackForm(),
                 "SB ", "   ", "   ", 'S', CLAY_STICK_SHORT, 'B', CLAY_BLADE);
+        //CLAY_PICKAXE
+        ModHandler.addShapedRecipe("clay_pickaxe", CLAY_PICKAXE.getStackForm(Clay),
+                " P ", " S ", " S ", 'P', DENSE_CLAY_PLATE, 'S', DENSE_CLAY_STICK);
     }
 }
