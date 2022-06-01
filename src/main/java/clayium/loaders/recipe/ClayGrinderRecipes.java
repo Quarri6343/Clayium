@@ -1,14 +1,18 @@
 package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
+import clayium.common.blocks.BlockClayOre;
 import clayium.common.blocks.BlockCompressedClay;
+import clayium.common.blocks.ClayMetaBlocks;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import static clayium.api.ClayValues.microCE;
 import static clayium.api.ClayValues.milliCE;
+import static clayium.common.blocks.ClayMetaBlocks.CLAY_ORE;
 import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CLAY;
 import static clayium.common.items.ClayMetaItems.*;
 import static clayium.common.items.ClayMetaItems.CLAY_DUST;
@@ -229,5 +233,17 @@ public class ClayGrinderRecipes {
                 .input(Items.BLAZE_ROD)
                 .output(Items.BLAZE_POWDER)
                 .duration(100).tier(5).buildAndRegister();
+        ClayRecipeMaps.CLAY_GRINDER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.NORMAL))
+                .output(CLAY_SHARD_COMPRESSED,2)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_GRINDER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.DENSE))
+                .output(CLAY_SHARD_INDUSTRIAL,3)
+                .duration(6).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_GRINDER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.LARGE_DENSE))
+                .output(CLAY_SHARD_INDUSTRIAL_ADVANCED,5)
+                .duration(9).tier(0).buildAndRegister();
     }
 }

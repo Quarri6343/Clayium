@@ -384,6 +384,18 @@ public class ClayMachineRecipeLoader {
                 .input(Blocks.COAL_BLOCK,8)
                 .output(Items.DIAMOND)
                 .duration(100).tier(5).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_SHARD_COMPRESSED,4)
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED))
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_SHARD_INDUSTRIAL,4)
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL))
+                .duration(6).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_SHARD_INDUSTRIAL_ADVANCED,4)
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL))
+                .duration(9).tier(0).buildAndRegister();
     }
 
     private static void registerDecomposerRecipes(){

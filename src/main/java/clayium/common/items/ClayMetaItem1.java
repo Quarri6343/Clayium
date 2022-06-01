@@ -68,5 +68,8 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         DENSE_CLAY_CUTTING_HEAD = addItem(47, "dense.clay.cutting.head").setTier(2);
         DENSE_CLAY_WHEEL = addItem(48, "dense.clay.wheel").setTier(2);
         DENSE_CLAY_DUST = addItem(49, "dense.clay.dust").setTier(2);
+        CLAY_SHARD_COMPRESSED = addItem(50, "clay.shard.compressed");
+        CLAY_SHARD_INDUSTRIAL = addItem(51, "clay.shard.industrial");
+        CLAY_SHARD_INDUSTRIAL_ADVANCED = addItem(52, "clay.shard.industrial.advanced");
     }
 }

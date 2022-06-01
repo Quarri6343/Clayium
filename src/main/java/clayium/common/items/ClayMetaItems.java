@@ -63,6 +63,9 @@ public final class ClayMetaItems {
     public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_CUTTING_HEAD;
     public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_WHEEL;
     public static ClayMetaItem<?>.ClayMetaValueItem DENSE_CLAY_DUST;
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SHARD_COMPRESSED;
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SHARD_INDUSTRIAL;
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SHARD_INDUSTRIAL_ADVANCED;
 
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_SHOVEL;
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_PICKAXE;
