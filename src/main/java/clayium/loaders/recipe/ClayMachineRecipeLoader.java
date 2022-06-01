@@ -9,6 +9,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import static clayium.api.ClayValues.microCE;
+import static clayium.api.ClayValues.milliCE;
 import static clayium.common.blocks.ClayMetaBlocks.CLAY_ORE;
 import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CLAY;
 import static clayium.common.items.ClayMetaItems.*;
@@ -29,7 +30,7 @@ public class ClayMachineRecipeLoader {
         registerLatheRecipes();
         registerCobblestoneGeneratorRecipes();
         registerMillingMachineRecipes();
-        registerGrinderRecipes();
+        ClayGrinderRecipes.init();
         registerCondenserRecipes();
         registerDecomposerRecipes();
     }
@@ -354,15 +355,57 @@ public class ClayMachineRecipeLoader {
                 .duration(32).tier(0).buildAndRegister();
     }
 
-    private static void registerGrinderRecipes(){
-
-    }
-
     private static void registerCondenserRecipes(){
-
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(CLAY_DUST)
+                .output(Blocks.CLAY)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(Blocks.CLAY,9)
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.DENSE))
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.DENSE,9))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED))
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(DENSE_CLAY_DUST)
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.DENSE))
+                .duration(6).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED,9))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL))
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(1 * milliCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL,9))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL))
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * milliCE)
+                .input(Blocks.COAL_BLOCK,8)
+                .output(Items.DIAMOND)
+                .duration(100).tier(5).buildAndRegister();
     }
 
     private static void registerDecomposerRecipes(){
-
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(Blocks.CLAY)
+                .output(Items.CLAY_BALL,4)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.DENSE))
+                .output(Blocks.CLAY,9)
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.DENSE,9))
+                .duration(3).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED,9))
+                .duration(10).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL,9))
+                .duration(20).tier(0).buildAndRegister();
     }
 }
