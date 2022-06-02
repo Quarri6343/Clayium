@@ -64,4 +64,29 @@ public class ClayRecipeMaps {
     @ZenProperty
     public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_COBBLESTONE_GENERATOR_RECIPES = new ClayRecipeMap<>("clay_cobblestone_generator", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, ProgressWidget.MoveType.HORIZONTAL);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_MILLING_MACHINE_RECIPES = new ClayRecipeMap<>("clay_milling_machine", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BENDER_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_BENDING, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.MOTOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_GRINDER_RECIPES = new ClayRecipeMap<>("clay_grinder", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(true, false, GuiTextures.DUST_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_MACERATE, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.MOTOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_CONDENSER_RECIPES = new ClayRecipeMap<>("clay_condenser", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.COMPRESSOR_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.COMPRESSOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_DECOMPOSER_RECIPES = new ClayRecipeMap<>("clay_decomposer", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.BOXED_OVERLAY)
+            .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_UNPACKER, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.ASSEMBLER);
 }

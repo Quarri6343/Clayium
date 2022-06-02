@@ -25,6 +25,10 @@ public class ClayTextures {
     public static final OrientedOverlayRenderer CUTTING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/cutting_machine", FRONT);
     public static final OrientedOverlayRenderer LATHE_OVERLAY = new OrientedOverlayRenderer("machines/lathe", FRONT);
     public static final OrientedOverlayRenderer COBBLESTONE_GENERATOR_OVERLAY = new OrientedOverlayRenderer("machines/cobblestone_generator", FRONT);
+    public static final OrientedOverlayRenderer MILLING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/milling_machine", FRONT);
+    public static final OrientedOverlayRenderer GRINDER_OVERLAY = new OrientedOverlayRenderer("machines/grinder", FRONT);
+    public static final OrientedOverlayRenderer CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/condenser", FRONT);
+    public static final OrientedOverlayRenderer DECOMPOSER_OVERLAY = new OrientedOverlayRenderer("machines/decomposer", FRONT);
 
     public static void preInit() {
 
@@ -32,7 +36,7 @@ public class ClayTextures {
 
     static {
         TIER_CASINGS[0] = new SimpleSidedCubeRenderer("casings/rawclaymachinehull_0");
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i < 14; i++) {
             TIER_CASINGS[i] = new SimpleSidedCubeRenderer("casings/machinehull_" + i);
         }
 

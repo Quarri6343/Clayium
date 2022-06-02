@@ -19,6 +19,10 @@ recipemap.clay_cobblestone_generator.name=Cobblestone Generator
 # recipe.CobblestoneGenerator.efficiency=%1$4.2g Blocks/t
 recipemap.clay_cobblestone_generator.jei_description=As you know, a cobblestone generator is consist of water and lava. Clayium's Cobblestone Generator also needs them. If you place both of them next to the machine, it will work.
 
+recipemap.clay_condenser=Clay Condenser
+recipemap.clay_grinder=Clay Grinder
+recipemap.clay_decomposer=Clay Decomposer
+
 #Machines
 clayium.machine.clay_worktable.name=Clay Work Table
 clayium.machine.clay_worktable.tooltip=The first step to Clay Industry.
@@ -66,6 +70,33 @@ clayium.machine.clay_cobblestone_generator.4.name=Basic Cobblestone Generator
 clayium.machine.clay_cobblestone_generator.5.name=Advanced Cobblestone Generator
 clayium.machine.clay_cobblestone_generator.6.name=Precision Cobblestone Generator
 clayium.machine.clay_cobblestone_generator.7.name=Clay Steel Cobblestone Generator
+
+clayium.machine.clay_milling_machine.1.name=Elemental Milling Machine
+clayium.machine.clay_milling_machine.1.tooltip=To obtain the first circuit.
+clayium.machine.clay_milling_machine.2.name=Simple Milling Machine
+clayium.machine.clay_milling_machine.3.name=Basic Milling Machine
+
+clayium.machine.clay_condenser.1.name=Dense Clay Condenser
+clayium.machine.clay_condenser.2.name=Simple Condenser
+clayium.machine.clay_condenser.3.name=Basic Condenser
+clayium.machine.clay_condenser.4.name=Advanced Condenser
+clayium.machine.clay_condenser.5.name=Antimatter Condenser
+
+tile.blockEnergeticClayCondenser.name=Energetic Clay Condenser Mk I
+tile.blockEnergeticClayCondenser.tooltip.line1=To obtain the first Energetic Clay.
+tile.blockEnergeticClayCondenserMK2.name=Energetic Clay Condenser Mk II
+
+clayium.machine.clay_grinder.1.name=Dense Clay Grinder
+clayium.machine.clay_grinder.1.tooltip=Grinds Dense Clay Ores.
+clayium.machine.clay_grinder.2.name=Simple Grinder
+clayium.machine.clay_grinder.3.name=Basic Grinder
+clayium.machine.clay_grinder.4.name=Advanced Grinder
+clayium.machine.clay_grinder.5.name=Precision Grinder
+clayium.machine.clay_grinder.6.name=Antimatter Grinder
+
+clayium.machine.clay_decomposer.1.name=Dense Clay Decomposer
+clayium.machine.clay_decomposer.2.name=Simple Decomposer
+clayium.machine.clay_decomposer.3.name=Basic Decomposer
 
 #MetaBlocks
 tile.clay_ore.normal.name=Clay Ore
@@ -129,6 +160,46 @@ metaitem.clay.spindle.name=Clay Spindle
 metaitem.clay.cutting.head.name=Clay Cutting Head
 metaitem.clay.wheel.name=Clay Wheel
 
+metaitem.dense.clay.plate.name=Dense Clay Plate
+metaitem.dense.clay.stick.name=Dense Clay Stick
+metaitem.dense.clay.stick.short.name=Short Dense Clay Stick
+metaitem.dense.clay.ring.name=Dense Clay Ring
+metaitem.dense.clay.ring.small.name=Small Dense Clay Ring
+metaitem.dense.clay.gear.name=Dense Clay Gear
+metaitem.dense.clay.blade.name=Dense Clay Blade
+metaitem.dense.clay.needle.name=Dense Clay Needle
+metaitem.dense.clay.disc.name=Dense Clay Disc
+metaitem.dense.clay.disc.small.name=Small Dense Clay Disc
+metaitem.dense.clay.cylinder.name=Dense Clay Cylinder
+metaitem.dense.clay.pipe.name=Dense Clay Pipe
+metaitem.dense.clay.plate.large.name=Large Dense Clay Plate
+metaitem.dense.clay.grinding.head.name=Dense Clay Grinding Head
+metaitem.dense.clay.bearing.name=Dense Clay Bearing
+metaitem.dense.clay.spindle.name=Dense Clay Spindle
+metaitem.dense.clay.spindle.tooltip=Time consumer
+metaitem.dense.clay.cutting.head.name=Dense Clay Cutting Head
+metaitem.dense.clay.wheel.name=Dense Clay Wheel
+
+metaitem.clay.circuit.name=Clay Circuit
+metaitem.clay.circuit.board.name=Clay Circuit Board
+item.item.SimpleCircuit.name=Simple Circuit
+item.item.BasicCircuit.name=Basic Circuit
+item.item.AdvancedCircuit.name=Advanced Circuit
+item.item.PrecisionCircuit.name=Precision Circuit
+item.item.IntegratedCircuit.name=Integrated Circuit
+item.item.ClayCore.name=Clay Core
+item.item.ClayCore.tooltip.line1=Expands the capacity of a Storage Container
+item.item.ClayCore.tooltip.line2=into the same as DSU.
+item.item.ClayBrain.name=Clay Brain
+item.item.ClaySpirit.name=Clay Spirit
+item.item.ClaySoul.name=Clay Soul
+item.item.ClayAnima.name=Clay Anima
+item.item.ClayPsyche.name=Clay Psyche
+
+metaitem.clay.shard.compressed.name=Compressed Clay Shard
+metaitem.clay.shard.industrial.name=Industrial Clay Shard
+metaitem.clay.shard.industrial.advanced.name=Advanced Industrial Clay Shard
+
 metaitem.clay.rolling.pin.raw.name=Raw Clay Rolling Pin
 # metaitem.clay.rolling.pin.raw.tooltip=Deletes filters applied to machines.
 metaitem.clay.slicer.raw.name=Raw Clay Slicer
@@ -160,10 +231,6 @@ tooltip.HoldShiftForDetails=--§fHold §lShift§r For Details§7--
 gui.Common.clayLaser=Laser : %1$s
 gui.Common.resonance=Resonance %1$s
 gui.Common.overclockFactor=Overclock x%1$s
-
-recipe.Condenser=Clay Condenser
-recipe.Grinder=Clay Grinder
-recipe.Decomposer=Clay Decomposer
 
 recipe.ECCondenser=Energetic Clay Condenser
 recipe.Assembler=Clay Assembler
@@ -206,33 +273,6 @@ recipe.ClayTree.description=A Clay Tree is a good source of Lithium, but it isn'
 #tile.blockOthersHull.1.name=ZK60A Alloy Hull
 tile.blockAZ91DHull.name=AZ91D Alloy Hull
 tile.blockZK60AHull.name=ZK60A Alloy Hull
-
-tile.blockElementalMillingMachine.name=Elemental Milling Machine
-tile.blockElementalMillingMachine.tooltip.line1=To obtain the first circuit.
-tile.blockEnergeticClayCondenser.name=Energetic Clay Condenser Mk I
-tile.blockEnergeticClayCondenser.tooltip.line1=To obtain the first Energetic Clay.
-tile.blockEnergeticClayCondenserMK2.name=Energetic Clay Condenser Mk II
-
-tile.blockDenseClayCondenser.name=Dense Clay Condenser
-tile.blockSimpleCondenser.name=Simple Condenser
-tile.blockBasicCondenser.name=Basic Condenser
-tile.blockAdvancedCondenser.name=Advanced Condenser
-tile.blockAntimatterCondenser.name=Antimatter Condenser
-
-tile.blockDenseClayGrinder.name=Dense Clay Grinder
-tile.blockDenseClayGrinder.tooltip.line1=Grinds Dense Clay Ores.
-tile.blockSimpleGrinder.name=Simple Grinder
-tile.blockBasicGrinder.name=Basic Grinder
-tile.blockAdvancedGrinder.name=Advanced Grinder
-tile.blockPrecisionGrinder.name=Precision Grinder
-tile.blockAntimatterGrinder.name=Antimatter Grinder
-
-tile.blockDenseClayDecomposer.name=Dense Clay Decomposer
-tile.blockSimpleDecomposer.name=Simple Decomposer
-tile.blockBasicDecomposer.name=Basic Decomposer
-
-tile.blockSimpleMillingMachine.name=Simple Milling Machine
-tile.blockBasicMillingMachine.name=Basic Milling Machine
 
 tile.blockSimpleAssembler.name=Simple Assembler
 tile.blockBasicAssembler.name=Basic Assembler
@@ -848,10 +888,6 @@ item.itemDirectionMemory.name=Direction Memory Card
 item.itemDirectionMemory.tooltip.line1=Used to configure in what direction
 item.itemDirectionMemory.tooltip.line2=an Area Activator aims while using items.
 
-item.itemCompressedClayShard.1.name=Compressed Clay Shard
-item.itemCompressedClayShard.2.name=Industrial Clay Shard
-item.itemCompressedClayShard.3.name=Advanced Industrial Clay Shard
-
 item.itemFilterDuplicator.copy.name=Item Filter Duplicator
 item.itemFilterWhitelist.name=White List Item Filter
 item.itemFilterWhitelist.copy.name=White List Item Filter (Copy)
@@ -942,21 +978,6 @@ item.itemGadget.LongArm0.name=Clay Gadget [Long Arm]
 item.itemGadget.LongArm1.name=Clay Gadget [Longer Arm]
 item.itemGadget.LongArm2.name=Clay Gadget [Longest Arm]
 
-item.item.ClayCircuit.name=Clay Circuit
-item.item.ClayCircuitBoard.name=Clay Circuit Board
-item.item.SimpleCircuit.name=Simple Circuit
-item.item.BasicCircuit.name=Basic Circuit
-item.item.AdvancedCircuit.name=Advanced Circuit
-item.item.PrecisionCircuit.name=Precision Circuit
-item.item.IntegratedCircuit.name=Integrated Circuit
-item.item.ClayCore.name=Clay Core
-item.item.ClayCore.tooltip.line1=Expands the capacity of a Storage Container
-item.item.ClayCore.tooltip.line2=into the same as DSU.
-item.item.ClayBrain.name=Clay Brain
-item.item.ClaySpirit.name=Clay Spirit
-item.item.ClaySoul.name=Clay Soul
-item.item.ClayAnima.name=Clay Anima
-item.item.ClayPsyche.name=Clay Psyche
 item.item.SynchronousParts.name=Synchronous Parts
 item.item.SynchronousParts.tooltip.line1=Insert this into Interfaces
 item.item.SynchronousParts.tooltip.line2=to enable synchronous.
@@ -970,26 +991,6 @@ item.item.CEECircuit.name=CEE Circuit
 item.item.CEE.name=Clay Energy Excitor
 item.item.LaserParts.name=Laser Parts
 item.item.AntimatterSeed.name=Antimatter Seed
-
-item.itemDenseClayParts.Plate.name=Dense Clay Plate
-item.itemDenseClayParts.Stick.name=Dense Clay Stick
-item.itemDenseClayParts.ShortStick.name=Short Dense Clay Stick
-item.itemDenseClayParts.Ring.name=Dense Clay Ring
-item.itemDenseClayParts.SmallRing.name=Small Dense Clay Ring
-item.itemDenseClayParts.Gear.name=Dense Clay Gear
-item.itemDenseClayParts.Blade.name=Dense Clay Blade
-item.itemDenseClayParts.Needle.name=Dense Clay Needle
-item.itemDenseClayParts.Disc.name=Dense Clay Disc
-item.itemDenseClayParts.SmallDisc.name=Small Dense Clay Disc
-item.itemDenseClayParts.Cylinder.name=Dense Clay Cylinder
-item.itemDenseClayParts.Pipe.name=Dense Clay Pipe
-item.itemDenseClayParts.LargePlate.name=Large Dense Clay Plate
-item.itemDenseClayParts.GrindingHead.name=Dense Clay Grinding Head
-item.itemDenseClayParts.Bearing.name=Dense Clay Bearing
-item.itemDenseClayParts.Spindle.name=Dense Clay Spindle
-item.itemDenseClayParts.Spindle.tooltip.line1=Time consumer
-item.itemDenseClayParts.CuttingHead.name=Dense Clay Cutting Head
-item.itemDenseClayParts.WaterWheel.name=Dense Clay Wheel
 
 item.itemPlates.IndustrialClay.name=Industrial Clay Plate
 item.itemLargePlates.IndustrialClay.name=Large Industrial Clay Plate
