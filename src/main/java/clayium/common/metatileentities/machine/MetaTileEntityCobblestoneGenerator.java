@@ -3,18 +3,25 @@ package clayium.common.metatileentities.machine;
 import clayium.api.capability.IClayEnergyContainer;
 import clayium.api.capability.impl.ClayRecipeLogicEnergy;
 import clayium.api.metatileentity.ClaySimpleMachineMetaTileEntity;
+import clayium.api.recipes.ClayRecipe;
 import clayium.api.recipes.ClayRecipeMap;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
+import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.client.renderer.ICubeRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.items.IItemHandlerModifiable;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class MetaTileEntityCobblestoneGenerator extends ClaySimpleMachineMetaTileEntity {

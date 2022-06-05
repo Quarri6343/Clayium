@@ -29,6 +29,10 @@ public class ClayTextures {
     public static final OrientedOverlayRenderer GRINDER_OVERLAY = new OrientedOverlayRenderer("machines/grinder", FRONT);
     public static final OrientedOverlayRenderer CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/condenser", FRONT);
     public static final OrientedOverlayRenderer DECOMPOSER_OVERLAY = new OrientedOverlayRenderer("machines/decomposer", FRONT);
+    public static final OrientedOverlayRenderer ASSEMBLER_OVERLAY = new OrientedOverlayRenderer("machines/assembler", FRONT);
+    public static final OrientedOverlayRenderer CENTRIFUGE_OVERLAY = new OrientedOverlayRenderer("machines/centrifuge", FRONT);
+    public static final OrientedOverlayRenderer ENERGETIC_CLAY_CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/energetic_clay_condenser", FRONT);
+    public static final OrientedOverlayRenderer INSCRIBER_OVERLAY = new OrientedOverlayRenderer("machines/inscriber", FRONT);
 
     public static void preInit() {
 

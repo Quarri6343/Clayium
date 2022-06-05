@@ -89,4 +89,28 @@ public class ClayRecipeMaps {
             .setSlotOverlay(true, false, GuiTextures.BOX_OVERLAY)
             .setProgressBar(GuiTextures.PROGRESS_BAR_UNPACKER, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSounds.ASSEMBLER);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_ASSEMBLER_RECIPES = new ClayRecipeMap<>("clay_assembler", 1, 2, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.CIRCUIT_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_CIRCUIT, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.ASSEMBLER);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_CENTRIFUGE_RECIPES = new ClayRecipeMap<>("clay_centrifuge", 1, 1, 1, 4, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, true, GuiTextures.CENTRIFUGE_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_EXTRACT, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.CENTRIFUGE);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> ENERGETIC_CLAY_CONDENSER_RECIPES = new ClayRecipeMap<>("energetic_clay_condenser", 1, 1, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.COMPRESSOR_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.COMPRESSOR);
+
+    @ZenProperty
+    public static final ClayRecipeMap<ClaySimpleRecipeBuilder> CLAY_INSCRIBER_RECIPES = new ClayRecipeMap<>("clay_inscriber", 1, 2, 1, 1, 0, 0, 0, 0, new ClaySimpleRecipeBuilder(), false)
+            .setSlotOverlay(false, false, GuiTextures.CIRCUIT_OVERLAY)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_CIRCUIT_ASSEMBLER, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSounds.ASSEMBLER);
 }
