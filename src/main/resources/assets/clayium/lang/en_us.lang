@@ -20,9 +20,9 @@ recipemap.clay_cobblestone_generator.name=Cobblestone Generator
 # recipe.CobblestoneGenerator.efficiency=%1$4.2g Blocks/t
 recipemap.clay_cobblestone_generator.jei_description=As you know, a cobblestone generator is consist of water and lava. Clayium's Cobblestone Generator also needs them. If you place both of them next to the machine, it will work.
 
-recipemap.clay_condenser=Clay Condenser
-recipemap.clay_grinder=Clay Grinder
-recipemap.clay_decomposer=Clay Decomposer
+recipemap.clay_condenser.name=Clay Condenser
+recipemap.clay_grinder.name=Clay Grinder
+recipemap.clay_decomposer.name=Clay Decomposer
 
 #Machines
 clayium.machine.clay_worktable.name=Clay Work Table
