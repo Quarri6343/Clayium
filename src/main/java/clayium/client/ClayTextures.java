@@ -19,21 +19,21 @@ public class ClayTextures {
     public static final SimpleOverlayRenderer ITEM_AUTO_OUTPUT_OVERLAY;
     public static final OrientedOverlayRenderer CLAY_WORKTABLE_OVERLAY = new OrientedOverlayRenderer("clay_worktable", TOP, BOTTOM, SIDE, FRONT, BACK);
     public static final OrientedOverlayRenderer CLAY_CRAFTING_BOARD_OVERLAY = new OrientedOverlayRenderer("clay_crafting_board", TOP);
-    public static final OrientedOverlayRenderer BENDING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/bending_machine", FRONT);
-    public static final OrientedOverlayRenderer WIRE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/wire_drawing_machine", FRONT);
-    public static final OrientedOverlayRenderer PIPE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/pipe_drawing_machine", FRONT);
-    public static final OrientedOverlayRenderer CUTTING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/cutting_machine", FRONT);
-    public static final OrientedOverlayRenderer LATHE_OVERLAY = new OrientedOverlayRenderer("machines/lathe", FRONT);
-    public static final OrientedOverlayRenderer COBBLESTONE_GENERATOR_OVERLAY = new OrientedOverlayRenderer("machines/cobblestone_generator", FRONT);
-    public static final OrientedOverlayRenderer MILLING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/milling_machine", FRONT);
-    public static final OrientedOverlayRenderer GRINDER_OVERLAY = new OrientedOverlayRenderer("machines/grinder", FRONT);
-    public static final OrientedOverlayRenderer CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/condenser", FRONT);
-    public static final OrientedOverlayRenderer DECOMPOSER_OVERLAY = new OrientedOverlayRenderer("machines/decomposer", FRONT);
-    public static final OrientedOverlayRenderer ASSEMBLER_OVERLAY = new OrientedOverlayRenderer("machines/assembler", FRONT);
-    public static final OrientedOverlayRenderer CENTRIFUGE_OVERLAY = new OrientedOverlayRenderer("machines/centrifuge", FRONT);
-    public static final OrientedOverlayRenderer ENERGETIC_CLAY_CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/energetic_clay_condenser", FRONT);
-    public static final OrientedOverlayRenderer INSCRIBER_OVERLAY = new OrientedOverlayRenderer("machines/inscriber", FRONT);
-    public static final OrientedOverlayRenderer WATER_WHEEL_OVERLAY = new OrientedOverlayRenderer("machines/water_wheel", FRONT);
+    public static final OrientedOverlayRenderer CLAY_BENDING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/clay_bending_machine", FRONT);
+    public static final OrientedOverlayRenderer CLAY_WIRE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/clay_wire_drawing_machine", FRONT);
+    public static final OrientedOverlayRenderer CLAY_PIPE_DRAWING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/clay_pipe_drawing_machine", FRONT);
+    public static final OrientedOverlayRenderer CLAY_CUTTING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/clay_cutting_machine", FRONT);
+    public static final OrientedOverlayRenderer CLAY_LATHE_OVERLAY = new OrientedOverlayRenderer("machines/clay_lathe", FRONT);
+    public static final OrientedOverlayRenderer CLAY_COBBLESTONE_GENERATOR_OVERLAY = new OrientedOverlayRenderer("machines/clay_cobblestone_generator", FRONT);
+    public static final OrientedOverlayRenderer CLAY_MILLING_MACHINE_OVERLAY = new OrientedOverlayRenderer("machines/clay_milling_machine", FRONT);
+    public static final OrientedOverlayRenderer CLAY_GRINDER_OVERLAY = new OrientedOverlayRenderer("machines/clay_grinder", FRONT);
+    public static final OrientedOverlayRenderer CLAY_CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/clay_condenser", FRONT);
+    public static final OrientedOverlayRenderer CLAY_DECOMPOSER_OVERLAY = new OrientedOverlayRenderer("machines/clay_decomposer", FRONT);
+    public static final OrientedOverlayRenderer CLAY_ASSEMBLER_OVERLAY = new OrientedOverlayRenderer("machines/clay_assembler", FRONT);
+    public static final OrientedOverlayRenderer CLAY_CENTRIFUGE_OVERLAY = new OrientedOverlayRenderer("machines/clay_centrifuge", FRONT);
+    public static final OrientedOverlayRenderer CLAY_ENERGETIC_CLAY_CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/energetic_clay_condenser", FRONT);
+    public static final OrientedOverlayRenderer CLAY_INSCRIBER_OVERLAY = new OrientedOverlayRenderer("machines/clay_inscriber", FRONT);
+    public static final OrientedOverlayRenderer CLAY_WATER_WHEEL_OVERLAY = new OrientedOverlayRenderer("machines/clay_water_wheel", FRONT);
 
     public static void preInit() {
 
