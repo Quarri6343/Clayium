@@ -63,6 +63,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
     protected TextureArea progressBarTexture;
     protected MoveType moveType;
     public final boolean isHidden;
+    public final boolean exactTier;
 
     private final Object2ObjectOpenHashMap<FluidKey, Set<ClayRecipe>> recipeFluidMap = new Object2ObjectOpenHashMap<>();
     private final Object2ObjectOpenHashMap<ItemStackKey, Set<ClayRecipe>> recipeItemMap = new Object2ObjectOpenHashMap<>();
@@ -83,7 +84,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
     public ClayRecipeMap(String unlocalizedName,
                          int minInputs, int maxInputs, int minOutputs, int maxOutputs,
                          int minFluidInputs, int maxFluidInputs, int minFluidOutputs, int maxFluidOutputs,
-                         R defaultRecipe, boolean isHidden) {
+                         R defaultRecipe, boolean isHidden, boolean exactTier) {
         this.unlocalizedName = unlocalizedName;
         this.slotOverlays = new TByteObjectHashMap<>();
         this.progressBarTexture = GuiTextures.PROGRESS_BAR_ARROW;
@@ -100,6 +101,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
         this.maxFluidOutputs = maxFluidOutputs;
 
         this.isHidden = isHidden;
+        this.exactTier = exactTier;
         defaultRecipe.setRecipeMap(this);
         this.recipeBuilderSample = defaultRecipe;
         RECIPE_MAP_REGISTRY.put(unlocalizedName, this);
@@ -314,7 +316,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
      */
     @Nullable
     public ClayRecipe findRecipe(long tier, List<ItemStack> inputs, List<FluidStack> fluidInputs, int outputFluidTankCapacity) {
-        return findRecipe(tier, inputs, fluidInputs, outputFluidTankCapacity, false);
+        return findRecipe(tier, inputs, fluidInputs, outputFluidTankCapacity, exactTier);
     }
 
     /**
@@ -324,7 +326,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
      * @param inputs                  the Item Inputs
      * @param fluidInputs             the Fluid Inputs
      * @param outputFluidTankCapacity minimal capacity of output fluid tank, used for fluid canner recipes for example
-     * @param exactTier            should require exact voltage matching on recipe. used by craftweaker
+     * @param exactTier            should require exact voltage matching on recipe.
      * @return the Recipe it has found or null for no matching Recipe
      */
 

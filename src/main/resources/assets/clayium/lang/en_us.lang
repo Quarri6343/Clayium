@@ -4,6 +4,7 @@
 #GUI
 gui.Common.tier=Tier %1$d
 gui.Common.energy=%1$sCE
+gui.Common.exact.tier=Requires Exact Tier Machine
 
 #Recipe Maps
 recipemap.clay_worktable.name=Clay Work Table
