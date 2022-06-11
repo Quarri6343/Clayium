@@ -33,6 +33,7 @@ public class ClayTextures {
     public static final OrientedOverlayRenderer CENTRIFUGE_OVERLAY = new OrientedOverlayRenderer("machines/centrifuge", FRONT);
     public static final OrientedOverlayRenderer ENERGETIC_CLAY_CONDENSER_OVERLAY = new OrientedOverlayRenderer("machines/energetic_clay_condenser", FRONT);
     public static final OrientedOverlayRenderer INSCRIBER_OVERLAY = new OrientedOverlayRenderer("machines/inscriber", FRONT);
+    public static final OrientedOverlayRenderer WATER_WHEEL_OVERLAY = new OrientedOverlayRenderer("machines/water_wheel", FRONT);
 
     public static void preInit() {
 

@@ -36,6 +36,7 @@ public class ClayMetaTileEntities {
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_CENTRIFUGE = new ClaySimpleMachineMetaTileEntity[4];
     public static final ClaySimpleMachineMetaTileEntity[] ENERGETIC_CLAY_CONDENSER = new ClaySimpleMachineMetaTileEntity[2];
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_INSCRIBER = new ClaySimpleMachineMetaTileEntity[2];
+    public static final ClaySimpleMachineMetaTileEntity[] CLAY_WATER_WHEEL = new ClaySimpleMachineMetaTileEntity[2];
 
 //    public static MetaTileEntitySawmill SAWMILL;
 
@@ -143,6 +144,11 @@ public class ClayMetaTileEntities {
 
         CLAY_INSCRIBER[0] = registerMetaTileEntity(13141,
                 new ClaySimpleMachineMetaTileEntity(clayId("clay_inscriber.1"), ClayRecipeMaps.CLAY_INSCRIBER_RECIPES, ClayTextures.INSCRIBER_OVERLAY, 3, true, GTUtility.hvCappedTankSizeFunction));
+
+        CLAY_WATER_WHEEL[0] = registerMetaTileEntity(13151,
+                new ClaySimpleMachineMetaTileEntity(clayId("clay_water_wheel.1"), ClayRecipeMaps.CLAY_INSCRIBER_RECIPES, ClayTextures.WATER_WHEEL_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+        CLAY_WATER_WHEEL[1] = registerMetaTileEntity(13152,
+                new ClaySimpleMachineMetaTileEntity(clayId("clay_water_wheel.2"), ClayRecipeMaps.CLAY_INSCRIBER_RECIPES, ClayTextures.WATER_WHEEL_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
 
         //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));
