@@ -5,6 +5,7 @@ import clayium.api.ClayValues;
 import clayium.api.metatileentity.ClaySimpleMachineMetaTileEntity;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
+import clayium.common.metatileentities.machine.MetaTileEntityClayCentrifuge;
 import clayium.common.metatileentities.machine.MetaTileEntityCobblestoneGenerator;
 import clayium.common.metatileentities.storage.MetaTileEntityClayCraftingBoard;
 import gregtech.api.util.GTUtility;
@@ -33,7 +34,7 @@ public class ClayMetaTileEntities {
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_DECOMPOSER = new ClaySimpleMachineMetaTileEntity[4];
 
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_ASSEMBLER = new ClaySimpleMachineMetaTileEntity[4];
-    public static final ClaySimpleMachineMetaTileEntity[] CLAY_CENTRIFUGE = new ClaySimpleMachineMetaTileEntity[4];
+    public static final MetaTileEntityClayCentrifuge[] CLAY_CENTRIFUGE = new MetaTileEntityClayCentrifuge[4];
     public static final ClaySimpleMachineMetaTileEntity[] ENERGETIC_CLAY_CONDENSER = new ClaySimpleMachineMetaTileEntity[2];
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_INSCRIBER = new ClaySimpleMachineMetaTileEntity[2];
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_WATER_WHEEL = new ClaySimpleMachineMetaTileEntity[2];
@@ -137,7 +138,7 @@ public class ClayMetaTileEntities {
                 new ClaySimpleMachineMetaTileEntity(clayId("clay_assembler.1"), ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES, ClayTextures.CLAY_ASSEMBLER_OVERLAY, 3, true, GTUtility.hvCappedTankSizeFunction));
 
         CLAY_CENTRIFUGE[0] = registerMetaTileEntity(13121,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_centrifuge.1"), ClayRecipeMaps.CLAY_CENTRIFUGE_RECIPES, ClayTextures.CLAY_CENTRIFUGE_OVERLAY, 3, true, GTUtility.hvCappedTankSizeFunction));
+                new MetaTileEntityClayCentrifuge(clayId("clay_centrifuge.1"), ClayRecipeMaps.CLAY_CENTRIFUGE_RECIPES, 1, ClayTextures.CLAY_CENTRIFUGE_OVERLAY, 3));
 
         ENERGETIC_CLAY_CONDENSER[0] = registerMetaTileEntity(13131,
                 new ClaySimpleMachineMetaTileEntity(clayId("energetic_clay_condenser.1"), ClayRecipeMaps.ENERGETIC_CLAY_CONDENSER_RECIPES, ClayTextures.CLAY_ENERGETIC_CLAY_CONDENSER_OVERLAY, 3, true, GTUtility.hvCappedTankSizeFunction));
