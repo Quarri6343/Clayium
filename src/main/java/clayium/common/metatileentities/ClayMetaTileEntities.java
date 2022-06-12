@@ -6,6 +6,7 @@ import clayium.api.metatileentity.ClaySimpleMachineMetaTileEntity;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.client.ClayTextures;
 import clayium.common.metatileentities.machine.MetaTileEntityClayCentrifuge;
+import clayium.common.metatileentities.machine.MetaTileEntityClayWaterWheel;
 import clayium.common.metatileentities.machine.MetaTileEntityCobblestoneGenerator;
 import clayium.common.metatileentities.storage.MetaTileEntityClayCraftingBoard;
 import gregtech.api.util.GTUtility;
@@ -37,7 +38,7 @@ public class ClayMetaTileEntities {
     public static final MetaTileEntityClayCentrifuge[] CLAY_CENTRIFUGE = new MetaTileEntityClayCentrifuge[4];
     public static final ClaySimpleMachineMetaTileEntity[] ENERGETIC_CLAY_CONDENSER = new ClaySimpleMachineMetaTileEntity[2];
     public static final ClaySimpleMachineMetaTileEntity[] CLAY_INSCRIBER = new ClaySimpleMachineMetaTileEntity[2];
-    public static final ClaySimpleMachineMetaTileEntity[] CLAY_WATER_WHEEL = new ClaySimpleMachineMetaTileEntity[2];
+    public static final MetaTileEntityClayWaterWheel[] CLAY_WATER_WHEEL = new MetaTileEntityClayWaterWheel[2];
 
 //    public static MetaTileEntitySawmill SAWMILL;
 
@@ -147,9 +148,9 @@ public class ClayMetaTileEntities {
                 new ClaySimpleMachineMetaTileEntity(clayId("clay_inscriber.1"), ClayRecipeMaps.CLAY_INSCRIBER_RECIPES, ClayTextures.CLAY_INSCRIBER_OVERLAY, 3, true, GTUtility.hvCappedTankSizeFunction));
 
         CLAY_WATER_WHEEL[0] = registerMetaTileEntity(13151,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_water_wheel.1"), ClayRecipeMaps.CLAY_INSCRIBER_RECIPES, ClayTextures.CLAY_WATER_WHEEL_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
+                new MetaTileEntityClayWaterWheel(clayId("clay_water_wheel.1"), 1 ));
         CLAY_WATER_WHEEL[1] = registerMetaTileEntity(13152,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_water_wheel.2"), ClayRecipeMaps.CLAY_INSCRIBER_RECIPES, ClayTextures.CLAY_WATER_WHEEL_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
+                new MetaTileEntityClayWaterWheel(clayId("clay_water_wheel.2"), 2 ));
 
         //multiblocks :14000~
 //        SAWMILL = registerMetaTileEntity(12001, new MetaTileEntitySawmill(gteId("sawmill")));

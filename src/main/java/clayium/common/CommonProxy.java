@@ -1,6 +1,7 @@
 package clayium.common;
 
 import clayium.api.ClayValues;
+import clayium.api.capability.ClaySimpleCapabilityManager;
 import clayium.api.unification.material.ClayMaterials;
 import clayium.common.blocks.ClayMetaBlocks;
 import clayium.common.items.ClayMetaItems;
@@ -30,7 +31,8 @@ import static clayium.common.blocks.ClayMetaBlocks.*;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
-        ClayMetaBlocks.Init();
+        ClaySimpleCapabilityManager.init();
+        ClayMetaBlocks.init();
         ClayMetaItems.init();
         ClayMetaTileEntities.init();
     }

@@ -17,7 +17,7 @@ public class ClayMetaBlocks {
     public static BlockClayMachineHull CLAY_MACHINE_HULL;
 //    public static final BlockSawmillConveyor BLOCK_SAWMILL_CONVEYOR = new BlockSawmillConveyor();
 
-    public static void Init(){
+    public static void init(){
         COMPRESSED_CLAY = new BlockCompressedClay();
         COMPRESSED_CLAY.setRegistryName("compressed_clay");
         CLAY_ORE = new BlockClayOre();
