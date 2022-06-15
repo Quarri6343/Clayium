@@ -10,8 +10,11 @@ import codechicken.lib.vec.Matrix4;
 import gregtech.api.gui.ModularUI;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
@@ -28,14 +31,17 @@ import static gregtech.api.capability.GregtechDataCodes.IS_WORKING;
 
 public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
 
-    private final long energyPerTick;
+    private final long baseEnergyPerTick;
+    private final int range = 1;
 
     private boolean isActive = false;
     private boolean isPaused = false;
 
+    private int waterCount;
+
     public MetaTileEntityClayWaterWheel(ResourceLocation metaTileEntityId, int tier) {
         super(metaTileEntityId, tier);
-        this.energyPerTick = tier * 8L;
+        this.baseEnergyPerTick = tier * 8L;
         initializeInventory();
     }
 
@@ -50,10 +56,22 @@ public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
     }
 
     @Override
+    public void onNeighborChanged() {
+        super.onNeighborChanged();
+        checkNearbyWater();
+    }
+
+    @Override
+    public <T> void addNotifiedInput(T input) {
+        super.addNotifiedInput(input);
+        onNeighborChanged();
+    }
+
+    @Override
     public void update() {
         super.update();
         if (!getWorld().isRemote) {
-            if (isPaused) {
+            if (isPaused || waterCount == 0) {
                 if (isActive) {
                     setActive(false);
                 }
@@ -62,21 +80,41 @@ public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
             if (!isActive) {
                 setActive(true);
             }
-            energyContainer.addEnergy(energyPerTick);
+            energyContainer.addEnergy(baseEnergyPerTick * waterCount);
 
             World world = getWorld();
             BlockPos currentPos = getPos();
             for (EnumFacing neighbourFace : EnumFacing.VALUES) {
+                if (energyContainer.getEnergyStored() < baseEnergyPerTick)
+                    break;
+
                 TileEntity neighbourTile = world.getTileEntity(currentPos.offset(neighbourFace));
                 if (neighbourTile != null) {
                     IClayEnergyContainer container = neighbourTile.getCapability(ClayiumCapabilities.CAPABILITY_CLAY_ENERGY_CONTAINER, neighbourFace.getOpposite());
                     if (container == null || container.getEnergyCanBeInserted() == 0)
                         continue;
-                    long addedEnergy = container.addEnergy(energyPerTick);
+                    long addedEnergy = container.addEnergy(baseEnergyPerTick * waterCount);
                     energyContainer.removeEnergy(addedEnergy);
                 }
             }
         }
+    }
+
+    private void checkNearbyWater() {
+        if (getWorld() == null || getWorld().isRemote) {
+            waterCount = 0;
+            return;
+        }
+
+        int waterCount = 0;
+        for (BlockPos blockPos : BlockPos.getAllInBox(this.getPos().add(-range, -range, -range), this.getPos().add(range, range, range))) {
+            IBlockState blockState = getWorld().getBlockState(blockPos);
+            Block block = blockState.getBlock();
+            if (block == Blocks.FLOWING_WATER || block == Blocks.WATER) {
+                waterCount++;
+            }
+        }
+        this.waterCount = waterCount;
     }
 
     @Override
@@ -99,6 +137,7 @@ public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
         super.writeToNBT(data);
         data.setBoolean("isPaused", isPaused);
+        data.setInteger("waterCount", waterCount);
         return data;
     }
 
@@ -106,6 +145,9 @@ public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
     public void readFromNBT(NBTTagCompound data) {
         super.readFromNBT(data);
         isPaused = data.getBoolean("isPaused");
+        if (data.hasKey("waterCount")) {
+            this.waterCount = data.getInteger("waterCount");
+        }
     }
 
     @Override
