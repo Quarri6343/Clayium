@@ -222,6 +222,9 @@ metaitem.tool.clay.spatula.name=Clay Spatula
 # metaitem.tool.clay.spatula.tooltip=Changes a machine's appearance to Pipe.
 metaitem.tool.clay.spatula.tooltip=has Compatibility with GregTech Wire Cutter
 
+#TOP integration
+clayium.top.clay_energy_stored=Clay Energy:
+
 # Original Clayium Localization File for English
 
 itemGroup.Clayium=Clayium

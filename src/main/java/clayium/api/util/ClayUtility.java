@@ -16,4 +16,15 @@ public class ClayUtility {
         }
     }
 
+    public static long getCEDividedwithUnit(long CE){
+        if(CE > ClayValues.CE){
+            return Math.round((float) CE / 1000000);
+        }
+        else if(CE > ClayValues.milliCE){
+            return Math.round((float) CE / 1000);
+        }
+        else{
+            return CE;
+        }
+    }
 }

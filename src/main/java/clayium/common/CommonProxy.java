@@ -6,15 +6,17 @@ import clayium.api.unification.material.ClayMaterials;
 import clayium.common.blocks.ClayMetaBlocks;
 import clayium.common.items.ClayMetaItems;
 import clayium.common.metatileentities.ClayMetaTileEntities;
+import clayium.integration.theoneprobe.ClayTheOneProbeCompatibility;
 import clayium.loaders.recipe.ClayRecipeManager;
+import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
-
 import gregtech.api.block.VariantItemBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -38,6 +40,9 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
+        if (Loader.isModLoaded(GTValues.MODID_TOP)) {
+            ClayTheOneProbeCompatibility.registerCompatibility();
+        }
     }
 
     public void postInit(FMLPostInitializationEvent e) {
