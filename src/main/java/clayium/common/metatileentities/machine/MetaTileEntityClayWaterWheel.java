@@ -70,6 +70,11 @@ public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
     @Override
     public void update() {
         super.update();
+
+        if (getOffsetTimer() % 20 == 0) {
+            checkNearbyWater();
+        }
+
         if (!getWorld().isRemote) {
             if (isPaused || waterCount == 0) {
                 if (isActive) {
