@@ -114,6 +114,9 @@ public class ClayCraftingRecipeLoader {
                 "BBB", "BRB", "BBB", 'B', DENSE_CLAY_BLADE, 'R', DENSE_CLAY_RING);
         ModHandler.addShapedRecipe("dense_clay_wheel", DENSE_CLAY_WHEEL.getStackForm(),
                 "PPP", "PRP", "PPP", 'P', DENSE_CLAY_PLATE, 'R', DENSE_CLAY_RING);
+
+        ModHandler.addShapedRecipe("simple_circuit", SIMPLE_CIRCUIT.getStackForm(),
+                "EEE", "ECE", "EEE", 'E', ENERGIZED_CLAY_DUST, 'C', CLAY_CIRCUIT_BOARD);
     }
 
     private static void registerMiscCraftingRecipes() {

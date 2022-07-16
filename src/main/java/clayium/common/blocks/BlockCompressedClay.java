@@ -1,17 +1,13 @@
 package clayium.common.blocks;
 
 import gregtech.api.block.VariantBlock;
-import gregtech.common.blocks.BlockStoneSmooth;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -44,7 +40,7 @@ public class BlockCompressedClay extends VariantBlock<BlockCompressedClay.BlockT
         DENSE("dense"),
         COMPRESSED("compressed"),
         INDUSTRIAL("industrial"),
-        ADVANCED_INDUTRIAL("advanced_industrial");
+        ADVANCED_INDUSTRIAL("advanced_industrial");
 //        ENERGETIC("energetic"),
 //        COMPRESSED_ENERGETIC("compressed_energetic"),
 //        DOUBLE_COMPRESSED_ENERGETIC("double_compressed_energetic"),
