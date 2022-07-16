@@ -91,8 +91,6 @@ public class ClayMetaTileEntities {
                 new ClaySimpleMachineMetaTileEntity(clayId("clay_pipe_drawing_machine.1"), ClayRecipeMaps.CLAY_PIPE_DRAWING_MACHINE_RECIPES, ClayTextures.CLAY_PIPE_DRAWING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
         CLAY_PIPE_DRAWING_MACHINE[1] = registerMetaTileEntity(13032,
                 new ClaySimpleMachineMetaTileEntity(clayId("clay_pipe_drawing_machine.2"), ClayRecipeMaps.CLAY_PIPE_DRAWING_MACHINE_RECIPES, ClayTextures.CLAY_PIPE_DRAWING_MACHINE_OVERLAY, 2, true, GTUtility.hvCappedTankSizeFunction));
-        CLAY_PIPE_DRAWING_MACHINE[2] = registerMetaTileEntity(13033,
-                new ClaySimpleMachineMetaTileEntity(clayId("clay_pipe_drawing_machine.3"), ClayRecipeMaps.CLAY_PIPE_DRAWING_MACHINE_RECIPES, ClayTextures.CLAY_PIPE_DRAWING_MACHINE_OVERLAY, 3, true, GTUtility.hvCappedTankSizeFunction));
 
         CLAY_CUTTING_MACHINE[0] = registerMetaTileEntity(13041,
                 new ClaySimpleMachineMetaTileEntity(clayId("clay_cutting_machine.1"), ClayRecipeMaps.CLAY_CUTTING_MACHINE_RECIPES, ClayTextures.CLAY_CUTTING_MACHINE_OVERLAY, 1, true, GTUtility.hvCappedTankSizeFunction));
