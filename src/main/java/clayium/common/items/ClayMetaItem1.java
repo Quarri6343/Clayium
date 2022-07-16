@@ -83,5 +83,11 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         INDUSTRIAL_CLAY_PLATE_LARGE = addItem(58, "industrial.clay.plate.large").setTier(3);
         INDUSTRIAL_CLAY_DUST = addItem(59, "industrial.clay.dust").setTier(3);
         ENERGIZED_CLAY_DUST = addItem(60, "energized.clay.dust").setTier(3);
+
+        //Tier 4
+        BASIC_CIRCUIT = addItem(61, "basic.circuit").setTier(4);
+        INDUSTRIAL_CLAY_PLATE_ADVANCED = addItem(62, "industrial.clay.plate.advanced").setTier(4);
+        INDUSTRIAL_CLAY_PLATE_LARGE_ADVANCED = addItem(63, "industrial.clay.plate.large.advanced").setTier(4);
+        INDUSTRIAL_CLAY_DUST_ADVANCED = addItem(64, "industrial.clay.dust.advanced").setTier(4);
     }
 }

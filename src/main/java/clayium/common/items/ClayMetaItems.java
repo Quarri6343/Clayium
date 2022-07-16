@@ -74,6 +74,11 @@ public final class ClayMetaItems {
     public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_DUST;
     public static ClayMetaItem<?>.ClayMetaValueItem ENERGIZED_CLAY_DUST;
 
+    public static ClayMetaItem<?>.ClayMetaValueItem BASIC_CIRCUIT;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_PLATE_ADVANCED;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_PLATE_LARGE_ADVANCED;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_DUST_ADVANCED;
+
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_SHOVEL;
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_PICKAXE;
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_ROLLING_PIN;
