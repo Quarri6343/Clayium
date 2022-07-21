@@ -1,6 +1,7 @@
 package clayium.loaders.recipe;
 
 import clayium.api.recipes.ClayRecipeMaps;
+import clayium.common.blocks.BlockClayMachineHull;
 import clayium.common.blocks.BlockClayOre;
 import clayium.common.blocks.BlockCompressedClay;
 import gregtech.api.unification.ore.OrePrefix;
@@ -10,9 +11,9 @@ import net.minecraft.item.ItemStack;
 
 import static clayium.api.ClayValues.microCE;
 import static clayium.api.ClayValues.milliCE;
-import static clayium.common.blocks.ClayMetaBlocks.CLAY_ORE;
-import static clayium.common.blocks.ClayMetaBlocks.COMPRESSED_CLAY;
+import static clayium.common.blocks.ClayMetaBlocks.*;
 import static clayium.common.items.ClayMetaItems.*;
+import static clayium.common.metatileentities.ClayMetaTileEntities.*;
 import static gregtech.api.unification.material.Materials.*;
 
 public class ClayMachineRecipeLoader {
@@ -33,6 +34,10 @@ public class ClayMachineRecipeLoader {
         ClayGrinderRecipes.init();
         registerCondenserRecipes();
         registerDecomposerRecipes();
+        registerAssemblerRecipes();
+        registerCentrifugeRecipes();
+        registerECCRecipes();
+        registerInscriberRecipes();
     }
 
     private static void registerClayWorkTableRecipes(){
@@ -187,6 +192,22 @@ public class ClayMachineRecipeLoader {
                 .input(DENSE_CLAY_PLATE,4)
                 .output(DENSE_CLAY_PLATE_LARGE)
                 .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_BENDING_MACHINE_RECIPES.recipeBuilder().CEt(20 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL))
+                .output(INDUSTRIAL_CLAY_PLATE)
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_BENDING_MACHINE_RECIPES.recipeBuilder().CEt(20 * microCE)
+                .input(INDUSTRIAL_CLAY_PLATE,4)
+                .output(INDUSTRIAL_CLAY_PLATE_LARGE)
+                .duration(8).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_BENDING_MACHINE_RECIPES.recipeBuilder().CEt(40 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUSTRIAL))
+                .output(INDUSTRIAL_CLAY_PLATE_ADVANCED)
+                .duration(4).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_BENDING_MACHINE_RECIPES.recipeBuilder().CEt(40 * microCE)
+                .input(INDUSTRIAL_CLAY_PLATE_ADVANCED,4)
+                .output(INDUSTRIAL_CLAY_PLATE_LARGE_ADVANCED)
+                .duration(8).tier(0).buildAndRegister();
     }
 
     private static void registerWireDrawingRecipes(){
@@ -353,6 +374,10 @@ public class ClayMachineRecipeLoader {
                 .input(DENSE_CLAY_PLATE)
                 .output(CLAY_CIRCUIT_BOARD)
                 .duration(32).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_MILLING_MACHINE_RECIPES.recipeBuilder().CEt(20 * microCE)
+                .input(INDUSTRIAL_CLAY_PLATE_ADVANCED)
+                .output(CEE_BOARD)
+                .duration(32).tier(3).buildAndRegister();
     }
 
     private static void registerCondenserRecipes(){
@@ -378,7 +403,7 @@ public class ClayMachineRecipeLoader {
                 .duration(4).tier(0).buildAndRegister();
         ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(1 * milliCE)
                 .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL,9))
-                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUSTRIAL))
                 .duration(4).tier(0).buildAndRegister();
         ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * milliCE)
                 .input(Blocks.COAL_BLOCK,8)
@@ -394,7 +419,7 @@ public class ClayMachineRecipeLoader {
                 .duration(6).tier(0).buildAndRegister();
         ClayRecipeMaps.CLAY_CONDENSER_RECIPES.recipeBuilder().CEt(10 * microCE)
                 .input(CLAY_SHARD_INDUSTRIAL_ADVANCED,4)
-                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL))
+                .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUSTRIAL))
                 .duration(9).tier(0).buildAndRegister();
     }
 
@@ -416,8 +441,123 @@ public class ClayMachineRecipeLoader {
                 .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED,9))
                 .duration(10).tier(0).buildAndRegister();
         ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
-                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUTRIAL))
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUSTRIAL))
                 .outputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL,9))
+                .duration(20).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(INDUSTRIAL_CLAY_DUST)
+                .output(ENERGIZED_CLAY_DUST,3)
+                .duration(60).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_DECOMPOSER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .input(INDUSTRIAL_CLAY_DUST_ADVANCED)
+                .output(ENERGIZED_CLAY_DUST,28)
+                .duration(60).tier(0).buildAndRegister();
+    }
+
+    private static void registerAssemblerRecipes(){
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(80 * microCE)
+                .input(INDUSTRIAL_CLAY_PLATE,3)
+                .input(CEE_CIRCUIT)
+                .output(CLAY_ENERGY_EXCITOR)
+                .duration(20).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(CLAY_ENERGY_EXCITOR,2)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(ENERGETIC_CLAY_CONDENSER[0])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(DENSE_CLAY_PLATE,3)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_BENDING_MACHINE[2])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(DENSE_CLAY_PIPE,2)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_WIRE_DRAWING_MACHINE[2])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(CLAY_CUTTING_HEAD)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_CUTTING_MACHINE[2])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(CLAY_SPINDLE)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_LATHE[2])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(SIMPLE_CIRCUIT)
+                .input(INDUSTRIAL_CLAY_PLATE_LARGE)
+                .output(CLAY_COBBLESTONE_GENERATOR[2])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(INDUSTRIAL_CLAY_PLATE_LARGE)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_CONDENSER[1])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(DENSE_CLAY_GRINDING_HEAD,2)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_GRINDER[1])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(CLAY_GEAR,4)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_DECOMPOSER[1])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(DENSE_CLAY_CUTTING_HEAD)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_MILLING_MACHINE[1])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(DENSE_CLAY_GEAR,4)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_ASSEMBLER[0])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(BASIC_CIRCUIT)
+                .input(CLAY_ASSEMBLER[0])
+                .output(CLAY_INSCRIBER[0])
+                .duration(120).tier(4).buildAndRegister();
+        ClayRecipeMaps.CLAY_ASSEMBLER_RECIPES.recipeBuilder().CEt(100 * microCE)
+                .input(DENSE_CLAY_SPINDLE)
+                .inputs(CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE))
+                .output(CLAY_CENTRIFUGE[0])
+                .duration(120).tier(4).buildAndRegister();
+    }
+
+    private static void registerCentrifugeRecipes(){
+        ClayRecipeMaps.CLAY_CENTRIFUGE_RECIPES.recipeBuilder().CEt(40 * microCE)
+                .input(INDUSTRIAL_CLAY_DUST,2)
+                .output(ENERGIZED_CLAY_DUST,12)
+                .output(CLAY_DUST,8)
+                .output(DENSE_CLAY_DUST,8)
+                .output(INDUSTRIAL_CLAY_DUST)
+                .duration(20).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_CENTRIFUGE_RECIPES.recipeBuilder().CEt(100 * milliCE)
+                .input(INDUSTRIAL_CLAY_DUST_ADVANCED,2)
+                .output(ENERGIZED_CLAY_DUST,64)
+                .output(CLAY_DUST,64)
+                .output(DENSE_CLAY_DUST,64)
+                .output(INDUSTRIAL_CLAY_DUST,12)
+                .duration(12).tier(4).buildAndRegister();
+    }
+
+    private static void registerECCRecipes(){
+
+    }
+
+    private static void registerInscriberRecipes(){
+        ClayRecipeMaps.CLAY_INSCRIBER_RECIPES.recipeBuilder().CEt(20 * microCE)
+                .input(ENERGIZED_CLAY_DUST,32)
+                .input(CEE_BOARD)
+                .output(CEE_CIRCUIT)
+                .duration(20).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_INSCRIBER_RECIPES.recipeBuilder().CEt(20 * microCE)
+                .input(ENERGIZED_CLAY_DUST,32)
+                .input(CLAY_CIRCUIT_BOARD)
+                .output(BASIC_CIRCUIT)
                 .duration(20).tier(0).buildAndRegister();
     }
 }

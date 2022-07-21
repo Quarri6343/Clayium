@@ -1,9 +1,7 @@
 package clayium.common.items;
 
 import clayium.api.items.metaitem.ClayMetaItem;
-import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.items.toolitem.ToolMetaItem;
-import gregtech.common.items.MetaTool;
 
 public final class ClayMetaItems {
 
@@ -66,6 +64,20 @@ public final class ClayMetaItems {
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SHARD_COMPRESSED;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SHARD_INDUSTRIAL;
     public static ClayMetaItem<?>.ClayMetaValueItem CLAY_SHARD_INDUSTRIAL_ADVANCED;
+
+    public static ClayMetaItem<?>.ClayMetaValueItem SIMPLE_CIRCUIT;
+    public static ClayMetaItem<?>.ClayMetaValueItem CEE_BOARD;
+    public static ClayMetaItem<?>.ClayMetaValueItem CEE_CIRCUIT;
+    public static ClayMetaItem<?>.ClayMetaValueItem CLAY_ENERGY_EXCITOR;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_PLATE;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_PLATE_LARGE;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_DUST;
+    public static ClayMetaItem<?>.ClayMetaValueItem ENERGIZED_CLAY_DUST;
+
+    public static ClayMetaItem<?>.ClayMetaValueItem BASIC_CIRCUIT;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_PLATE_ADVANCED;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_PLATE_LARGE_ADVANCED;
+    public static ClayMetaItem<?>.ClayMetaValueItem INDUSTRIAL_CLAY_DUST_ADVANCED;
 
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_SHOVEL;
     public static ToolMetaItem<?>.MetaToolValueItem CLAY_PICKAXE;

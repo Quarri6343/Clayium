@@ -27,7 +27,7 @@ public class MetaTileEntityCobblestoneGenerator extends ClaySimpleMachineMetaTil
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityCobblestoneGenerator(metaTileEntityId, ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.COBBLESTONE_GENERATOR_OVERLAY, getTier());
+        return new MetaTileEntityCobblestoneGenerator(metaTileEntityId, ClayRecipeMaps.CLAY_COBBLESTONE_GENERATOR_RECIPES, ClayTextures.CLAY_COBBLESTONE_GENERATOR_OVERLAY, getTier());
     }
 
     @Override

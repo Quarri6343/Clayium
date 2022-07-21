@@ -48,8 +48,8 @@ public class BlockClayMachineHull extends VariantBlock<BlockClayMachineHull.Bloc
 
         RAW_CLAY("raw_clay"),
         CLAY("clay"),
-        DENSE_CLAY("dense_clay");
-//        SIMPLE("simple"),
+        DENSE_CLAY("dense_clay"),
+        SIMPLE("simple");
 //        BASIC("basic"),
 //        ADVANCED("advanced"),
 //        PRECISION("precision"),

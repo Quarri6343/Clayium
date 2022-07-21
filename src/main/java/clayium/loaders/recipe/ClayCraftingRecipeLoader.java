@@ -54,7 +54,34 @@ public class ClayCraftingRecipeLoader {
         ModHandler.addShapedRecipe("dense_clay_grinder", CLAY_GRINDER[0].getStackForm(),
                 "PGP", "SMS", "PEP", 'P', DENSE_CLAY_PLATE, 'G', DENSE_CLAY_GRINDING_HEAD, 'S', DENSE_CLAY_SPINDLE, 'E', DENSE_CLAY_GEAR, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.DENSE_CLAY));
         ModHandler.addShapedRecipe("dense_clay_decomposer", CLAY_DECOMPOSER[0].getStackForm(),
-                "GSG", "CMC", "GPG", 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'C', CLAY_CIRCUIT,'P', DENSE_CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.DENSE_CLAY));
+                "GSG", "CMC", "GPG", 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'C', CLAY_CIRCUIT, 'P', DENSE_CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.DENSE_CLAY));
+
+        ModHandler.addShapedRecipe("energetic_clay_condenser", ENERGETIC_CLAY_CONDENSER[0].getStackForm(),
+                "PGP", "CMC", "PBP", 'P', DENSE_CLAY_PLATE, 'G', DENSE_CLAY_GEAR, 'C', CLAY_ENERGY_EXCITOR, 'B', BASIC_CIRCUIT, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_bending_machine", CLAY_BENDING_MACHINE[2].getStackForm(),
+                "SCG", "PMP", "SCG", 'S', DENSE_CLAY_SPINDLE, 'C', DENSE_CLAY_CYLINDER, 'G', DENSE_CLAY_GEAR, 'P', DENSE_CLAY_PLATE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_wire_drawing_machine", CLAY_WIRE_DRAWING_MACHINE[2].getStackForm(),
+                "GSG", "PMP", "GSG", 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'P', DENSE_CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_cutting_machine", CLAY_CUTTING_MACHINE[2].getStackForm(),
+                "PGP", "SMC", "PGP", 'P', DENSE_CLAY_PLATE, 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'C', DENSE_CLAY_CUTTING_HEAD, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_lathe", CLAY_LATHE[2].getStackForm(),
+                "PGP", "IMS", "PGP", 'P', DENSE_CLAY_PLATE, 'G', DENSE_CLAY_GEAR, 'I', DENSE_CLAY_STICK, 'S', DENSE_CLAY_SPINDLE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_cobblestone_generator", CLAY_COBBLESTONE_GENERATOR[2].getStackForm(),
+                " G ", "PMP", " G ", 'G', DENSE_CLAY_GEAR, 'P', DENSE_CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_condenser", CLAY_CONDENSER[1].getStackForm(),
+                "GPG", "PMP", "GPG", 'G', DENSE_CLAY_GEAR, 'P', DENSE_CLAY_PLATE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_grinder", CLAY_GRINDER[1].getStackForm(),
+                "PGP", "SMS", "PEP", 'P', DENSE_CLAY_PLATE, 'G', DENSE_CLAY_GRINDING_HEAD, 'S', DENSE_CLAY_SPINDLE, 'E', DENSE_CLAY_GEAR, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_decomposer", CLAY_DECOMPOSER[1].getStackForm(),
+                "GSG", "CMC", "GPG", 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'C', CLAY_CIRCUIT, 'P', DENSE_CLAY_PIPE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_milling_machine", CLAY_MILLING_MACHINE[1].getStackForm(),
+                "PCP", "SMS", "PGP", 'P', DENSE_CLAY_PLATE, 'C', DENSE_CLAY_CUTTING_HEAD, 'S', DENSE_CLAY_SPINDLE, 'G', DENSE_CLAY_GEAR, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_assembler", CLAY_ASSEMBLER[0].getStackForm(),
+                "GCG", "SMS", "GCG", 'G', DENSE_CLAY_GEAR, 'C', SIMPLE_CIRCUIT, 'S', DENSE_CLAY_SPINDLE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_inscriber", CLAY_INSCRIBER[0].getStackForm(),
+                "GSG", "CMC", "GCG", 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'C', SIMPLE_CIRCUIT, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
+        ModHandler.addShapedRecipe("simple_centrifuge", CLAY_CENTRIFUGE[0].getStackForm(),
+                "GSG", "SMS", "GSG", 'G', DENSE_CLAY_GEAR, 'S', DENSE_CLAY_SPINDLE, 'M', CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE));
     }
 
     private static void registerComponentCraftingRecipes() {
@@ -114,6 +141,9 @@ public class ClayCraftingRecipeLoader {
                 "BBB", "BRB", "BBB", 'B', DENSE_CLAY_BLADE, 'R', DENSE_CLAY_RING);
         ModHandler.addShapedRecipe("dense_clay_wheel", DENSE_CLAY_WHEEL.getStackForm(),
                 "PPP", "PRP", "PPP", 'P', DENSE_CLAY_PLATE, 'R', DENSE_CLAY_RING);
+
+        ModHandler.addShapedRecipe("simple_circuit", SIMPLE_CIRCUIT.getStackForm(),
+                "EEE", "ECE", "EEE", 'E', ENERGIZED_CLAY_DUST, 'C', CLAY_CIRCUIT_BOARD);
     }
 
     private static void registerMiscCraftingRecipes() {
@@ -125,12 +155,13 @@ public class ClayCraftingRecipeLoader {
         ModHandler.addShapedRecipe("industrial_clay", COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL),
                 "CCC", "CCC", "CCC", 'C', COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.COMPRESSED));
 
-        //RAW_CLAY_MACHINE_HULL
+        //MACHINE_HULL
         ModHandler.addShapedRecipe("raw_clay_machine_hull", CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.RAW_CLAY),
                 "PPP", "PGP", "PPP", 'G', CLAY_GEAR, 'P', CLAY_PLATE_LARGE);
-        //DENSE_CLAY_MACHINE_HULL
         ModHandler.addShapedRecipe("dense_clay_machine_hull", CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.DENSE_CLAY),
                 "PPP", "PCP", "PPP", 'C', CLAY_CIRCUIT, 'P', DENSE_CLAY_PLATE_LARGE);
+        ModHandler.addShapedRecipe("simple_machine_hull", CLAY_MACHINE_HULL.getItemVariant(BlockClayMachineHull.BlockType.SIMPLE),
+                "LLL", "LSL", "LLL", 'S', SIMPLE_CIRCUIT, 'L', INDUSTRIAL_CLAY_PLATE_LARGE);
 
         //CLAY_WORKTABLE
         ModHandler.addShapedRecipe("clay_worktable", CLAY_WORKTABLE.getStackForm(),

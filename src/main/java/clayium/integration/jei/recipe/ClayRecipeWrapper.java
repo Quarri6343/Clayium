@@ -131,8 +131,11 @@ public class ClayRecipeWrapper extends AdvancedRecipeWrapper {
     public void drawInfo(@Nonnull Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
         super.drawInfo(minecraft, recipeWidth, recipeHeight, mouseX, mouseY);
         int yPosition = recipeHeight - getPropertyListHeight();
+        if (recipeMap.exactTier) {
+            minecraft.fontRenderer.drawString(I18n.format("gui.Common.exact.tier"), 0, yPosition, 0x6a0dad);
+        }
         if (!recipe.hasProperty(PrimitiveProperty.getInstance())) {
-            minecraft.fontRenderer.drawString(I18n.format("gui.Common.tier", Math.abs(recipe.getTier())), 0, yPosition, 0x111111);
+            minecraft.fontRenderer.drawString(I18n.format("gui.Common.tier", Math.abs(recipe.getTier())), 0, yPosition += LINE_HEIGHT, 0x111111);
             minecraft.fontRenderer.drawString(I18n.format("gui.Common.energy", String.format("%sCE/t x %dt = %s", ClayUtility.getCEWithUnit(recipe.getCEt()), recipe.getDuration(), ClayUtility.getCEWithUnit(recipe.getCEt() * recipe.getDuration()))), 0, yPosition += LINE_HEIGHT, 0x111111);
         } else yPosition -= LINE_HEIGHT * 2;
         minecraft.fontRenderer.drawString(I18n.format("gregtech.recipe.duration", recipe.getDuration() / 20f), 0, yPosition += LINE_HEIGHT, 0x111111);
@@ -180,6 +183,6 @@ public class ClayRecipeWrapper extends AdvancedRecipeWrapper {
     }
 
     private int getPropertyListHeight() {
-        return (recipe.getUnhiddenPropertyCount() + 3) * LINE_HEIGHT - 3;
+        return (recipe.getUnhiddenPropertyCount() + 4) * LINE_HEIGHT - 3;
     }
 }

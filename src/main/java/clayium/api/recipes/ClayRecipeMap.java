@@ -63,6 +63,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
     protected TextureArea progressBarTexture;
     protected MoveType moveType;
     public final boolean isHidden;
+    public final boolean exactTier;
 
     private final Object2ObjectOpenHashMap<FluidKey, Set<ClayRecipe>> recipeFluidMap = new Object2ObjectOpenHashMap<>();
     private final Object2ObjectOpenHashMap<ItemStackKey, Set<ClayRecipe>> recipeItemMap = new Object2ObjectOpenHashMap<>();
@@ -83,7 +84,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
     public ClayRecipeMap(String unlocalizedName,
                          int minInputs, int maxInputs, int minOutputs, int maxOutputs,
                          int minFluidInputs, int maxFluidInputs, int minFluidOutputs, int maxFluidOutputs,
-                         R defaultRecipe, boolean isHidden) {
+                         R defaultRecipe, boolean isHidden, boolean exactTier) {
         this.unlocalizedName = unlocalizedName;
         this.slotOverlays = new TByteObjectHashMap<>();
         this.progressBarTexture = GuiTextures.PROGRESS_BAR_ARROW;
@@ -100,6 +101,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
         this.maxFluidOutputs = maxFluidOutputs;
 
         this.isHidden = isHidden;
+        this.exactTier = exactTier;
         defaultRecipe.setRecipeMap(this);
         this.recipeBuilderSample = defaultRecipe;
         RECIPE_MAP_REGISTRY.put(unlocalizedName, this);
@@ -314,7 +316,7 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
      */
     @Nullable
     public ClayRecipe findRecipe(long tier, List<ItemStack> inputs, List<FluidStack> fluidInputs, int outputFluidTankCapacity) {
-        return findRecipe(tier, inputs, fluidInputs, outputFluidTankCapacity, false);
+        return findRecipe(tier, inputs, fluidInputs, outputFluidTankCapacity, exactTier);
     }
 
     /**
@@ -324,12 +326,12 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
      * @param inputs                  the Item Inputs
      * @param fluidInputs             the Fluid Inputs
      * @param outputFluidTankCapacity minimal capacity of output fluid tank, used for fluid canner recipes for example
-     * @param exactVoltage            should require exact voltage matching on recipe. used by craftweaker
+     * @param exactTier            should require exact voltage matching on recipe.
      * @return the Recipe it has found or null for no matching Recipe
      */
 
     @Nullable
-    public ClayRecipe findRecipe(long tier, List<ItemStack> inputs, List<FluidStack> fluidInputs, int outputFluidTankCapacity, boolean exactVoltage) {
+    public ClayRecipe findRecipe(long tier, List<ItemStack> inputs, List<FluidStack> fluidInputs, int outputFluidTankCapacity, boolean exactTier) {
         if (recipeSet.isEmpty())
             return null;
         if (minFluidInputs > 0 && GTUtility.amountOfNonNullElements(fluidInputs) < minFluidInputs) {
@@ -338,11 +340,11 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
         if (minInputs > 0 && GTUtility.amountOfNonEmptyStacks(inputs) < minInputs) {
             return null;
         }
-        return findByInputsAndFluids(tier, inputs, fluidInputs,exactVoltage);
+        return findByInputsAndFluids(tier, inputs, fluidInputs, exactTier);
     }
 
     @Nullable
-    private ClayRecipe findByInputsAndFluids(long tier, List<ItemStack> inputs, List<FluidStack> fluidInputs, boolean exactVoltage) {
+    private ClayRecipe findByInputsAndFluids(long tier, List<ItemStack> inputs, List<FluidStack> fluidInputs, boolean exactTier) {
         HashSet<ClayRecipe> iteratedRecipes = new HashSet<>();
         HashSet<ItemStackKey> searchedItems = new HashSet<>();
         HashSet<FluidKey> searchedFluids = new HashSet<>();
@@ -355,9 +357,9 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
                 if (!searchedItems.contains(itemStackKey) && recipeItemMap.containsKey(itemStackKey)) {
                     searchedItems.add(itemStackKey);
                     for (ClayRecipe tmpRecipe : recipeItemMap.get(itemStackKey)) {
-                        if (!exactVoltage && tier < tmpRecipe.getTier()) {
+                        if (!exactTier && tier < tmpRecipe.getTier()) {
                             continue;
-                        } else if (exactVoltage && tier != tmpRecipe.getTier()) {
+                        } else if (exactTier && tier != tmpRecipe.getTier()) {
                             continue;
                         }
                         calculateRecipePriority(tmpRecipe, promotedTimes, priorityRecipeMap);
@@ -372,9 +374,9 @@ public class ClayRecipeMap<R extends ClayRecipeBuilder<R>> {
                 if (!searchedFluids.contains(fluidKey) && recipeFluidMap.containsKey(fluidKey)) {
                     searchedFluids.add(fluidKey);
                     for (ClayRecipe tmpRecipe : recipeFluidMap.get(fluidKey)) {
-                        if (!exactVoltage && tier < tmpRecipe.getTier()) {
+                        if (!exactTier && tier < tmpRecipe.getTier()) {
                             continue;
-                        } else if (exactVoltage && tier != tmpRecipe.getTier()) {
+                        } else if (exactTier && tier != tmpRecipe.getTier()) {
                             continue;
                         }
                         calculateRecipePriority(tmpRecipe, promotedTimes, priorityRecipeMap);

@@ -1,8 +1,6 @@
 package clayium.common.items;
 
 import clayium.api.items.metaitem.StandardClayMetaItem;
-import gregtech.api.items.metaitem.StandardMetaItem;
-import gregtech.api.items.toolitem.WrenchItemStat;
 
 import static clayium.common.items.ClayMetaItems.*;
 
@@ -15,6 +13,7 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
     @Override
     public void registerSubItems() {
 
+        //Tier 0
         CLAYTASK_CUTCIRCLE = addItem(0, "claytask.cutcircle").setTier(0);
         CLAYTASK_CUTSQUARE = addItem(1, "claytask.cutsquare").setTier(0);
         CLAYTASK_PAT = addItem(2, "claytask.pat").setTier(0);
@@ -22,6 +21,7 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         CLAYTASK_ROLL = addItem(4, "claytask.roll").setTier(0);
         CLAYTASK_SLICE = addItem(5, "claytask.slice").setTier(0);
 
+        //Tier 1
         CLAY_PLATE = addItem(6, "clay.plate").setTier(1);
         CLAY_STICK = addItem(7, "clay.stick").setTier(1);
         CLAY_STICK_SHORT = addItem(8, "clay.stick.short").setTier(1);
@@ -47,6 +47,8 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         CLAY_SLICER_RAW = addItem(27, "clay.slicer.raw");
         CLAY_SPATULA_RAW = addItem(28, "clay.spatula.raw");
 
+
+        //Tier 2
         CLAY_CIRCUIT = addItem(29, "clay.circuit").setTier(2);
         CLAY_CIRCUIT_BOARD = addItem(30, "clay.circuit.board").setTier(2);
         DENSE_CLAY_PLATE = addItem(31, "dense.clay.plate").setTier(2);
@@ -71,5 +73,21 @@ public class ClayMetaItem1 extends StandardClayMetaItem {
         CLAY_SHARD_COMPRESSED = addItem(50, "clay.shard.compressed");
         CLAY_SHARD_INDUSTRIAL = addItem(51, "clay.shard.industrial");
         CLAY_SHARD_INDUSTRIAL_ADVANCED = addItem(52, "clay.shard.industrial.advanced");
+
+        //Tier 3
+        SIMPLE_CIRCUIT = addItem(53, "simple.circuit").setTier(3);
+        CEE_BOARD = addItem(54, "cee.board").setTier(3);
+        CEE_CIRCUIT = addItem(55, "cee.circuit").setTier(3);
+        CLAY_ENERGY_EXCITOR = addItem(56, "clay.energy.excitor").setTier(3);
+        INDUSTRIAL_CLAY_PLATE = addItem(57, "industrial.clay.plate").setTier(3);
+        INDUSTRIAL_CLAY_PLATE_LARGE = addItem(58, "industrial.clay.plate.large").setTier(3);
+        INDUSTRIAL_CLAY_DUST = addItem(59, "industrial.clay.dust").setTier(3);
+        ENERGIZED_CLAY_DUST = addItem(60, "energized.clay.dust").setTier(3);
+
+        //Tier 4
+        BASIC_CIRCUIT = addItem(61, "basic.circuit").setTier(4);
+        INDUSTRIAL_CLAY_PLATE_ADVANCED = addItem(62, "industrial.clay.plate.advanced").setTier(4);
+        INDUSTRIAL_CLAY_PLATE_LARGE_ADVANCED = addItem(63, "industrial.clay.plate.large.advanced").setTier(4);
+        INDUSTRIAL_CLAY_DUST_ADVANCED = addItem(64, "industrial.clay.dust.advanced").setTier(4);
     }
 }

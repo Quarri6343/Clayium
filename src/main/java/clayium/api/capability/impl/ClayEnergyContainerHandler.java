@@ -1,5 +1,6 @@
 package clayium.api.capability.impl;
 
+import clayium.api.capability.ClayiumCapabilities;
 import clayium.api.capability.IClayEnergyContainer;
 import gregtech.api.GTValues;
 import gregtech.api.capability.FeCompat;
@@ -58,9 +59,9 @@ public class ClayEnergyContainerHandler extends MTETrait implements IClayEnergyC
 
     @Override
     public <T> T getCapability(Capability<T> capability) {
-//        if (capability == GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER) {
-//            return GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER.cast(this);
-//        }
+        if (capability == ClayiumCapabilities.CAPABILITY_CLAY_ENERGY_CONTAINER) {
+            return ClayiumCapabilities.CAPABILITY_CLAY_ENERGY_CONTAINER.cast(this);
+        }
         return null;
     }
 
@@ -175,7 +176,7 @@ public class ClayEnergyContainerHandler extends MTETrait implements IClayEnergyC
 
     @Override
     public boolean inputsEnergy(EnumFacing side) {
-        return false;
+        return true;
     }
 
     @Override

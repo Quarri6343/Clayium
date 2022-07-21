@@ -3,9 +3,7 @@ package clayium.loaders.recipe;
 import clayium.api.recipes.ClayRecipeMaps;
 import clayium.common.blocks.BlockClayOre;
 import clayium.common.blocks.BlockCompressedClay;
-import clayium.common.blocks.ClayMetaBlocks;
 import gregtech.api.unification.ore.OrePrefix;
-import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -245,5 +243,13 @@ public class ClayGrinderRecipes {
                 .inputs(CLAY_ORE.getItemVariant(BlockClayOre.BlockType.LARGE_DENSE))
                 .output(CLAY_SHARD_INDUSTRIAL_ADVANCED,5)
                 .duration(9).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_GRINDER_RECIPES.recipeBuilder().CEt(10 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.INDUSTRIAL))
+                .output(INDUSTRIAL_CLAY_DUST)
+                .duration(12).tier(0).buildAndRegister();
+        ClayRecipeMaps.CLAY_GRINDER_RECIPES.recipeBuilder().CEt(20 * microCE)
+                .inputs(COMPRESSED_CLAY.getItemVariant(BlockCompressedClay.BlockType.ADVANCED_INDUSTRIAL))
+                .output(INDUSTRIAL_CLAY_DUST_ADVANCED)
+                .duration(12).tier(0).buildAndRegister();
     }
 }

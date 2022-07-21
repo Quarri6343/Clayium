@@ -8,21 +8,29 @@ import codechicken.lib.render.pipeline.ColourMultiplier;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
 import gregtech.api.GTValues;
+import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.capability.impl.EnergyContainerHandler.IEnergyChangeListener;
 import gregtech.api.metatileentity.ITieredMetaTileEntity;
+import gregtech.api.metatileentity.MTETrait;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.texture.Textures;
 import gregtech.client.renderer.texture.cube.SimpleSidedCubeRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.CapabilityItemHandler;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.Iterator;
 
 public abstract class ClayTieredMetaTileEntity extends MetaTileEntity implements ITieredMetaTileEntity {
 
@@ -77,5 +85,36 @@ public abstract class ClayTieredMetaTileEntity extends MetaTileEntity implements
     @Override
     public String getHarvestTool() {
         return "pickaxe";
+    }
+
+    @Override
+    public <T> T getCapability(Capability<T> capability, EnumFacing side) {
+        if (capability == GregtechTileCapabilities.CAPABILITY_COVERABLE) {
+            return GregtechTileCapabilities.CAPABILITY_COVERABLE.cast(this);
+        } else if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY && this.getFluidInventory().getTankProperties().length > 0) {
+            return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(this.getFluidInventory());
+        } else if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && this.getItemInventory().getSlots() > 0) {
+            return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(this.getItemInventory());
+        } else {
+            T capabilityResult = null;
+            Iterator var4 = this.mteTraits.iterator();
+
+            while(var4.hasNext()) {
+                MTETrait mteTrait = (MTETrait)var4.next();
+                capabilityResult = mteTrait.getCapability(capability);
+                if (capabilityResult != null) {
+                    break;
+                }
+            }
+
+            if (side != null && capabilityResult instanceof IClayEnergyContainer) {
+                IClayEnergyContainer energyContainer = (IClayEnergyContainer)capabilityResult;
+                if (!energyContainer.inputsEnergy(side)) {
+                    return null;
+                }
+            }
+
+            return capabilityResult;
+        }
     }
 }

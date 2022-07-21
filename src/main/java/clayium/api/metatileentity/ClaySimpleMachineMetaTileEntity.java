@@ -9,7 +9,6 @@ import codechicken.lib.raytracer.CuboidRayTraceResult;
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechTileCapabilities;
 import gregtech.api.capability.IActiveOutputSide;
 import gregtech.api.capability.impl.*;
@@ -22,11 +21,7 @@ import gregtech.api.gui.Widget;
 import gregtech.api.gui.resources.TextureArea;
 import gregtech.api.gui.widgets.*;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
-import gregtech.api.metatileentity.WorkableTieredMetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.api.recipes.RecipeMap;
-import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
@@ -37,7 +32,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
@@ -405,20 +399,20 @@ public class ClaySimpleMachineMetaTileEntity extends ClayWorkableTieredMetaTileE
 
         if (exportItems.getSlots() > 0 && getTier() > 2) {
             builder.widget(new ToggleButtonWidget(leftButtonStartX, 62 + yOffset, 18, 18,
-                    GuiTextures.BUTTON_ITEM_OUTPUT, this::isAutoOutputItems, this::setAutoOutputItems)
+                    ClayGuiTextures.BUTTON_ITEM_OUTPUT, this::isAutoOutputItems, this::setAutoOutputItems)
                     .setTooltipText("gregtech.gui.item_auto_output.tooltip")
                     .shouldUseBaseBackground());
-            leftButtonStartX += 18;
+            leftButtonStartX += 23;
         }
         if (exportFluids.getTanks() > 0 && getTier() > 2) {
             builder.widget(new ToggleButtonWidget(leftButtonStartX, 62 + yOffset, 18, 18,
                     GuiTextures.BUTTON_FLUID_OUTPUT, this::isAutoOutputFluids, this::setAutoOutputFluids)
                     .setTooltipText("gregtech.gui.fluid_auto_output.tooltip")
                     .shouldUseBaseBackground());
-            leftButtonStartX += 18;
+            leftButtonStartX += 23;
         }
 
-        builder.widget(new AdvancedTextWidget(leftButtonStartX, 70, this::AddDisplayText, 0xFFFFFF));
+        builder.widget(new AdvancedTextWidget(leftButtonStartX, 70, this::AddEnergyDisplay, 0xFFFFFF));
         if(getTier() < 3){
             builder.widget(new ClickButtonWidget(78, 50, 16, 16, "", this::OnWorkButtonClick)
                     .setButtonTexture(ClayGuiTextures.BUTTON_GEAR)
@@ -457,7 +451,7 @@ public class ClaySimpleMachineMetaTileEntity extends ClayWorkableTieredMetaTileE
         this.energyContainer.addEnergy(50);
     }
 
-    protected void AddDisplayText(List<ITextComponent> textList) {
+    protected void AddEnergyDisplay(List<ITextComponent> textList) {
         textList.add(new TextComponentString(I18n.format("gui.Common.energy", ClayUtility.getCEWithUnit(this.energyContainer.getEnergyStored()))));
     }
 }
