@@ -24,6 +24,11 @@ recipemap.clay_condenser.name=Clay Condenser
 recipemap.clay_grinder.name=Clay Grinder
 recipemap.clay_decomposer.name=Clay Decomposer
 
+recipemap.energetic_clay_condenser.name=Energetic Clay Condenser
+recipemap.clay_assembler.name=Clay Assembler
+recipemap.clay_inscriber.name=Clay Inscriber
+recipemap.clay_centrifuge.name=Clay Centrifuge
+
 #Machines
 clayium.machine.clay_worktable.name=Clay Work Table
 clayium.machine.clay_worktable.tooltip=The first step to Clay Industry.
@@ -83,9 +88,9 @@ clayium.machine.clay_condenser.3.name=Basic Condenser
 clayium.machine.clay_condenser.4.name=Advanced Condenser
 clayium.machine.clay_condenser.5.name=Antimatter Condenser
 
-tile.blockEnergeticClayCondenser.name=Energetic Clay Condenser Mk I
-tile.blockEnergeticClayCondenser.tooltip.line1=To obtain the first Energetic Clay.
-tile.blockEnergeticClayCondenserMK2.name=Energetic Clay Condenser Mk II
+clayium.machine.energetic_clay_condenser.1.name=Energetic Clay Condenser Mk I
+clayium.machine.energetic_clay_condenser.1.tooltip=To obtain the first Energetic Clay.
+clayium.machine.energetic_clay_condenser.2.name=Energetic Clay Condenser Mk II
 
 clayium.machine.clay_grinder.1.name=Dense Clay Grinder
 clayium.machine.clay_grinder.1.tooltip=Grinds Dense Clay Ores.
@@ -98,6 +103,31 @@ clayium.machine.clay_grinder.6.name=Antimatter Grinder
 clayium.machine.clay_decomposer.1.name=Dense Clay Decomposer
 clayium.machine.clay_decomposer.2.name=Simple Decomposer
 clayium.machine.clay_decomposer.3.name=Basic Decomposer
+
+clayium.machine.clay_assembler.1.name=Simple Assembler
+clayium.machine.clay_assembler.2.name=Basic Assembler
+clayium.machine.clay_assembler.3.name=Precision Assembler
+clayium.machine.clay_assembler.4.name=Antimatter Assembler
+clayium.machine.clay_assembler.1.tooltip=Say goodbye to complicated craft.
+
+clayium.machine.clay_inscriber.1.name=Simple Inscriber
+clayium.machine.clay_inscriber.2.name=Basic Inscriber
+
+clayium.machine.clay_centrifuge.1.name=Simple Centrifuge
+clayium.machine.clay_centrifuge.2.name=Basic Centrifuge
+clayium.machine.clay_centrifuge.3.name=Advanced Centrifuge
+clayium.machine.clay_centrifuge.4.name=Precision Centrifuge
+clayium.machine.clay_centrifuge.1.tooltip=The most important component of the first clay factory.
+
+clayium.machine.clay_water_wheel.1.name=Clay Water Wheel
+clayium.machine.clay_water_wheel.2.name=Dense Clay Water Wheel
+clayium.machine.clay_water_wheel.tooltip.1=Supplies energy to adjacent tier 2, 3 machines.
+clayium.machine.clay_water_wheel.tooltip.2=__DETAIL__
+clayium.machine.clay_water_wheel.tooltip.3=The number of water flow in the area of 3x3x3
+clayium.machine.clay_water_wheel.tooltip.4=determines the strength of energy.
+gui.WaterWheel.progress=Progress: %1$d
+gui.WaterWheel.durability=Durability: %1$d
+gui.WaterWheel.surroundingWater=Water: %1$d
 
 #MetaBlocks
 tile.clay_ore.normal.name=Clay Ore
@@ -183,8 +213,8 @@ metaitem.dense.clay.wheel.name=Dense Clay Wheel
 
 metaitem.clay.circuit.name=Clay Circuit
 metaitem.clay.circuit.board.name=Clay Circuit Board
-item.item.SimpleCircuit.name=Simple Circuit
-item.item.BasicCircuit.name=Basic Circuit
+metaitem.simple.circuit.name=Simple Circuit
+metaitem.basic.circuit.name=Basic Circuit
 item.item.AdvancedCircuit.name=Advanced Circuit
 item.item.PrecisionCircuit.name=Precision Circuit
 item.item.IntegratedCircuit.name=Integrated Circuit
@@ -200,6 +230,24 @@ item.item.ClayPsyche.name=Clay Psyche
 metaitem.clay.shard.compressed.name=Compressed Clay Shard
 metaitem.clay.shard.industrial.name=Industrial Clay Shard
 metaitem.clay.shard.industrial.advanced.name=Advanced Industrial Clay Shard
+
+metaitem.cee.boardname=CEE Board
+metaitem.cee.circuit.name=CEE Circuit
+metaitem.clay.energy.excitor.name=Clay Energy Excitor
+item.item.LaserParts.name=Laser Parts
+item.item.AntimatterSeed.name=Antimatter Seed
+
+metaitem.industrial.clay.plate.name=Industrial Clay Plate
+metaitem.industrial.clay.plate.large.name=Large Industrial Clay Plate
+metaitem.industrial.clay.plate.advanced.name=Advanced Industrial Clay Plate
+metaitem.industrial.clay.plate.advanced.large.name=Large Advanced Industrial Clay Plate
+
+metaitem.clay.dust.name=Clay Dust
+metaitem.dense.clay.dust.name=Dense Clay Dust
+metaitem.industrial.clay.dust.name=Industrial Clay Dust
+metaitem.industrial.clay.dust.advanced.name=Advanced Industrial Clay Dust
+metaitem.energized.clay.dust.name=Energized Clay Dust
+item.itemDusts.ExcitedClay.name=Excited Clay Dust
 
 metaitem.clay.rolling.pin.raw.name=Raw Clay Rolling Pin
 # metaitem.clay.rolling.pin.raw.tooltip=Deletes filters applied to machines.
@@ -235,11 +283,6 @@ tooltip.HoldShiftForDetails=--§fHold §lShift§r For Details§7--
 gui.Common.clayLaser=Laser : %1$s
 gui.Common.resonance=Resonance %1$s
 gui.Common.overclockFactor=Overclock x%1$s
-
-recipe.ECCondenser=Energetic Clay Condenser
-recipe.Assembler=Clay Assembler
-recipe.Inscriber=Clay Inscriber
-recipe.Centrifuge=Clay Centrifuge
 
 recipe.Smelter=Clay Smelter
 
@@ -277,21 +320,6 @@ recipe.ClayTree.description=A Clay Tree is a good source of Lithium, but it isn'
 #tile.blockOthersHull.1.name=ZK60A Alloy Hull
 tile.blockAZ91DHull.name=AZ91D Alloy Hull
 tile.blockZK60AHull.name=ZK60A Alloy Hull
-
-tile.blockSimpleAssembler.name=Simple Assembler
-tile.blockBasicAssembler.name=Basic Assembler
-tile.blockPrecisionAssembler.name=Precision Assembler
-tile.blockAntimatterAssembler.name=Antimatter Assembler
-tooltip.Assembler.line1=Say goodbye to complicated craft.
-
-tile.blockSimpleInscriber.name=Simple Inscriber
-tile.blockBasicInscriber.name=Basic Inscriber
-
-tile.blockSimpleCentrifuge.name=Simple Centrifuge
-tile.blockBasicCentrifuge.name=Basic Centrifuge
-tile.blockAdvancedCentrifuge.name=Advanced Centrifuge
-tile.blockPrecisionCentrifuge.name=Precision Centrifuge
-tooltip.Centrifuge.line1=The most important component of the first clay factory.
 
 tile.blockBasicSmelter.name=Basic Smelter
 tile.blockAdvancedSmelter.name=Advanced Smelter
@@ -575,16 +603,6 @@ tile.blockCAReactorHull.8.tooltip.line1=Requires Mk III or higher Core and Coils
 tile.blockCAReactorHull.9.tooltip.line1=Requires Mk III or higher Core and Coils.
 
 tile.blockEnergeticClayDecomposer.name=Energetic Clay Decomposer
-
-tile.blockClayWaterWheel.name=Clay Water Wheel
-tile.blockDenseClayWaterWheel.name=Dense Clay Water Wheel
-tooltip.WaterWheel.line1=Supplies energy to adjacent tier 2, 3 machines.
-tooltip.WaterWheel.line2=__DETAIL__
-tooltip.WaterWheel.line3=The number of water flow in the area of 3x3x3
-tooltip.WaterWheel.line4=determines the strength of energy.
-gui.WaterWheel.progress=Progress: %1$d
-gui.WaterWheel.durability=Durability: %1$d
-gui.WaterWheel.surroundingWater=Water: %1$d
 
 tile.blockClaySteelClayEnergyLaser.name=Blue Clay Laser
 tile.blockClayiumClayEnergyLaser.name=Green Clay Laser
@@ -989,25 +1007,6 @@ item.item.TeleportationParts.name=Teleportation Parts
 item.item.Manipulator1.name=Manipulator Mk I
 item.item.Manipulator2.name=Manipulator Mk II
 item.item.Manipulator3.name=Manipulator Mk III
-
-item.item.CEEBoard.name=CEE Board
-item.item.CEECircuit.name=CEE Circuit
-item.item.CEE.name=Clay Energy Excitor
-item.item.LaserParts.name=Laser Parts
-item.item.AntimatterSeed.name=Antimatter Seed
-
-item.itemPlates.IndustrialClay.name=Industrial Clay Plate
-item.itemLargePlates.IndustrialClay.name=Large Industrial Clay Plate
-
-item.itemPlates.AdvancedIndustrialClay.name=Advanced Industrial Clay Plate
-item.itemLargePlates.AdvancedIndustrialClay.name=Large Advanced Industrial Clay Plate
-
-item.itemClayParts.Dust.name=Clay Dust
-item.itemDenseClayParts.Dust.name=Dense Clay Dust
-item.itemDusts.IndustrialClay.name=Industrial Clay Dust
-item.itemDusts.AdvancedIndustrialClay.name=Advanced Industrial Clay Dust
-item.itemDusts.EnergizedClay.name=Energized Clay Dust
-item.itemDusts.ExcitedClay.name=Excited Clay Dust
 
 item.itemDusts.Salt.name=Salt
 item.itemDusts.Salt.tooltip.line1=Produced by Salt Extractor.

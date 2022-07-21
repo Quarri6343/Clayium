@@ -52,7 +52,10 @@ public class MetaTileEntityClayWaterWheel extends ClayTieredMetaTileEntity {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.format("gregtech.machine.world_accelerator.description"));
+        tooltip.add(I18n.format("clayium.machine.clay_water_wheel.tooltip.1"));
+        tooltip.add(I18n.format("clayium.machine.clay_water_wheel.tooltip.2"));
+        tooltip.add(I18n.format("clayium.machine.clay_water_wheel.tooltip.3"));
+        tooltip.add(I18n.format("clayium.machine.clay_water_wheel.tooltip.4"));
     }
 
     @Override
