@@ -118,8 +118,6 @@ public class ClayCraftingRecipeLoader {
                 "NNN", "NRN", "NNN", 'N', CLAY_NEEDLE, 'R', CLAY_RING);
         ModHandler.addShapedRecipe("clay_bearing", CLAY_BEARING.getStackForm(),
                 "CCC", "CRC", "CCC", 'C', Items.CLAY_BALL, 'R', CLAY_RING);
-        ModHandler.addShapedRecipe("clay_grinding_head", CLAY_GRINDING_HEAD.getStackForm(),
-                "NNN", "NRN", "NNN", 'N', CLAY_NEEDLE, 'R', CLAY_RING);
         ModHandler.addShapedRecipe("clay_spindle", CLAY_SPINDLE.getStackForm(),
                 "RPR", "SBI", "RPR", 'R', CLAY_RING_SMALL, 'P', CLAY_PLATE, 'S', CLAY_STICK, 'B', CLAY_BEARING, 'I', CLAY_RING);
         ModHandler.addShapedRecipe("clay_cutting_head", CLAY_CUTTING_HEAD.getStackForm(),

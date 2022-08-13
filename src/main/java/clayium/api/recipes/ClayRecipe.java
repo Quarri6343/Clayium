@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import gregtech.api.GTValues;
 import gregtech.api.capability.IMultipleTankHandler;
 import gregtech.api.recipes.*;
+import gregtech.api.recipes.ingredients.GTRecipeInput;
+import gregtech.api.recipes.recipeproperties.IRecipePropertyStorage;
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
 import gregtech.api.recipes.recipeproperties.RecipePropertyStorage;
 import gregtech.api.util.GTUtility;
@@ -34,8 +36,8 @@ public class ClayRecipe extends Recipe {
 
     private final int tier;
 
-    public ClayRecipe(List<CountableIngredient> inputs, List<ItemStack> outputs, List<ChanceEntry> chancedOutputs, List<FluidStack> fluidInputs, List<FluidStack> fluidOutputs, int duration, int EUt, boolean hidden, boolean isCTRecipe, int tier) {
-        super(inputs, outputs, chancedOutputs, fluidInputs, fluidOutputs, duration, EUt, hidden, isCTRecipe);
+    public ClayRecipe(List<GTRecipeInput> inputs, List<ItemStack> outputs, List<ChanceEntry> chancedOutputs, List<GTRecipeInput> fluidInputs, List<FluidStack> fluidOutputs, int duration, int EUt, boolean hidden, boolean isCTRecipe, IRecipePropertyStorage recipePropertyStorage, int tier) {
+        super(inputs, outputs, chancedOutputs, fluidInputs, fluidOutputs, duration, EUt, hidden, isCTRecipe, recipePropertyStorage);
         this.tier = tier;
     }
 
@@ -63,17 +65,8 @@ public class ClayRecipe extends Recipe {
     }
 
     public ClayRecipe copy() {
-        ClayRecipe newRecipe = new ClayRecipe(getInputs(), getOutputs(), getChancedOutputs(), getFluidInputs(), getFluidOutputs(), getDuration(), getEUt(), isHidden(), getIsCTRecipe(), getTier());
-        if (getRecipePropertyStorage().getSize() > 0) {
-            Iterator var2 = this.getRecipePropertyStorage().getRecipeProperties().iterator();
-
-            while(var2.hasNext()) {
-                Map.Entry<RecipeProperty<?>, Object> property = (Map.Entry)var2.next();
-                newRecipe.setProperty((RecipeProperty)property.getKey(), property.getValue());
-            }
-        }
-
-        return newRecipe;
+        return new ClayRecipe(getInputs(), getOutputs(), getChancedOutputs(), getFluidInputs(),
+                getFluidOutputs(), getDuration(), getEUt(), isHidden(), getIsCTRecipe(), getRecipePropertyStorage(), getTier());
     }
 
     public ClayRecipe trimRecipeOutputs(ClayRecipe currentRecipe, ClayRecipeMap<?> recipeMap, int itemTrimLimit, int fluidTrimLimit) {

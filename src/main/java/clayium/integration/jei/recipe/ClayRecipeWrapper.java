@@ -6,13 +6,11 @@ import clayium.api.util.ClayCTRecipeHelper;
 import clayium.api.util.ClayUtility;
 import gregtech.api.GTValues;
 import gregtech.api.gui.GuiTextures;
-import gregtech.api.recipes.CountableIngredient;
 import gregtech.api.recipes.Recipe.ChanceEntry;
+import gregtech.api.recipes.ingredients.GTRecipeInput;
 import gregtech.api.recipes.recipeproperties.PrimitiveProperty;
 import gregtech.api.recipes.recipeproperties.RecipeProperty;
-import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.util.ClipboardUtil;
-import gregtech.api.util.GTUtility;
 import gregtech.integration.jei.utils.AdvancedRecipeWrapper;
 import gregtech.integration.jei.utils.JeiButton;
 import mezz.jei.api.ingredients.IIngredients;
@@ -52,10 +50,9 @@ public class ClayRecipeWrapper extends AdvancedRecipeWrapper {
         // Inputs
         if (!recipe.getInputs().isEmpty()) {
             List<List<ItemStack>> matchingInputs = new ArrayList<>(recipe.getInputs().size());
-            for (CountableIngredient ci : recipe.getInputs()) {
-                matchingInputs.add(Arrays.stream(ci.getIngredient().getMatchingStacks())
-                        .sorted(OreDictUnifier.getItemStackComparator())
-                        .map(is -> GTUtility.copyAmount(ci.getCount(), is))
+            for (GTRecipeInput recipeInput : recipe.getInputs()) {
+                matchingInputs.add(Arrays.stream(recipeInput.getInputStacks())
+                        .map(ItemStack::copy)
                         .collect(Collectors.toList()));
             }
             ingredients.setInputLists(VanillaTypes.ITEM, matchingInputs);
@@ -65,17 +62,9 @@ public class ClayRecipeWrapper extends AdvancedRecipeWrapper {
         if (!recipe.getFluidInputs().isEmpty()) {
             List<FluidStack> matchingFluidInputs = new ArrayList<>(recipe.getFluidInputs().size());
 
-            for (FluidStack fs : recipe.getFluidInputs()) {
-                if (fs.tag != null && fs.tag.hasKey("nonConsumable")) {
-                    FluidStack fluidCopy = GTUtility.copyAmount(fs.amount, fs);
-                    fluidCopy.tag.removeTag("nonConsumable");
-                    if (fluidCopy.tag.isEmpty()) {
-                        fluidCopy.tag = null;
-                    }
-                    matchingFluidInputs.add(fluidCopy);
-                } else {
-                    matchingFluidInputs.add(fs);
-                }
+            for (GTRecipeInput fluidInput : recipe.getFluidInputs()) {
+                FluidStack fluidStack = fluidInput.getInputFluidStack();
+                Collections.addAll(matchingFluidInputs, fluidStack);
             }
             ingredients.setInputs(VanillaTypes.FLUID, matchingFluidInputs);
         }
@@ -179,7 +168,7 @@ public class ClayRecipeWrapper extends AdvancedRecipeWrapper {
 
     public boolean isNotConsumedFluid(int slot) {
         if (slot >= recipe.getFluidInputs().size()) return false;
-        return recipe.getFluidInputs().get(slot).tag != null && recipe.getFluidInputs().get(slot).tag.hasKey("nonConsumable");
+        return recipe.getFluidInputs().get(slot).isNonConsumable();
     }
 
     private int getPropertyListHeight() {

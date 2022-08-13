@@ -7,6 +7,7 @@ import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeBuilder;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
+import gregtech.api.recipes.recipeproperties.EmptyRecipePropertyStorage;
 import gregtech.api.util.ValidationResult;
 
 public class ClaySimpleRecipeBuilder extends ClayRecipeBuilder<ClaySimpleRecipeBuilder> {
@@ -29,6 +30,7 @@ public class ClaySimpleRecipeBuilder extends ClayRecipeBuilder<ClaySimpleRecipeB
 
     public ValidationResult<ClayRecipe> build() {
         return ValidationResult.newResult(finalizeAndValidate(),
-                new ClayRecipe(inputs, outputs, chancedOutputs, fluidInputs, fluidOutputs, duration, EUt, hidden, isCTRecipe, tier));
+                new ClayRecipe(inputs, outputs, chancedOutputs, fluidInputs, fluidOutputs, duration, CEt, hidden, isCTRecipe,
+                        recipePropertyStorage == null ? EmptyRecipePropertyStorage.INSTANCE : recipePropertyStorage, tier));
     }
 }
